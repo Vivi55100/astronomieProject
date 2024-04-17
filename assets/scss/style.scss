@@ -12,14 +12,22 @@
 // Small devices (Phone, 576px and up)
 body{
     nav{
-        div{
-            a{
+        #whatever1{
+            #whatever{
                 width: 20%;
                 img{
                     width: 100%;
                 }
             }
-            div{
+            button{
+                margin-right: 2vw;
+            }
+            #navbarNav{
+                background-image: url('../img/earth.jpg')!important;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 100%;
+                height: 100%;
                 ul{
                     width: 100%;
                     li{
@@ -45,3 +53,7 @@ body{
 
 // Large devices (desktops, 1400px and up)
 @media screen and (min-width: 1400px) {}
+
+.homebody{
+    background-image: url("../img/Ariane_5_VA261_liftoff.jpg");
+}
