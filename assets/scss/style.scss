@@ -1,0 +1,47 @@
+// sass -w assets/scss/style.scss css/style.css
+
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px,
+//   xxl: 1400px
+// );
+
+// Small devices (Phone, 576px and up)
+body{
+    nav{
+        div{
+            a{
+                width: 20%;
+                img{
+                    width: 100%;
+                }
+            }
+            div{
+                ul{
+                    width: 100%;
+                    li{
+                        width: 100%;
+                        text-align: center;
+                        padding-top: 2.5vh;
+                        padding-bottom: 2.5vh;
+                        a{
+                            width: 100%;
+                            img{
+                                width: 15%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Medium devices (tablets, 992px and up)
+@media screen and (min-width: 992px) {} 
+
+// Large devices (desktops, 1400px and up)
+@media screen and (min-width: 1400px) {}

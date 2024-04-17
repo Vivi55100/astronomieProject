@@ -1,3 +1,23 @@
-
+body nav div a {
+  width: 20%;
+}
+body nav div a img {
+  width: 100%;
+}
+body nav div div ul {
+  width: 100%;
+}
+body nav div div ul li {
+  width: 100%;
+  text-align: center;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+}
+body nav div div ul li a {
+  width: 100%;
+}
+body nav div div ul li a img {
+  width: 15%;
+}
 
 /*# sourceMappingURL=style.css.map */
