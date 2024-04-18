@@ -19,10 +19,17 @@ body{
                     width: 100%;
                 }
             }
+            .welcome{
+                width: auto;
+            }
             button{
                 margin-right: 2vw;
             }
             #navbarNav{
+                background-image: url('../assets/img/Vega_VV23_liftoff.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
                 ul{
                     width: 100%;
                     li{
@@ -32,6 +39,8 @@ body{
                         padding-bottom: 2.5vh;
                         a{
                             width: 100%;
+                            color: white;
+                            font-size: 2em;
                             img{
                                 width: 15%;
                             }

@@ -20,11 +20,21 @@
       <a href="../home/home.php">
         <img class="img-logo" src="../../assets/img/Logo-Without-Bg.png" alt="Logo du site">
       </a>
+      <div class="welcome">
+        <?php
+          if(isset($_SESSION['name'])){
+            echo "<h3>Bonjour $_SESSION[name]<h3/>";
+          }
+        ?>
+      </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="d-flex links navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../user/read_user.php"><img class="p-0 m-0" src="../../assets/img/iconUser.png" alt="Icone Profil Utilisateur/trice"></a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="../astre/astre.php">Astre</a>
           </li>
@@ -41,6 +51,8 @@
             <a class="nav-link" href="../proposition/proposition_astre.php">Proposition Astre</a>
           </li>
           <?php if(!isset($_SESSION['name'])){ ?>
+            <!-- Si un utilisateur n'est pas connecter, alors le lien connexion s'affiche et renvoie vers la page de connexion, si l'utilisateur est connecté,
+              alors le lien de deconnexion s'affiche a la place du lien de connexion -->
             <li class="nav-item">
               <a href="../user/login.php" class="nav-link">Connexion</a>
             </li>
@@ -49,9 +61,6 @@
               <a href="../../controller/user/logout.php" class="nav-link">Déconnexion</a>
             </li>
           <?php } ?>
-          <li class="nav-item">
-            <a class="nav-link" href="../user/read_user.php"><img class="p-0 m-0" src="../../assets/img/iconUser.png" alt="Icone Profil Utilisateur/trice"></a>
-          </li>
         </ul>
       </div>
     </div>

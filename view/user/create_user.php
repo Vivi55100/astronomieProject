@@ -14,14 +14,11 @@
     <label for="first_name">Prenom</label>
     <input class="form-control mb-3" type="text" name="first_name" id="first_name">
 
-
     <label for="username">Identifiant (à utiliser pour se connecter)</label>
     <input class="form-control mb-3" type="text" name="username" id="username">
 
-
     <label for="password">Mot de passe</label>
     <input class="form-control mb-3" type="password" name="password" id="password">
-
 
     <label for="mail">Mail</label>
     <input class="form-control mb-3" type="text" name="mail" id="mail">
@@ -29,7 +26,6 @@
     <input class="form-control bg-primary border-0 my-2" type="submit" value="Ajouter">
 
 </form>
-
 
 </body>
 </html>
