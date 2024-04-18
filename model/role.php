@@ -1,10 +1,10 @@
 <?php 
 
-// role 0 (visiteur)=> Accès a la page d'accueil ainsi que la page Astres.
-// role 1 (connecté)=> Accès a la page d'accueil, la page Astres, faire des propositions d'astres, accès au quiz.
-// role 2 (admin)=> Accès à tout.
+// role 0 (Visiteur)=> Accès a la page d'accueil ainsi que la page Astres possibilité de se créer un compte pour s'inscrire.
+// role 1 (Inscrit)=> Accès a la page d'accueil, la page Astres, faire des propositions d'astres, accès au quiz, soumettre des commentaires.
+// role 2 (Admin)=> Accès à tout.
 
-// l"enum donne une substance au valeur numerique
+// l'enum donne une substance aux valeurs numeriques
 
 enum Role : int
 {

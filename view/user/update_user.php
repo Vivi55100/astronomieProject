@@ -5,8 +5,8 @@
     
     if ($_SESSION['role'] == Role::ADMIN->value){
 
-    if (isset($_GET['id'])){
-        $user = selectAll("user", $_GET['id']);
+    if (isset($_GET['id_user'])){
+        $user = selectAll("user", $_GET['id_user']);
     }
     
 ?>

@@ -12,6 +12,12 @@
 <body>
 
   <?php
+    if(isset($_GET['id_user'])){
+      $id = $_GET["id_user"];
+      $sql = "SELECT * FROM User WHERE id_user=$id";
+      $stmt = $pdo->query($sql);
+      $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    }
     session_start();
   ?>
 
@@ -24,6 +30,8 @@
         <?php
           if(isset($_SESSION['name'])){
             echo "<h3>Bonjour $_SESSION[name]<h3/>";
+          }else{
+            echo "";
           }
         ?>
       </div>
@@ -32,9 +40,12 @@
       </button>
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="d-flex links navbar-nav">
+          <!-- Je verifie que la session est bien set -->
+          <?php if(isset($_SESSION["id_user"])){ ?>
           <li class="nav-item">
-            <a class="nav-link" href="../user/read_user.php"><img class="p-0 m-0" src="../../assets/img/iconUser.png" alt="Icone Profil Utilisateur/trice"></a>
+            <a class="nav-link" href="../user/read_user.php?id_user=<?= $_SESSION['id_user'] ?>"><img class="p-0 m-0" src="../../assets/img/iconUser.png" alt="Icone Profil Utilisateur/trice"></a>
           </li>
+          <?php } ?>
           <li class="nav-item">
             <a class="nav-link" href="../astre/astre.php">Astre</a>
           </li>
