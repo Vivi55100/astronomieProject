@@ -16,7 +16,7 @@ if(
         echo "Succes vous avez reussi la creation de votre utilisateur";
     } catch (PDOException $e) {
         // mon echo me permet de detecter l'/les erreur(s) que l'exception me renvoie
-        //echo "Il y'a quelque chose qui à foirer : ". $e->getMessage();
+        //echo "Il y'a quelque chose qui s'est mal passé: ". $e->getMessage();
        header("Location:../../view/home/home.php");
     }
 }else{
