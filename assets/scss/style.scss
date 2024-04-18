@@ -12,7 +12,9 @@
 // Small devices (Phone, 576px and up)
 body{
     nav{
+        z-index: 1;
         div{
+            background-color: black;
             a{
                 width: 20%;
                 img{
@@ -21,11 +23,16 @@ body{
             }
             .welcome{
                 width: auto;
+                h3{
+                    color: white;
+                }
             }
             button{
                 margin-right: 2vw;
+                color: white;
             }
             #navbarNav{
+                position: relative;
                 background-image: url('../assets/img/Vega_VV23_liftoff.jpg');
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -51,6 +58,8 @@ body{
         }
     }
     .homepage{
+        position: fixed;
+        z-index: 0;
         background-image: url("../assets/img/Soyouz-liftoff.jpg");
         background-repeat: no-repeat;
         background-size: cover;
