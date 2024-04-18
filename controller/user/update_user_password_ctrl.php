@@ -117,11 +117,11 @@ if (!empty($_POST["oldpsw"]) && !empty($_POST["newpsw"])) {
                     header('Location:../../view/home/home.php');
                 } else {
                     echo "<h2>Probleme technique</h2>";
-                    //header('Location:../../view/home/home.php');
+                    header('Location:../../view/user/update_user.php');
                 }
             }catch (PDOException $e) {
                 echo "<h2>Il y'a quelque chose qui s'est mal passé: </h2>". $e->getMessage();
-                //header("Location:../../view/user/update_user.php");
+                header("Location:../../view/user/update_user.php");
             }    
         }else {
             echo "<h2>Vos modifications ont echouées</h2>";
