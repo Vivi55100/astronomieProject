@@ -1,5 +1,6 @@
 <?php 
     include_once "../../model/pdo.php";
+    session_start();
 
 //                                             ..--.       ...                                         
 //                                            .=*-..      ..*:.                                        
@@ -109,25 +110,25 @@ if (!empty($_POST["oldpsw"]) && !empty($_POST["newpsw"])) {
         if ($_POST["oldpsw"] != $_POST["newpsw"]) {
             $psw = password_hash($_POST["newpsw"], PASSWORD_ARGON2I);
             try {
-                $sql = "UPDATE User SET password=? WHERE id=? ";
+                $sql = "UPDATE User SET password=? WHERE id_user=? ";
                 $stmt = $pdo->prepare($sql);
                 if ($stmt->execute([$psw, $id])) {
-                    echo "Le mot de passe à été modifié avec succes";
+                    echo "<h2>Le mot de passe à été modifié avec succes</h2>";
                     header('Location:../../view/home/home.php');
                 } else {
-                    echo "Probleme technique";
-                    header('Location:../../view/home/home.php');
+                    echo "<h2>Probleme technique</h2>";
+                    //header('Location:../../view/home/home.php');
                 }
             }catch (PDOException $e) {
-                echo "Il y'a quelque chose qui s'est mal passé: ". $e->getMessage();
-                header("Location:../../view/user/update_user.php");
+                echo "<h2>Il y'a quelque chose qui s'est mal passé: </h2>". $e->getMessage();
+                //header("Location:../../view/user/update_user.php");
             }    
         }else {
-            echo "Vos modifications ont echouées";
+            echo "<h2>Vos modifications ont echouées</h2>";
         }    
     }else {
-        echo "Mot de passe incorrect";
+        echo "<h2>Mot de passe incorrect</h2>";
     }
 }else {
-    echo "La modification a échouées";
+    echo "<h2>La modification a échouées</h2>";
 }

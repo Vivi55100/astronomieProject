@@ -16,7 +16,7 @@
 
 <form id="form" class="mx-auto" action="../../controller/user/update_user_ctrl.php" method="POST">
 
-<!-- utiliser le htmlentities lors de la recuperation des données -->
+<!-- Utiliser le htmlentities lors de la recuperation des données -->
 
 <label for="last_name">Nom</label>
 <input class="form-control mb-3" type="text" name="last_name" value="<?= htmlentities($user['last_name'])?>">
@@ -30,8 +30,12 @@
 <label for="mail">E-mail</label>
 <input class="form-control mb-3" type="text" name="mail" value="<?= htmlentities($user['mail'])?>">
 
-<!-- Pour éviter que l'administrateur se mette un rôle inferieur -->
+<label for="avatar">Avatar</label>
+<input class="form-control mb-3" type="file" name="avatar" value="<?= htmlentities($user['avatar'])?>">
 
+
+
+<!-- Pour éviter que l'administrateur se mette un rôle inferieur -->
 <?php if($user['role'] != Role::ADMIN->value){ ?>
 <label for="role">Rôle</label>
 <select class="form-control mb-3" name="role">

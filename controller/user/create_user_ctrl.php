@@ -1,6 +1,6 @@
 <?php
     include_once "../../model/pdo.php";
-
+    session_start();
 if(
  !empty($_POST["last_name"]) &&
  !empty($_POST["first_name"]) &&

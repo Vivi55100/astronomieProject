@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 18 avr. 2024 à 08:34
+-- Généré le : jeu. 18 avr. 2024 à 13:48
 -- Version du serveur : 8.0.36-0ubuntu0.22.04.1
 -- Version de PHP : 8.3.6
 
@@ -157,6 +157,13 @@ CREATE TABLE `User` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
+-- Déchargement des données de la table `User`
+--
+
+INSERT INTO `User` (`id_user`, `last_name`, `first_name`, `avatar`, `username`, `password`, `mail`, `role`) VALUES
+(1, 'Halliez', 'Steven', NULL, 'vivi', '$argon2i$v=19$m=65536,t=4,p=1$QXdWMmJBZjNkRDE2amRNVQ$l6DDSSFfgBMaffbFSFcNDFgFYLSs0IqWlgBOtBOGxvg', 'steven.halliez@hotmail.fr', '2');
+
+--
 -- Index pour les tables déchargées
 --
 
@@ -292,7 +299,7 @@ ALTER TABLE `Type`
 -- AUTO_INCREMENT pour la table `User`
 --
 ALTER TABLE `User`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées

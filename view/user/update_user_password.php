@@ -5,7 +5,7 @@
 
 <div id="message_psw" class="text-center"></div>
 
-    <form id="form" action="../../controller/user/update_user_password_ctrl.php?id_user=<?= $SESSION['id_user'] ?>" class="mx-auto col-6" method="POST">
+    <form id="form" action="../../controller/user/update_user_password_ctrl.php" class="mx-auto col-6" method="POST">
 
         <label for="oldpsw">Mot de passe actuel</label>
         <input class="form-control my-3" type="password" name="oldpsw" placeholder="Veuillez renseigner votre Mot de passe actuel">
