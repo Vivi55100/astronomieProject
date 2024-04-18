@@ -4,7 +4,7 @@ include_once "../../model/pdo.php";
 session_start();
 
 if(!empty($_POST["last_name"]) && !empty($_POST["first_name"]) && !empty($_POST["username"]) && !empty($_POST["mail"])){
-    $data = [$_POST["last_name"], $_POST["first_name"], $_POST["username"], $_POST["mail"], $_POST['avatar']];
+    $data = [$_POST["last_name"], $_POST["first_name"], $_POST["username"], $_POST["mail"], $_POST['avatar'], $_POST['id_user']];
     try{
         $sql = "UPDATE User SET last_name=?, first_name=?, username=?, mail=?, avatar=? WHERE id_user=?";
         $stmt = $pdo->prepare($sql);
