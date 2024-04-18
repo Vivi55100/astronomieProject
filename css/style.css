@@ -33,8 +33,13 @@ body nav div #navbarNav ul li a {
 body nav div #navbarNav ul li a img {
   width: 15%;
 }
-body .homebody {
-  background-image: url("../img/Ariane_5_VA261_liftoff.jpg");
+body .homepage {
+  background-image: url("../assets/img/Soyouz-liftoff.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 /*# sourceMappingURL=style.css.map */

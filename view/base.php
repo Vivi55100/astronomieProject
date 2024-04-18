@@ -12,6 +12,8 @@
 <body>
 
   <?php
+    include_once "../../model/pdo.php";
+
     if(isset($_GET['id_user'])){
       $id = $_GET["id_user"];
       $sql = "SELECT * FROM User WHERE id_user=$id";

@@ -27,7 +27,8 @@
     }
 ?>
 <div class="d-flex justify-content-center">
-    <button class="btn btn-primary rounded"><a class="text-light text-decoration-none" href="update_user.php">Modifier le profil</a></button>
+    <button class="btn btn-primary rounded"><a class="text-light text-decoration-none" href="update_user.php?id_user=<?= $_SESSION['id_user'] ?>">Modifier le profil</a></button>
+    <button class="btn btn-primary rounded"><a class="text-light text-decoration-none" href="update_user_password.php?id_user=<?= $_SESSION['id_user'] ?>">Modifier le mot de passe</a></button>
 </div>
 
 

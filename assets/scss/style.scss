@@ -50,8 +50,13 @@ body{
             }
         }
     }
-    .homebody{
-        background-image: url("../img/Ariane_5_VA261_liftoff.jpg");
+    .homepage{
+        background-image: url("../assets/img/Soyouz-liftoff.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
     }
 }
 

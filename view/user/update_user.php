@@ -4,11 +4,12 @@
     include_once "../../model/pdo.php";
     
     if ($_SESSION['role'] == Role::ADMIN->value){
-
-    if (isset($_GET['id_user'])){
-        $user = selectAll("user", $_GET['id_user']);
-    }
-    
+        if(isset($_GET['id_user'])){
+            $id = $_GET["id_user"];
+            $sql = "SELECT * FROM User WHERE id_user=$id";
+            $stmt = $pdo->query($sql);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        }    
 ?>
 
 <h1 class="text-center mt-3">Modifier un utilisateur</h1>
@@ -36,30 +37,23 @@
 <select class="form-control mb-3" name="role">
     <?php
         $roles = ["Visiteur", "Inscrit", "Administrateur"];
-
-        foreach($roles as $index => $role){
-            
+        foreach($roles as $index => $role){            
             if($index == $user['role']){
                 echo "<option value='$index' selected>$role</option>";
             }else{
                 echo "<option value='$index'>$role</option>";
-            }
-            
+            }            
         }
     ?>
 </select>
-<?php }else{
-
-echo '<input type="hidden" name="role" value=' . $user["role"] . '>';
-
-} ?>
-
-<label for="mail">E-mail</label>
-<input class="form-control mb-3" type="text" name="mail" value="<?= htmlentities($user['mail'])?>">
-
+<?php
+    }else{
+        echo '<input type="hidden" name="role" value=' . $user["role"] . '>';
+    }
+?>
 
 <input type="hidden" name="id_user" value="<?= htmlentities($user['id_user']) ?>">
-<input type="hidden" name="page" value="<?= htmlentities($_GET['page']) ?>">
+<!-- <input type="hidden" name="page" value="< ?= htmlentities($_GET['page']) ?>"> -->
 
 <input class="form-control mt-3" type="submit" value="Modifier">
 
