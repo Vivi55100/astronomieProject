@@ -23,7 +23,7 @@
             }
         }else{
             // Compte n'existe pas
-            echo "Le compte n'existe pas";
+            echo "Le compte n'existe pas, veuillez retenter avec les bons identifiant et mot de passe !";
         }
     }
 
