@@ -4,6 +4,8 @@
 // role 1 (connecté)=> Accès a la page d'accueil, la page Astres, faire des propositions d'astres, accès au quiz.
 // role 2 (admin)=> Accès à tout.
 
+// l"enum donne une substance au valeur numerique
+
 enum Role : int
 {
     case GUEST = 0;

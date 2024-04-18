@@ -1,36 +1,28 @@
-body nav #whatever1 #whatever {
+body nav div a {
   width: 20%;
 }
-body nav #whatever1 #whatever img {
+body nav div a img {
   width: 100%;
 }
-body nav #whatever1 button {
+body nav div button {
   margin-right: 2vw;
 }
-body nav #whatever1 #navbarNav {
-  background-image: url("../img/earth.jpg") !important;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-  height: 100%;
-}
-body nav #whatever1 #navbarNav ul {
+body nav div #navbarNav ul {
   width: 100%;
 }
-body nav #whatever1 #navbarNav ul li {
+body nav div #navbarNav ul li {
   width: 100%;
   text-align: center;
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
 }
-body nav #whatever1 #navbarNav ul li a {
+body nav div #navbarNav ul li a {
   width: 100%;
 }
-body nav #whatever1 #navbarNav ul li a img {
+body nav div #navbarNav ul li a img {
   width: 15%;
 }
-
-.homebody {
+body .homebody {
   background-image: url("../img/Ariane_5_VA261_liftoff.jpg");
 }
 

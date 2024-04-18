@@ -16,7 +16,7 @@
                 $_SESSION["name"] = $user['last_name'] . " " . $user['first_name'];
                 $_SESSION["role"] = $user['role'];
                 $_SESSION["token"] = bin2hex(random_bytes(16));
-                header("Location:../home.php");
+                header("Location:../home/home.php");
             }else{
                 echo 'Mot de passe incorrect';
             }

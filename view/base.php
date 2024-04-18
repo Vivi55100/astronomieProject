@@ -12,12 +12,12 @@
 <body>
 
   <?php
-    //session_start();
+    session_start();
   ?>
 
   <nav class="navbar p-0">
-    <div id="whatever1" class="container-fluid p-0">
-      <a id="whatever" href="../home/home.php">
+    <div class="container-fluid p-0">
+      <a href="../home/home.php">
         <img class="img-logo" src="../../assets/img/Logo-Without-Bg.png" alt="Logo du site">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@
             </li>
           <?php } else { ?>
             <li class="nav-item">
-              <a href="../controller/logout.php" class="nav-link">Déconnexion</a>
+              <a href="../../controller/user/logout.php" class="nav-link">Déconnexion</a>
             </li>
           <?php } ?>
           <li class="nav-item">

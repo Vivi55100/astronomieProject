@@ -12,8 +12,8 @@
 // Small devices (Phone, 576px and up)
 body{
     nav{
-        #whatever1{
-            #whatever{
+        div{
+            a{
                 width: 20%;
                 img{
                     width: 100%;
@@ -23,11 +23,6 @@ body{
                 margin-right: 2vw;
             }
             #navbarNav{
-                background-image: url('../img/earth.jpg')!important;
-                background-repeat: no-repeat;
-                background-size: contain;
-                width: 100%;
-                height: 100%;
                 ul{
                     width: 100%;
                     li{
@@ -46,6 +41,9 @@ body{
             }
         }
     }
+    .homebody{
+        background-image: url("../img/Ariane_5_VA261_liftoff.jpg");
+    }
 }
 
 // Medium devices (tablets, 992px and up)
@@ -53,7 +51,3 @@ body{
 
 // Large devices (desktops, 1400px and up)
 @media screen and (min-width: 1400px) {}
-
-.homebody{
-    background-image: url("../img/Ariane_5_VA261_liftoff.jpg");
-}
