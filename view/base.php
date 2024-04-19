@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- base me permet de renseigner un chemin a partir de la racine, n'affecte pas le php -->
+    <!-- base me permet de renseigner un chemin a partir de la racine, n'affecte pas le php mais seulement le HTML -->
     <base href="http://localhost/astronomieProject/">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -44,11 +44,10 @@
       </button>
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="d-flex links navbar-nav">
-          <!-- Je verifie que la session est bien set -->
-          <?php if(isset($_SESSION["id_user"])){ ?>            
+          <?php if(isset($_SESSION["id_user"])){ ?>
           <li class="nav-item">
             <a class="nav-link" href="view/user/read_user.php?id_user=<?= $_SESSION['id_user'] ?>">
-              <img class="p-0 m-0" src="assets/img/<?= $_SESSION["avatar"] ?>" alt="Avatar Profil Utilisateur/trice">
+              <img class="p-0 m-0" src="<?= $_SESSION["avatar"] ?>" alt="Avatar Profil Utilisateur/trice">
             </a>
           </li>
           <?php } ?>
@@ -68,7 +67,7 @@
             <a class="nav-link" href="view/proposition/proposition_astre.php">Proposition Astre</a>
           </li>
           <?php if(!isset($_SESSION['name'])){ ?>
-            <!-- Si un utilisateur n'est pas connecter, alors le lien connexion s'affiche et renvoie vers la page de connexion, si l'utilisateur est connecté,
+            <!-- Si un utilisateur n'est pas connecté, alors le lien connexion s'affiche et renvoie vers la page de connexion, si l'utilisateur est connecté,
               alors le lien de deconnexion s'affiche a la place du lien de connexion -->
             <li class="nav-item">
               <a href="view/user/login.php" class="nav-link">Connexion</a>
