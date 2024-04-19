@@ -55,6 +55,7 @@
           <li class="nav-item">
             <a class="nav-link" href="view/astre/astre.php">Astre</a>
           </li>
+          <!-- Si un user n'a pas de role suffisament élevé, les liens lui sont interdit, si un user a un role superieur il pourra acceder a ses liens -->
           <?php if(isset($_SESSION['role']) && ($_SESSION['role']) >= Role::LOGGED->value){ ?>
           <li class="nav-item">
             <a class="nav-link" href="view/quiz/quiz.php">Quiz</a>
@@ -62,9 +63,11 @@
           <li class="nav-item">
             <a class="nav-link" href="view/mission/mission.php">Missions</a>
           </li>
+          <?php } ?>
           <li class="nav-item">
             <a class="nav-link" href="view/thanks/special_thanks.php">Remerciements</a>
           </li>
+          <?php if(isset($_SESSION['role']) && ($_SESSION['role']) >= Role::LOGGED->value){ ?>
           <li class="nav-item">
             <a class="nav-link" href="view/proposition/proposition_astre.php">Proposition Astre</a>
           </li>
