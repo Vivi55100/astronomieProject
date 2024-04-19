@@ -12,7 +12,7 @@
         }    
 ?>
 
-<h1 class="text-center mt-3">Modifier un utilisateur</h1>
+<h1 class="text-center mb-5">Modifier un utilisateur</h1>
 
 <form id="form" class="mx-auto" action="controller/user/update_user_ctrl.php" method="POST">
 

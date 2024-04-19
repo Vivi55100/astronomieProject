@@ -15,6 +15,7 @@
 
   <?php
     include_once "../../model/pdo.php";
+    include_once "../../model/role.php";
 
     if(isset($_GET['id_user'])){
       $id = $_GET["id_user"];
@@ -54,6 +55,7 @@
           <li class="nav-item">
             <a class="nav-link" href="view/astre/astre.php">Astre</a>
           </li>
+          <?php if(isset($_SESSION['role']) && ($_SESSION['role']) >= Role::LOGGED->value){ ?>
           <li class="nav-item">
             <a class="nav-link" href="view/quiz/quiz.php">Quiz</a>
           </li>
@@ -66,6 +68,7 @@
           <li class="nav-item">
             <a class="nav-link" href="view/proposition/proposition_astre.php">Proposition Astre</a>
           </li>
+          <?php } ?>
           <?php if(!isset($_SESSION['name'])){ ?>
             <!-- Si un utilisateur n'est pas connecté, alors le lien connexion s'affiche et renvoie vers la page de connexion, si l'utilisateur est connecté,
               alors le lien de deconnexion s'affiche a la place du lien de connexion -->
