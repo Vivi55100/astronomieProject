@@ -14,7 +14,7 @@
 
 <h1 class="text-center mt-3">Modifier un utilisateur</h1>
 
-<form id="form" class="mx-auto" action="../../controller/user/update_user_ctrl.php" method="POST">
+<form id="form" class="mx-auto" action="controller/user/update_user_ctrl.php" method="POST">
 
 <!-- Utiliser le htmlentities lors de la recuperation des données -->
 

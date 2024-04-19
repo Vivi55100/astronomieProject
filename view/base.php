@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/style.css">
-    <script defer src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script defer src="../../js/main.js"></script>
+    <!-- base me permet de renseigner un chemin a partir de la racine, n'affecte pas le php -->
+    <base href="http://localhost/astronomieProject/">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="js/main.js"></script>
     <title>NavBar</title>
 </head>
 <body>
@@ -25,8 +27,8 @@
 
   <nav class="navbar p-0">
     <div class="container-fluid p-0">
-      <a href="../home/home.php">
-        <img class="img-logo" src="../../assets/img/Logo-Without-Bg.png" alt="Logo du site">
+      <a href="view/home/home.php">
+        <img class="img-logo" src="assets/img/Logo-Without-Bg.png" alt="Logo du site">
       </a>
       <div class="welcome">
         <?php
@@ -43,35 +45,37 @@
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="d-flex links navbar-nav">
           <!-- Je verifie que la session est bien set -->
-          <?php if(isset($_SESSION["id_user"])){ ?>
+          <?php if(isset($_SESSION["id_user"])){ ?>            
           <li class="nav-item">
-            <a class="nav-link" href="../user/read_user.php?id_user=<?= $_SESSION['id_user'] ?>"><img class="p-0 m-0" src="../../assets/img/iconUser.png" alt="Icone Profil Utilisateur/trice"></a>
+            <a class="nav-link" href="view/user/read_user.php?id_user=<?= $_SESSION['id_user'] ?>">
+              <img class="p-0 m-0" src="assets/img/<?= $_SESSION["avatar"] ?>" alt="Avatar Profil Utilisateur/trice">
+            </a>
           </li>
           <?php } ?>
           <li class="nav-item">
-            <a class="nav-link" href="../astre/astre.php">Astre</a>
+            <a class="nav-link" href="view/astre/astre.php">Astre</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../quiz/quiz.php">Quiz</a>
+            <a class="nav-link" href="view/quiz/quiz.php">Quiz</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../mission/mission.php">Missions</a>
+            <a class="nav-link" href="view/mission/mission.php">Missions</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../thanks/special_thanks.php">Remerciements</a>
+            <a class="nav-link" href="view/thanks/special_thanks.php">Remerciements</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../proposition/proposition_astre.php">Proposition Astre</a>
+            <a class="nav-link" href="view/proposition/proposition_astre.php">Proposition Astre</a>
           </li>
           <?php if(!isset($_SESSION['name'])){ ?>
             <!-- Si un utilisateur n'est pas connecter, alors le lien connexion s'affiche et renvoie vers la page de connexion, si l'utilisateur est connecté,
               alors le lien de deconnexion s'affiche a la place du lien de connexion -->
             <li class="nav-item">
-              <a href="../user/login.php" class="nav-link">Connexion</a>
+              <a href="view/user/login.php" class="nav-link">Connexion</a>
             </li>
           <?php } else { ?>
             <li class="nav-item">
-              <a href="../../controller/user/logout.php" class="nav-link">Déconnexion</a>
+              <a href="controller/user/logout.php" class="nav-link">Déconnexion</a>
             </li>
           <?php } ?>
         </ul>
