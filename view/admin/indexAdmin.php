@@ -1,5 +1,5 @@
 <?php
-    include_once "../base.php";
+    include_once "../../base.php";
     
     if(isset($_SESSION["role"]) && ($_SESSION["role"]) == Role::ADMIN->value){
 ?>
@@ -44,5 +44,7 @@
        header("Location:../home/home.php");
     }
 ?>
+</body>
+</html>
 <!-- http://localhost/astronomieProject/view/admin/indexAdmin.php -->
 <!-- http://localhost/astronomieProject/view/admin/user/indexUser.php -->
