@@ -2,7 +2,7 @@
     include_once "../base.php";
     include_once "../../model/role.php";
     
-    if($_SESSION["role"] && $_SESSION["role"] == Role::ADMIN->value){
+    if(isset($_SESSION["role"]) && $_SESSION["role"] == Role::ADMIN->value){
 ?>
 
 <div class="admin d-flex flex-column">
@@ -23,6 +23,7 @@
 
     <div class="user my-3">
         <h2>Gestion Users</h2>
+        <a href="view/admin/user/indexUser.php">Index Utilisateurs</a>
     </div>
 
     <div class="astre my-3">
@@ -41,6 +42,6 @@
 
 <?php
     }else{
-        header("Location:../home/home.php");
+       header("Location:../home/home.php");
     }
 ?>
