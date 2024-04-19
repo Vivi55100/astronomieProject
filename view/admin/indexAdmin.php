@@ -1,8 +1,7 @@
 <?php
     include_once "../base.php";
-    include_once "../../model/role.php";
     
-    if(isset($_SESSION["role"]) && $_SESSION["role"] == Role::ADMIN->value){
+    if(isset($_SESSION["role"]) && ($_SESSION["role"]) == Role::ADMIN->value){
 ?>
 
 <div class="admin d-flex flex-column">
@@ -45,3 +44,5 @@
        header("Location:../home/home.php");
     }
 ?>
+<!-- http://localhost/astronomieProject/view/admin/indexAdmin.php -->
+<!-- http://localhost/astronomieProject/view/admin/user/indexUser.php -->

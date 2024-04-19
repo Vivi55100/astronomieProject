@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- base me permet de renseigner un chemin a partir de la racine, n'affecte pas le php mais seulement le HTML -->
-    <base href="http://localhost/astronomieProject/">
+    <base href="http://localhost/astronomieProject/"><!-- base me permet de renseigner un chemin a partir de la racine, n'affecte pas le php mais seulement le HTML -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -14,8 +13,9 @@
 <body>
 
   <?php
-    include_once "../../model/pdo.php";
-    include_once "../../model/role.php";
+    include_once "../../model/path.php";
+    include_once $linksPdo;
+    include_once $linksRole;
 
     if(isset($_GET['id_user'])){
       $id = $_GET["id_user"];
