@@ -97,5 +97,8 @@ body .createUser form label {
 body .createUser form input {
   width: 50%;
 }
+body .admin {
+  display: flex;
+}
 
 /*# sourceMappingURL=style.css.map */

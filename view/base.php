@@ -74,7 +74,7 @@
           <?php } ?>
           <?php if(isset($_SESSION['role']) && ($_SESSION['role']) == Role::ADMIN->value){ ?>
           <li class="nav-item">
-            <a class="nav-link" href="view/proposition/proposition_astre.php">Admin</a>
+            <a class="nav-link" href="view/admin/indexAdmin.php">Gestion</a>
           </li>
           <?php } ?>
           <?php if(!isset($_SESSION['name'])){ ?>
