@@ -4,9 +4,9 @@
     include_once "../../model/role.php";
 ?>
 
-<h1 class="text-center mt-3">Créer un utilisateur</h1>
-
 <div class="createUser">
+    <h1 class="text-center mt-3">Créer un utilisateur</h1>
+
     <form id="form" action="controller/user/create_user_ctrl.php" method="POST">
 
         <label class="form-label" for="last_name">Nom</label>
