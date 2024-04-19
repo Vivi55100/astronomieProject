@@ -42,3 +42,7 @@
 
     <input class="form-control btn btn-primary my-3" type="submit" value="Connexion">
 </form>
+
+<div class="createAccount">
+    <p>Pas de compte ? <span><a href="view/user/create_user.php">S'inscrire</a></span></p>    
+</div>

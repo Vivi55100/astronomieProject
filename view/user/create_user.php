@@ -6,7 +6,7 @@
 
 <h1 class="text-center mt-3">Créer un utilisateur</h1>
 
-<form id="form" class="mx-auto" action="controller/user/create_user_ctrl.php" method="POST">
+<form id="form" class="form mx-auto" action="controller/user/create_user_ctrl.php" method="POST">
 
     <label for="last_name">Nom</label>
     <input class="form-control mb-3" type="text" name="last_name" id="last_name">
