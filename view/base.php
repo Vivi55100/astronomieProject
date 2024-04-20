@@ -13,9 +13,8 @@
 <body>
 
   <?php
-    include_once "../../model/path.php";
-    include_once $linksPdo;
-    include_once $linksRole;
+    include_once "../../model/pdo.php";
+    include_once "../../model/role.php";
 
     if(isset($_GET['id_user'])){
       $id = $_GET["id_user"];
