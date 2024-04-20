@@ -1,5 +1,5 @@
 <?php
-    include_once "../../base.php";
+    include_once "../base.php";
     
     if(isset($_SESSION["role"]) && ($_SESSION["role"]) == Role::ADMIN->value){
 ?>
