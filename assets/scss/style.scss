@@ -10,6 +10,10 @@
 // );
 
 // Small devices (Phone, 576px and up)
+@mixin dpop{
+    animation: dpop 7s;
+    opacity: 0;
+}
 @font-face {
     font-family: 'potta';
     src: url("../assets/fonts/Potta_One/PottaOne-Regular.ttf");
@@ -22,6 +26,7 @@
     font-family: 'canada';
     src: url("../assets/fonts/Radio_Canada/static/RadioCanada-Regular.ttf");
 }
+
 body{
     nav{
         z-index: 2;
@@ -112,6 +117,23 @@ body{
     }
     .admin{
         display: flex;
+    }
+}
+
+.failed{
+    color: red;
+    @include dpop;
+}
+.success{
+    color: green;
+    @include dpop;
+}
+@keyframes dpop {
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
     }
 }
 

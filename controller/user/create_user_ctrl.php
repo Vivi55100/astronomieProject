@@ -17,7 +17,7 @@ if(
         header("Location:../../view/home/home.php");
     } catch (PDOException $e) {
         // mon echo me permet de detecter l'/les erreur(s) que l'exception me renvoie
-        echo "Il y'a quelque chose qui s'est mal passé: ". $e->getMessage();
+        echo "Quelque chose qui s'est mal passé: ". $e->getMessage();
        header("Location:../../view/user/create_user.php");
     }
 }else{

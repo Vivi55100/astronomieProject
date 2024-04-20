@@ -101,4 +101,25 @@ body .admin {
   display: flex;
 }
 
+.failed {
+  color: red;
+  animation: dpop 7s;
+  opacity: 0;
+}
+
+.success {
+  color: green;
+  animation: dpop 7s;
+  opacity: 0;
+}
+
+@keyframes dpop {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
