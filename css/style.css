@@ -101,7 +101,7 @@ body .admin {
   display: flex;
 }
 
-.failed {
+.error {
   color: red;
   animation: dpop 7s;
   opacity: 0;
