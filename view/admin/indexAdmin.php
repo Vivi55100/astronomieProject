@@ -22,7 +22,7 @@
 
     <div class="user my-3">
         <h2>Gestion Users</h2>
-        <a href="view/admin/user/indexUser.php">Index Utilisateurs</a>
+        <a href="view/admin/indexUser.php">Index Utilisateurs</a>
     </div>
 
     <div class="astre my-3">
@@ -47,4 +47,4 @@
 </body>
 </html>
 <!-- http://localhost/astronomieProject/view/admin/indexAdmin.php -->
-<!-- http://localhost/astronomieProject/view/admin/user/indexUser.php -->
+<!-- http://localhost/astronomieProject/view/admin/indexUser.php -->

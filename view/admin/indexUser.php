@@ -1,5 +1,5 @@
     <?php
-        include_once "../../base.php";
+        include_once "../base.php";
         
         if(isset($_SESSION["role"]) && ($_SESSION["role"]) == Role::ADMIN->value){
     ?>
@@ -16,14 +16,15 @@
         </thead>
         <tbody>
             <?php
-                $sqlUser = "SELECT COUNT(*) FROM User";
+                $table = "";
+                $sqlUser = "SELECT * FROM User";
                 $stmtUser = $pdo->query($sqlUser);
-                $users = $stmtUser->fetch();
+                $users = $stmtUser->fetchAll(PDO::FETCH_ASSOC);
                 if($users){
                     foreach($users as $user){
                         $table .= "<tr>";
-                            $table .= "<td>" . htmlentities($user['first_name']) . "</td>";
                             $table .= "<td>" . htmlentities($user['last_name']) . "</td>";
+                            $table .= "<td>" . htmlentities($user['first_name']) . "</td>";
                             $table .= "<td>" . htmlentities($user['username']) ."</td>";
                             $table .= "<td>" . htmlentities($user['mail']) ."</td>";
                             $table .= "<td>" . htmlentities($user['role']) . "</td>";
@@ -35,9 +36,9 @@
         </tbody>
     </table>
     <?php
-        }//else{
-        //    header("Location:../../home/home.php");
-        //}
+        }else{
+            header("Location:../../view/home/home.php");
+        }
     ?>
 
 </body>
