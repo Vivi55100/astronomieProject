@@ -37,7 +37,7 @@
     </table>
     <?php
         }else{
-            header("Location:../../view/home/home.php");
+            header("Location:../../view/home/home.php"); // renvoie un utlisateur qui chercherai à acceder à cette page en tapant le chemin d'acces dans l'url
         }
     ?>
 

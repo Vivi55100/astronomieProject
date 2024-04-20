@@ -41,7 +41,7 @@
 
 <?php
     }else{
-       header("Location:../home/home.php");
+       header("Location:../home/home.php"); // renvoie un utlisateur qui chercherai à acceder à cette page en tapant le chemin d'acces dans l'url
     }
 ?>
 </body>
