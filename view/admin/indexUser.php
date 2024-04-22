@@ -43,5 +43,28 @@
         }
     ?>
 
+    <!-- 
+        Pour éviter que l'administrateur se mette un rôle inferieur
+    < ?php if($user['role'] != Role::ADMIN->value){ ?>
+    <label for="role">Rôle</label>
+    <select class="form-control mb-3" name="role">
+        < ?php
+            $roles = ["Visiteur", "Inscrit", "Administrateur"];
+            foreach($roles as $index => $role){            
+                if($index == $user['role']){
+                    echo "<option value='$index' selected>$role</option>";
+                }else{
+                    echo "<option value='$index'>$role</option>";
+                }            
+            }
+        ?>
+    </select>
+    < ?php
+        }else{
+            echo '<input type="hidden" name="role" value=' . $user["role"] . '>';
+        }
+    ?>
+     -->
+
 </body>
 </html>
