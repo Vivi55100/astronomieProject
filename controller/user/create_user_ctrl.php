@@ -11,7 +11,7 @@ if(
    ){
     try {
         $psw = password_hash($_POST["password"], PASSWORD_ARGON2I);
-        $sql = "INSERT INTO User (last_name, first_name, username, password, mail, avatar, role, delete_date) VALUE (?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO user (last_name, first_name, username, password, mail, avatar, role, delete_date) VALUE (?,?,?,?,?,?,?,?)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$_POST["last_name"], $_POST["first_name"], $_POST["username"], $psw, $_POST["mail"], null, 1, null]);
         // header("Location:../../view/home/home.php?id_user=$_GET[id_user]");

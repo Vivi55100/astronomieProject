@@ -6,7 +6,7 @@
 
     if(!empty($_POST['username']) && !empty($_POST['psw'])){
         $username = $_POST['username'];
-        $sql = "SELECT * FROM User WHERE username='$username'";
+        $sql = "SELECT * FROM user WHERE username='$username'";
         $stmt = $pdo->query($sql);
         $user= $stmt->fetch(PDO::FETCH_ASSOC);
     
