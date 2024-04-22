@@ -17,6 +17,7 @@
                 $_SESSION["id_user"] = $user["id_user"];
                 $_SESSION["role"] = $user['role'];
                 $_SESSION["avatar"] = $user["avatar"];
+                $_SESSION['previous_avatar'] = $user['previous_avatar'];
                 $_SESSION["token"] = bin2hex(random_bytes(16));
                 header("Location:../home/home.php");
             }else{

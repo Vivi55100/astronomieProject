@@ -31,6 +31,26 @@ if(!empty($_POST["last_name"]) && !empty($_POST["first_name"]) && !empty($_POST[
             // $avatar_path = $upload_dir . $file_name : Concatène le chemin du répertoire de destination avec le nom du fichier pour obtenir le chemin complet de l'avatar.
             // var_dump("chemin du répertoire de destination avec le nom du fichier ▼", $avatar_path);
 
+            // Récupérer la liste des fichiers dans le dossier "upload"
+            $files = scandir($upload_dir);
+
+            // Supprimer uniquement l'avatar précédent
+            if(isset($_SESSION['previous_avatar'])) {
+                unlink($_SESSION['previous_avatar']);
+                unset($_SESSION['previous_avatar']);
+            }
+
+            // Stocker le chemin de l'avatar actuel pour la prochaine fois
+            $_SESSION['previous_avatar'] = $upload_dir . $file_name;
+
+            // Parcourir la liste des fichiers
+            foreach ($files as $file) {
+                // Vérifier si le fichier est un fichier d'image et s'il n'est pas l'avatar actuel
+                if (in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png']) && $file !== $file_name) {
+                    // Supprimer le fichier inutile
+                    unlink($upload_dir . $file);
+                }
+            }
         } else {
             echo "<h2 class='text-center'>Erreur lors du téléchargement de l'avatar.</h2>"; // Affiche un message d'erreur si le téléchargement du fichier a échoué.
             exit;
