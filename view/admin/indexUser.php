@@ -17,7 +17,7 @@
         <tbody>
             <?php
                 $table = "";
-                $sqlUser = "SELECT * FROM User";
+                $sqlUser = "SELECT * FROM user";
                 $stmtUser = $pdo->query($sqlUser);
                 $users = $stmtUser->fetchAll(PDO::FETCH_ASSOC);
                 if($users){
@@ -28,6 +28,7 @@
                             $table .= "<td>" . htmlentities($user['username']) ."</td>";
                             $table .= "<td>" . htmlentities($user['mail']) ."</td>";
                             $table .= "<td>" . htmlentities($user['role']) . "</td>";
+                            $table .= "<td>" . htmlentities($user['delete_date']) . "</td>";
                         $table .="</tr>";
                     }
                     echo $table;

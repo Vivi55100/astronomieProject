@@ -15,14 +15,15 @@
   <?php
     include_once "../../model/pdo.php";
     include_once "../../model/role.php";
+    session_start();
 
     if(isset($_GET['id_user'])){
       $id = $_GET["id_user"];
-      $sql = "SELECT * FROM User WHERE id_user=$id";
+      $sql = "SELECT * FROM user WHERE id_user=$id";
       $stmt = $pdo->query($sql);
       $user = $stmt->fetch(PDO::FETCH_ASSOC);
     }
-    session_start();
+    
   ?>
 
   <nav class="navbar p-0">
