@@ -10,8 +10,8 @@
   font-family: "canada";
   src: url("../assets/fonts/Radio_Canada/static/RadioCanada-Regular.ttf");
 }
-body nav {
-  z-index: 2;
+body {
+  max-width: 992px;
 }
 body nav div {
   background-color: black;
@@ -34,7 +34,10 @@ body nav div button {
   color: white;
 }
 body nav div #navbarNav {
-  position: relative;
+  height: 100vh;
+  position: relative !important;
+  top: 0px;
+  z-index: 5;
   background-image: url("../assets/img/Vega_VV23_liftoff.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -51,15 +54,16 @@ body nav div #navbarNav ul li {
 }
 body nav div #navbarNav ul li a {
   width: 100%;
-  color: white;
+  color: white !important;
   font-family: "potta";
   font-size: 2em;
 }
 body nav div #navbarNav ul li a img {
   width: 15%;
+  border-radius: 50%;
 }
 body .homepage {
-  position: fixed;
+  position: fixed !important;
   z-index: 0;
   background-image: url("../assets/img/Soyouz-liftoff.jpg");
   background-repeat: no-repeat;
@@ -119,6 +123,194 @@ body .admin {
   }
   100% {
     opacity: 0%;
+  }
+}
+@media screen and (min-width: 992px) {
+  body {
+    max-width: 1400px;
+  }
+  body nav {
+    z-index: 2;
+  }
+  body nav div {
+    background-color: black;
+  }
+  body nav div a {
+    width: 20%;
+  }
+  body nav div a img {
+    width: 100%;
+  }
+  body nav div .welcome {
+    width: auto;
+  }
+  body nav div .welcome h3 {
+    font-family: "potta";
+    color: white;
+  }
+  body nav div button {
+    margin-right: 2vw;
+    color: white;
+  }
+  body nav div #navbarNav {
+    position: relative;
+    background-image: url("../assets/img/Euclid_lift-off2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  body nav div #navbarNav ul {
+    width: 100%;
+  }
+  body nav div #navbarNav ul li {
+    width: 100%;
+    text-align: center;
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
+  }
+  body nav div #navbarNav ul li a {
+    width: 100%;
+    color: white;
+    font-family: "potta";
+    font-size: 2em;
+  }
+  body nav div #navbarNav ul li a img {
+    width: 12%;
+    border-radius: 50%;
+  }
+  body .homepage {
+    position: static;
+    z-index: 0;
+    background-image: url("../assets/img/spaceX-falcon-heavy.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  body .createAccount {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    z-index: 0;
+  }
+  body .readUser {
+    position: fixed;
+    z-index: 0;
+  }
+  body .createUser {
+    width: 100%;
+  }
+  body .createUser h1 {
+    font-family: "canada";
+  }
+  body .createUser form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  body .createUser form label {
+    font-family: "canada";
+  }
+  body .createUser form input {
+    width: 50%;
+  }
+  body .admin {
+    display: flex;
+  }
+}
+@media screen and (min-width: 1400px) {
+  body {
+    max-width: none;
+  }
+  body nav {
+    z-index: 2;
+  }
+  body nav div {
+    background-color: black;
+  }
+  body nav div a {
+    width: 10%;
+  }
+  body nav div a img {
+    width: 100%;
+  }
+  body nav div .welcome {
+    width: auto;
+  }
+  body nav div .welcome h3 {
+    font-family: "potta";
+    color: white;
+    font-size: 100%;
+  }
+  body nav div button {
+    margin-right: 2vw;
+    color: white;
+  }
+  body nav div #navbarNav {
+    height: 0vh;
+    background-image: none !important;
+  }
+  body nav div #navbarNav ul {
+    width: 100%;
+  }
+  body nav div #navbarNav ul li {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  body nav div #navbarNav ul li a {
+    width: 100%;
+    color: white !important;
+    font-family: "potta";
+    font-size: 1.5em;
+  }
+  body nav div #navbarNav ul li a img {
+    width: 50%;
+    border-radius: 50%;
+  }
+  body .homepage {
+    background-image: url("../assets/img/Ariane_5_VA261_liftoff.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  body .createAccount {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    z-index: 0;
+  }
+  body .readUser {
+    position: fixed;
+    z-index: 0;
+  }
+  body .createUser {
+    width: 100%;
+  }
+  body .createUser h1 {
+    font-family: "canada";
+  }
+  body .createUser form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  body .createUser form label {
+    font-family: "canada";
+  }
+  body .createUser form input {
+    width: 50%;
+  }
+  body .admin {
+    display: flex;
   }
 }
 

@@ -12,7 +12,7 @@
         }    
 ?>
 
-<h1 class="text-center mb-5">Modifier un utilisateur</h1>
+<h1 class="text-center my-3">Modifier son profil</h1>
 
 <form id="form" class="mx-auto" action="controller/user/update_user_ctrl.php" enctype="multipart/form-data" method="POST">
 
@@ -35,7 +35,7 @@
 
     <input type="hidden" name="id_user" value="<?= htmlentities($user['id_user']) ?>">
 
-    <input class="form-control mt-3" type="submit" value="Modifier">
+    <input class="form-control my-3 btn btn-primary" type="submit" value="Modifier">
 
 </form>
 
