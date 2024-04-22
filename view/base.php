@@ -22,8 +22,7 @@
       $sql = "SELECT * FROM user WHERE id_user=$id";
       $stmt = $pdo->query($sql);
       $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    
+    }    
   ?>
 
   <nav class="navbar p-0">
@@ -35,6 +34,7 @@
         <?php
           if(isset($_SESSION['name'])){
             echo "<h3>Bonjour $_SESSION[name]<h3/>";
+            //echo "<h3>Bonjour $_SESSION[avatar]<h3/>";
           }else{
             echo "";
           }

@@ -8,7 +8,7 @@
         $username = $_POST['username'];
         $sql = "SELECT * FROM user WHERE username='$username'";
         $stmt = $pdo->query($sql);
-        $user= $stmt->fetch(PDO::FETCH_ASSOC);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
         if($user && $user["delete_date"] == null){
             // Compte existe

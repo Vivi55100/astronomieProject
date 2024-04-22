@@ -13,15 +13,15 @@ if(!empty($_POST["last_name"]) && !empty($_POST["first_name"]) && !empty($_POST[
 
         $file_tmp = $_FILES['avatar']['tmp_name'];
         // $file_tmp = $_FILES['avatar']['tmp_name'] : Récupère le chemin temporaire du fichier téléchargé.
-        var_dump("chemin temporaire ▼", $file_tmp);
+        // var_dump("chemin temporaire ▼", $file_tmp);
 
         $file_name = basename($_FILES['avatar']['name']);
         // $file_name = basename($_FILES['avatar']['name']) : Récupère le nom du fichier téléchargé.
-        var_dump("nom du fichier ▼", $file_name);
+        // var_dump("nom du fichier ▼", $file_name);
 
         $upload_dir = UPLOAD_DIR;
         // $upload_dir = "assets/img/upload/" : Définit le répertoire de destination où le fichier sera déplacé après le téléchargement.
-        var_dump("destination où le fichier sera déplacé ▼", $upload_dir);
+        // var_dump("destination où le fichier sera déplacé ▼", $upload_dir);
 
         // Déplacement du fichier téléchargé vers le dossier de destination
         if (move_uploaded_file($file_tmp, $upload_dir . $file_name)) {
@@ -29,7 +29,7 @@ if(!empty($_POST["last_name"]) && !empty($_POST["first_name"]) && !empty($_POST[
 
             $avatar_path = "assets/img/upload/" . $file_name;
             // $avatar_path = $upload_dir . $file_name : Concatène le chemin du répertoire de destination avec le nom du fichier pour obtenir le chemin complet de l'avatar.
-            var_dump("chemin du répertoire de destination avec le nom du fichier ▼", $avatar_path);
+            // var_dump("chemin du répertoire de destination avec le nom du fichier ▼", $avatar_path);
 
         } else {
             echo "<h2 class='text-center'>Erreur lors du téléchargement de l'avatar.</h2>"; // Affiche un message d'erreur si le téléchargement du fichier a échoué.
@@ -44,11 +44,19 @@ if(!empty($_POST["last_name"]) && !empty($_POST["first_name"]) && !empty($_POST[
         $sql = "UPDATE user SET last_name=?, first_name=?, username=?, mail=?, avatar=? WHERE id_user=?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute($data);
+        unset($_SESSION["avatar"]);
+
+        $userReset = $_SESSION["id_user"];
+        $sqlReset = "SELECT avatar FROM user WHERE id_user=$userReset";
+        $stmtReset = $pdo->query($sqlReset);
+        $userReset = $stmtReset->fetch(PDO::FETCH_ASSOC);
+        // Re set la session pour "actualiser" la page et ainsi faire apparaitre l'avatar sans devoir quitter la session
+        $_SESSION["avatar"] = $userReset["avatar"];
         echo "<h2 class='text-center'>La modification est reussie</h2>";
-        //header("Location:../../view/home/home.php");
+        header("Location:../../view/home/home.php");
     }catch(PDOException $e){
         echo "<h2 class='text-center'>La modification a échouée !</h2>" . $e->getMessage();
-    }    
+    }
 }else{
     echo "<h2 class='text-center'>Veuillez remplir correctement tout les champs requis !</h2>";
 }
