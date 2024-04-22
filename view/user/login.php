@@ -10,7 +10,7 @@
         $stmt = $pdo->query($sql);
         $user= $stmt->fetch(PDO::FETCH_ASSOC);
     
-        if($user){
+        if($user && $user["delete_date"] == null){
             // Compte existe
             if(password_verify($_POST['psw'], $user['password'])){
                 $_SESSION["name"] = $user['last_name'] . " " . $user['first_name'];

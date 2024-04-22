@@ -12,6 +12,7 @@
                 <th>Identifiant</th>
                 <th>E-mail</th>
                 <th>Rôle</th>
+                <th>Supprimé le :</th>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +29,7 @@
                             $table .= "<td>" . htmlentities($user['username']) ."</td>";
                             $table .= "<td>" . htmlentities($user['mail']) ."</td>";
                             $table .= "<td>" . htmlentities($user['role']) . "</td>";
-                            $table .= "<td>" . htmlentities($user['delete_date']) . "</td>";
+                            $table .= "<td>" . $user['delete_date'] . "</td>";
                         $table .="</tr>";
                     }
                     echo $table;
