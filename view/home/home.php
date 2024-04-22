@@ -1,5 +1,5 @@
 <?php
-    include_once "../base.php";
+    include_once "./../base.php";
 ?>
 <div class="homepage">
     <?php
