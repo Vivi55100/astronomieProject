@@ -44,13 +44,14 @@ if(!empty($_POST["last_name"]) && !empty($_POST["first_name"]) && !empty($_POST[
         $sql = "UPDATE user SET last_name=?, first_name=?, username=?, mail=?, avatar=? WHERE id_user=?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute($data);
+        // Fermer la session pour la réouvrir plus tard afin de pouvoir "actualiser" la page sans avoir a se deconnecter et se reconnecter pour voir les changements
         unset($_SESSION["avatar"]);
 
         $userReset = $_SESSION["id_user"];
         $sqlReset = "SELECT avatar FROM user WHERE id_user=$userReset";
         $stmtReset = $pdo->query($sqlReset);
         $userReset = $stmtReset->fetch(PDO::FETCH_ASSOC);
-        // Re set la session pour "actualiser" la page et ainsi faire apparaitre l'avatar sans devoir quitter la session
+        // Réattribuer la session pour "actualiser" la page et ainsi faire apparaitre l'avatar sans devoir quitter la session
         $_SESSION["avatar"] = $userReset["avatar"];
         echo "<h2 class='text-center'>La modification est reussie</h2>";
         header("Location:../../view/home/home.php");
