@@ -5,7 +5,7 @@
 ?>
 
 <div class="createUser">
-    <h1 class="text-center mt-3">Créer un utilisateur</h1>
+    <h1 class="text-center mt-3">Inscription</h1>
 
     <?php include_once "../alert.php" ?>
 
@@ -26,7 +26,7 @@
         <label class="form-label" for="mail">Mail</label>
         <input class="form-control mb-3" type="text" name="mail" id="mail">
 
-        <input class="form-control bg-primary border-0 my-2" type="submit" value="Ajouter">
+        <input class="form-control bg-primary my-2 text-light" type="submit" value="S'inscrire">
 
     </form>
 </div>

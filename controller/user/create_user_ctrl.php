@@ -1,5 +1,6 @@
 <?php
     include_once "../../model/pdo.php";
+    include_once "../../model/functions.php";
     session_start();
 if(
  !empty($_POST["last_name"]) &&
@@ -18,8 +19,8 @@ if(
     } catch (PDOException $e) {
         // mon echo me permet de detecter l'/les erreur(s) que l'exception me renvoie
         // echo "Quelque chose qui s'est mal passé: ". $e->getMessage();
-       echo "<h1>Une erreur s'est produite : </h1>" . $e->getMessage();
+       alert("error", "Une erreur s'est produite") . $e->getMessage();
     }
 }else{
-    echo "<h1>Veuillez remplir tous les champs requis</h1>";
+    alert("error", "Veuillez remplir tous les champs requis");
 }
