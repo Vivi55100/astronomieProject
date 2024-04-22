@@ -1,6 +1,5 @@
 <?php
     include_once "../../model/pdo.php";
-    include_once "../../model/functions.php";
     session_start();
 if(
  !empty($_POST["last_name"]) &&
@@ -15,12 +14,12 @@ if(
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$_POST["last_name"], $_POST["first_name"], $_POST["username"], $psw, $_POST["mail"], null, 1, null]);
         // header("Location:../../view/home/home.php?id_user=$_GET[id_user]");
-        alert("Location:../../view/home/home.php?id_user=$_GET[id_user]" ,  "success", "Succes vous avez reussi votre inscription");
+        header("Location:../../view/home/home.php?id_user=$_GET[id_user]");
     } catch (PDOException $e) {
         // mon echo me permet de detecter l'/les erreur(s) que l'exception me renvoie
         // echo "Quelque chose qui s'est mal passé: ". $e->getMessage();
-       alert("Location:../../view/user/create_user.php" , "error", "Quelque chose qui s'est mal passé");
+       echo "<h1>Une erreur s'est produite : </h1>" . $e->getMessage();
     }
 }else{
-    alert("Location:../../view/user/create_user.php", "error", "Veuillez remplir correctement le formulaire");
+    echo "<h1>Veuillez remplir tous les champs requis</h1>";
 }
