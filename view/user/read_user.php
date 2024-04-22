@@ -6,7 +6,7 @@
     if ($_SESSION['role'] >= Role::LOGGED->value){
         if(isset($_GET['id_user'])){
             $id = $_GET["id_user"];
-            $sql = "SELECT * FROM User WHERE id_user=$id";
+            $sql = "SELECT * FROM user WHERE id_user=$id";
             $stmt = $pdo->query($sql);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
         }

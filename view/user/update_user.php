@@ -3,10 +3,10 @@
     include_once "../base.php";
     include_once "../../model/pdo.php";
     
-    if ($_SESSION['role'] == Role::ADMIN->value){
+    if ($_SESSION['role'] >= Role::LOGGED->value){
         if(isset($_GET['id_user'])){
             $id = $_GET["id_user"];
-            $sql = "SELECT * FROM User WHERE id_user=$id";
+            $sql = "SELECT * FROM user WHERE id_user=$id";
             $stmt = $pdo->query($sql);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
         }    
@@ -14,7 +14,7 @@
 
 <h1 class="text-center mb-5">Modifier un utilisateur</h1>
 
-<form id="form" class="mx-auto" action="controller/user/update_user_ctrl.php" method="POST">
+<form id="form" class="mx-auto" action="controller/user/update_user_ctrl.php" enctype="multipart/form-data" method="POST">
 
     <!-- Utiliser le htmlentities lors de la recuperation des données -->
 
@@ -31,10 +31,9 @@
     <input class="form-control mb-3" type="text" name="mail" value="<?= htmlentities($user['mail']) ?>">
 
     <label for="avatar">Avatar</label>
-    <input class="form-control mb-3" type="file" name="avatar" value="<?= $user['avatar'] ?>">
+    <input class="form-control mb-3" type="file" name="avatar">
 
     <input type="hidden" name="id_user" value="<?= htmlentities($user['id_user']) ?>">
-    <!-- <input type="hidden" name="page" value="< ?= htmlentities($_GET['page']) ?>"> -->
 
     <input class="form-control mt-3" type="submit" value="Modifier">
 

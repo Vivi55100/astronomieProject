@@ -4,7 +4,7 @@
         if(isset($_SESSION["role"]) && ($_SESSION["role"]) == Role::ADMIN->value){
     ?>
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Nom</th>
@@ -39,7 +39,7 @@
     </table>
     <?php
         }else{
-            header("Location:../../view/home/home.php"); // renvoie un utlisateur qui chercherai à acceder à cette page en tapant le chemin d'acces dans l'url
+            header("Location:../../view/home/home.php"); // renvoie un utlisateur n'ayant pas les droits necessaires et qui chercherai à acceder à cette page en tapant le chemin d'acces dans l'url
         }
     ?>
 
