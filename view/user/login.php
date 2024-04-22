@@ -20,11 +20,11 @@
                 $_SESSION["token"] = bin2hex(random_bytes(16));
                 header("Location:../home/home.php");
             }else{
-                echo 'Mot de passe incorrect';
+                echo "<h2 class='text-center text-danger'>Mot de passe incorrect</h2>";
             }
         }else{
             // Compte n'existe pas
-            echo "Le compte n'existe pas, veuillez retenter avec les bons identifiant et mot de passe !";
+            echo "<h2 class='text-center text-danger'>Le compte n'existe pas, veuillez retenter avec les bons identifiant et mot de passe !</h2>";
         }
     }
 
