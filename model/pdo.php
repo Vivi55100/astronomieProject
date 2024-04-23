@@ -1,4 +1,4 @@
 <?php
 
-//$pdo = new PDO("mysql:host=localhost;dbname=Astronomie_DB", "stagiaire", "Stagiaire"); // Linux
-$pdo = new PDO("mysql:host=localhost;dbname=Astronomie_DB", "root", ""); // Windows
+$pdo = new PDO("mysql:host=localhost;dbname=astronomie_db", "stagiaire", "Stagiaire"); // Linux
+//$pdo = new PDO("mysql:host=localhost;dbname=astronomie_db", "root", ""); // Windows
