@@ -13,11 +13,10 @@
         if($user && $user["delete_date"] == null){
             // Compte existe
             if(password_verify($_POST['psw'], $user['password'])){
-                $_SESSION["name"] = $user['last_name'] . " " . $user['first_name'];
+                $_SESSION["name"] = $user['last_name'] . " " . $user['first_name']; // $user[''] me permet d'attribuer les données des colonnes de mon utilisateur
                 $_SESSION["id_user"] = $user["id_user"];
                 $_SESSION["role"] = $user['role'];
                 $_SESSION["avatar"] = $user["avatar"];
-                $_SESSION['previous_avatar'] = $user['previous_avatar'];
                 $_SESSION["token"] = bin2hex(random_bytes(16));
                 header("Location:../home/home.php");
             }else{

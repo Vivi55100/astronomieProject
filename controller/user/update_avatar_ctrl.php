@@ -1,11 +1,12 @@
 <?php
 
 session_start();
+include_once "../../model/pdo.php";
 
 /*
-    Recuperer l'addresse de l'ancien image pour pouvoir la supprimer
+    Recuperer l'addresse de l'ancienne image pour pouvoir la supprimer ✅
 
-    Recuperer les donnée du $_FILES
+    Recuperer les données du $_FILES
     
     Recuperer l'extension (jpg , png ...)
 
@@ -21,3 +22,8 @@ session_start();
     (si tout c'est bien passer if(blabla){unset l'ancien image})
 */
 
+$oldAvatar = $_SESSION['avatar'];
+var_dump("old avatar = ", $oldAvatar, "<br>");
+
+$dataFile = $_FILES['avatar'];
+var_dump("data file = ", $dataFile, "<br>");
