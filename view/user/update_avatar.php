@@ -27,9 +27,7 @@
 
 <form id="form" class="mx-auto" action="controller/user/update_avatar_ctrl.php" enctype="multipart/form-data" method="POST">
 
-    <!-- Utiliser le htmlentities lors de la recuperation des données -->
-
-    <label class="form-label" for="avatar">Avatar</label>
+    <label class="form-label" for="avatar">Changer votre Avatar :</label>
     <input class="form-control" type="file" name="avatar" id="inputAvatar">
 
     <input type="hidden" name="id_user" value="<?= htmlentities($user['id_user']) ?>">
@@ -46,7 +44,7 @@
     inputAvatar.addEventListener("change", function() {
 
         let file = inputAvatar.files[0]
-        console.log(inputAvatar.files[0]);
+        // console.log(inputAvatar.files[0]);
 
         fr.onloadend = function() {
             preview.src = fr.result;
@@ -58,7 +56,7 @@
             preview.src = "";
         }
     })
-console.log("inputAvatar : ", inputAvatar);
+    // console.log("inputAvatar : ", inputAvatar);
 
 </script>
 </body>

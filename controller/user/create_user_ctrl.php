@@ -10,10 +10,11 @@ if(
  !empty($_POST["mail"])
    ){
     try {
+        $imgBaseAvatar = "assets/static/iconUser.png"; // Est une variable contenant une chaine de caractere representant le chemin d'acces de l'avatar de base
         $psw = password_hash($_POST["password"], PASSWORD_ARGON2I);
         $sql = "INSERT INTO user (last_name, first_name, username, password, mail, avatar, role, delete_date) VALUE (?,?,?,?,?,?,?,?)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$_POST["last_name"], $_POST["first_name"], $_POST["username"], $psw, $_POST["mail"], null, 1, null]);
+        $stmt->execute([$_POST["last_name"], $_POST["first_name"], $_POST["username"], $psw, $_POST["mail"], $imgBaseAvatar, 1, null]);
         // header("Location:../../view/home/home.php?id_user=$_GET[id_user]");
         header("Location:../../view/user/login.php");
     } catch (PDOException $e) {

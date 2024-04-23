@@ -78,7 +78,7 @@
           </li>
           <?php } ?>
           <?php if(!isset($_SESSION['name'])){ ?>
-            <!-- Si un utilisateur n'est pas connecté, alors le lien connexion s'affiche et renvoie vers la page de connexion, si l'utilisateur est connecté,
+            <!-- Si un utilisateur n'est pas connecté, alors le lien de connexion s'affiche et renvoie vers la page de connexion, si l'utilisateur est connecté,
               alors le lien de deconnexion s'affiche a la place du lien de connexion -->
             <li class="nav-item">
               <a href="view/user/login.php" class="nav-link">Connexion</a>

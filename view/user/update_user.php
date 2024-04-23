@@ -16,7 +16,7 @@
 
 <form id="form" class="mx-auto" action="controller/user/update_user_ctrl.php" enctype="multipart/form-data" method="POST">
 
-    <!-- Utiliser le htmlentities lors de la recuperation des données -->
+    <!-- Utiliser le htmlentities lors de la recuperation des données pour securité-->
 
     <label for="last_name">Nom</label>
     <input class="form-control mb-3" type="text" name="last_name" value="<?= htmlentities($user['last_name']) ?>">
@@ -24,7 +24,7 @@
     <label for="first_name">Prenom</label>
     <input class="form-control mb-3" type="text" name="first_name" value="<?= htmlentities($user['first_name']) ?>">
 
-    <label for="username">Identifiant (vous sert a vous connecter)</label>
+    <label for="username">Identifiant (Vous sert a vous connecter)</label>
     <input class="form-control mb-3" type="text" name="username" value="<?= htmlentities($user['username']) ?>">
 
     <label for="mail">E-mail</label>

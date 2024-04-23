@@ -53,7 +53,7 @@ body{
                 position: relative !important;
                 top: 0px;
                 z-index: 5;
-                background-image: url('../assets/img/Vega_VV23_liftoff.jpg');
+                background-image: url('../assets/static/Vega_VV23_liftoff.jpg');
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center;
@@ -82,7 +82,7 @@ body{
     .homepage{
         position: fixed !important;
         z-index: 0;
-        background-image: url("../assets/img/Soyouz-liftoff.jpg");
+        background-image: url("../assets/static/Soyouz-liftoff.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -167,7 +167,7 @@ body{
                 }
                 #navbarNav{
                     position: relative;
-                    background-image: url('../assets/img/Euclid_lift-off2.jpg');
+                    background-image: url('../assets/static/Euclid_lift-off2.jpg');
                     background-repeat: no-repeat;
                     background-size: cover;
                     background-position: center;
@@ -196,7 +196,7 @@ body{
         .homepage{
             position: static;
             z-index: 0;
-            background-image: url("../assets/img/spaceX-falcon-heavy.jpg");
+            background-image: url("../assets/static/spaceX-falcon-heavy.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -290,7 +290,7 @@ body{
             }
         }
         .homepage{
-            background-image: url("../assets/img/Ariane_5_VA261_liftoff.jpg");
+            background-image: url("../assets/static/Ariane_5_VA261_liftoff.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
