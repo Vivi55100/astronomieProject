@@ -30,9 +30,6 @@
     <label for="mail">E-mail</label>
     <input class="form-control mb-3" type="text" name="mail" value="<?= htmlentities($user['mail']) ?>">
 
-    <label for="avatar">Avatar</label>
-    <input class="form-control mb-3" type="file" name="avatar">
-
     <input type="hidden" name="id_user" value="<?= htmlentities($user['id_user']) ?>">
 
     <input class="form-control my-3 btn btn-primary" type="submit" value="Modifier">

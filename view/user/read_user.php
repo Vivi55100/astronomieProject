@@ -31,6 +31,7 @@
             <button class="btn btn-primary rounded"><a class="text-light text-decoration-none" href="view/user/update_user.php?id_user=<?= $_SESSION['id_user'] ?>">Modifier le profil</a></button>
             <button class="btn btn-secondary rounded"><a class="text-light text-decoration-none" href="view/user/update_user_password.php?id_user=<?= $_SESSION['id_user'] ?>">Modifier le mot de passe</a></button>
             <button class="btn btn-danger rounded"><a class="text-light text-decoration-none" href="controller/user/delete_user.php?id_user=<?= $_SESSION['id_user'] ?>">Supprimer le compte</a></button>
+            <button class="btn btn-info rounded"><a class="text-light text-decoration-none" href="view/user/update_avatar.php?id_user=<?= $_SESSION['id_user'] ?>">Modifier Avatar</a></button>
         </div>
     </div>
     
