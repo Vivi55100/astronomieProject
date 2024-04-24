@@ -29,7 +29,7 @@
   <nav class="navbar navbar-expand-xxl p-0">
     <div class="container-fluid">
       <a href="view/home/home.php">
-        <img class="img-logo" src="assets/static/Logo-Without-Bg.png" alt="Logo du site">
+        <img class="img-logo" src="assets/img/static/Logo-Without-Bg.png" alt="Logo du site">
       </a>
       <div class="welcome">
         <?php

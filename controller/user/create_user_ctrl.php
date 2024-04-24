@@ -10,7 +10,7 @@ if(
  !empty($_POST["mail"])
    ){
     try {
-        $imgBaseAvatar = "assets/static/iconUser.png"; // Est une variable contenant une chaine de caractere representant le chemin d'acces de l'avatar de base
+        $imgBaseAvatar = "assets/img/static/iconUser.png"; // Est une variable contenant une chaine de caractere representant le chemin d'acces de l'avatar de base
         $psw = password_hash($_POST["password"], PASSWORD_ARGON2I);
         $sql = "INSERT INTO user (last_name, first_name, username, password, mail, avatar, role, delete_date) VALUE (?,?,?,?,?,?,?,?)";
         $stmt = $pdo->prepare($sql);
