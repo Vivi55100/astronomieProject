@@ -14,7 +14,7 @@
 
 <h1 class="text-center my-3">Modifier son profil</h1>
 
-<form id="form" class="mx-auto" action="controller/user/update_user_ctrl.php" enctype="multipart/form-data" method="POST">
+<form class="d-flex flex-column align-item-center justify-content-center w-50 mx-auto" id="form" class="mx-auto" action="controller/user/update_user_ctrl.php" enctype="multipart/form-data" method="POST">
 
     <!-- Utiliser le htmlentities lors de la recuperation des données pour securité-->
 

@@ -25,7 +25,7 @@
 </div>
 
 
-<form id="form" class="mx-auto" action="controller/user/update_avatar_ctrl.php" enctype="multipart/form-data" method="POST">
+<form id="form" class="d-flex flex-column align-item-center justify-content-center w-50 mx-auto" action="controller/user/update_avatar_ctrl.php" enctype="multipart/form-data" method="POST">
 
     <label class="form-label" for="avatar">Changer votre Avatar :</label>
     <input class="form-control" type="file" name="avatar" id="inputAvatar">
