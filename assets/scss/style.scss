@@ -13,6 +13,24 @@
     animation: dpop 7s;
     opacity: 0;
 }
+@mixin pm0{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+@mixin imgBg{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+@mixin flexCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin flexColumn{
+    display: flex;
+    flex-direction: column;
+}
 @font-face {
     font-family: 'potta';
     src: url("../assets/fonts/Potta_One/PottaOne-Regular.ttf");
@@ -46,8 +64,14 @@
 
 body{
     max-width: 992px;
+    max-height: 100vh;
+    //overflow-y: hidden;
     nav{
+        position: relative;
         div{
+            @include flexCenter;
+            text-align: center;
+            height: 100%;
             background-color: black;
             a{
                 width: 20%;
@@ -67,28 +91,25 @@ body{
                 color: white;
             }
             #navbarNav{
-                height: 100vh;
-                position: relative !important;
-                top: 0px;
-                z-index: 5;
+                @include imgBg;
                 background-image: url('../assets/img/static/Vega_VV23_liftoff.jpg');
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: center;
+                min-height: 100vh;
                 ul{
+                    list-style: none;
+                    @include flexColumn;
                     width: 100%;
                     li{
+                        padding-top: 2.5%;
+                        padding-bottom: 2.5%;
                         width: 100%;
                         text-align: center;
-                        padding-top: 2.5vh;
-                        padding-bottom: 2.5vh;
                         a{
                             width: 100%;
                             color: white !important;
                             font-family: "potta";
                             font-size: 2em;
                             img{
-                                width: 15%;
+                                width: 20%;
                                 border-radius: 50%;
                             }
                         }
@@ -98,12 +119,9 @@ body{
         }
     }
     .homepage{
-        position: fixed !important;
-        z-index: 0;
+        position: fixed;
+        @include imgBg;
         background-image: url("../assets/img/static/Soyouz-liftoff.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
         width: 100vw;
         height: 100vh;
     }
@@ -111,13 +129,8 @@ body{
         display: flex;
         justify-content: center;
         width: 100%;
-        position: fixed;
-        z-index: 0;
     }
-    .readUser{
-        position: fixed;
-        z-index: 0;
-    }
+
     .createUser{
         width: 100%;
         h1{
@@ -180,8 +193,8 @@ body{
 @media screen and (min-width: 992px) {
     body{
         max-width: 1400px;
+        max-height: 100vh;
         nav{
-            z-index: 2;
             div{
                 background-color: black;
                 a{
@@ -202,25 +215,25 @@ body{
                     color: white;
                 }
                 #navbarNav{
-                    position: relative;
+                    @include imgBg;
                     background-image: url('../assets/img/static/Euclid_lift-off2.jpg');
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-position: center;
+                    //height: 100%;
                     ul{
                         width: 100%;
+                        list-style: none;
                         li{
                             width: 100%;
                             text-align: center;
                             padding-top: 2.5vh;
                             padding-bottom: 2.5vh;
+                            
                             a{
                                 width: 100%;
-                                color: white;
+                                color: black !important;
                                 font-family: "potta";
                                 font-size: 2em;
                                 img{
-                                    width: 12%;
+                                    width: 20%;
                                     border-radius: 50%;
                                 }
                             }
@@ -230,12 +243,8 @@ body{
             }
         }
         .homepage{
-            position: static;
-            z-index: 0;
+            @include imgBg;
             background-image: url("../assets/img/static/spaceX-falcon-heavy.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
             width: 100vw;
             height: 100vh;
         }
@@ -243,13 +252,8 @@ body{
             display: flex;
             justify-content: center;
             width: 100%;
-            position: fixed;
-            z-index: 0;
         }
-        .readUser{
-            position: fixed;
-            z-index: 0;
-        }
+
         .createUser{
             width: 100%;
             h1{
@@ -297,12 +301,13 @@ body{
 @media screen and (min-width: 1400px) {
     body{
         max-width: none;
+        max-height: none;
         nav{
-            z-index: 2;
+            height: 20vh !important;
             div{
-                background-color: black;
+                height: 100% !important;
                 a{
-                    width: 10%;
+                    width: 25%;
                     img{
                         width: 100%;
                     }
@@ -312,7 +317,7 @@ body{
                     h3{
                         font-family: "potta";
                         color: white;
-                        font-size: 100%;
+                        font-size: 1.5em;
                     }
                 }
                 button{
@@ -320,9 +325,11 @@ body{
                     color: white;
                 }
                 #navbarNav{
-                    height: 0vh;
+                    max-height: none !important;
                     background-image: none !important;
                     ul{
+                        display: flex;
+                        flex-direction: row;
                         width: 100%;
                         li{
                             display: flex;
@@ -345,10 +352,9 @@ body{
             }
         }
         .homepage{
+            position: fixed;
+            @include imgBg;
             background-image: url("../assets/img/static/Ariane_5_VA261_liftoff.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
             width: 100vw;
             height: 100vh;
         }
@@ -356,12 +362,6 @@ body{
             display: flex;
             justify-content: center;
             width: 100%;
-            position: fixed;
-            z-index: 0;
-        }
-        .readUser{
-            position: fixed;
-            z-index: 0;
         }
         .createUser{
             width: 100%;

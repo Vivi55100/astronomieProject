@@ -12,8 +12,17 @@
 }
 body {
   max-width: 992px;
+  max-height: 100vh;
+}
+body nav {
+  position: relative;
 }
 body nav div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
   background-color: black;
 }
 body nav div a {
@@ -34,23 +43,23 @@ body nav div button {
   color: white;
 }
 body nav div #navbarNav {
-  height: 100vh;
-  position: relative !important;
-  top: 0px;
-  z-index: 5;
-  background-image: url("../assets/img/static/Vega_VV23_liftoff.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-image: url("../assets/img/static/Vega_VV23_liftoff.jpg");
+  min-height: 100vh;
 }
 body nav div #navbarNav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 body nav div #navbarNav ul li {
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
   width: 100%;
   text-align: center;
-  padding-top: 2.5vh;
-  padding-bottom: 2.5vh;
 }
 body nav div #navbarNav ul li a {
   width: 100%;
@@ -59,16 +68,15 @@ body nav div #navbarNav ul li a {
   font-size: 2em;
 }
 body nav div #navbarNav ul li a img {
-  width: 15%;
+  width: 20%;
   border-radius: 50%;
 }
 body .homepage {
-  position: fixed !important;
-  z-index: 0;
-  background-image: url("../assets/img/static/Soyouz-liftoff.jpg");
+  position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-image: url("../assets/img/static/Soyouz-liftoff.jpg");
   width: 100vw;
   height: 100vh;
 }
@@ -76,12 +84,6 @@ body .createAccount {
   display: flex;
   justify-content: center;
   width: 100%;
-  position: fixed;
-  z-index: 0;
-}
-body .readUser {
-  position: fixed;
-  z-index: 0;
 }
 body .createUser {
   width: 100%;
@@ -128,9 +130,7 @@ body .admin {
 @media screen and (min-width: 992px) {
   body {
     max-width: 1400px;
-  }
-  body nav {
-    z-index: 2;
+    max-height: 100vh;
   }
   body nav div {
     background-color: black;
@@ -153,14 +153,14 @@ body .admin {
     color: white;
   }
   body nav div #navbarNav {
-    position: relative;
-    background-image: url("../assets/img/static/Euclid_lift-off2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-image: url("../assets/img/static/Euclid_lift-off2.jpg");
   }
   body nav div #navbarNav ul {
     width: 100%;
+    list-style: none;
   }
   body nav div #navbarNav ul li {
     width: 100%;
@@ -170,21 +170,19 @@ body .admin {
   }
   body nav div #navbarNav ul li a {
     width: 100%;
-    color: white;
+    color: black !important;
     font-family: "potta";
     font-size: 2em;
   }
   body nav div #navbarNav ul li a img {
-    width: 12%;
+    width: 20%;
     border-radius: 50%;
   }
   body .homepage {
-    position: static;
-    z-index: 0;
-    background-image: url("../assets/img/static/spaceX-falcon-heavy.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-image: url("../assets/img/static/spaceX-falcon-heavy.jpg");
     width: 100vw;
     height: 100vh;
   }
@@ -192,12 +190,6 @@ body .admin {
     display: flex;
     justify-content: center;
     width: 100%;
-    position: fixed;
-    z-index: 0;
-  }
-  body .readUser {
-    position: fixed;
-    z-index: 0;
   }
   body .createUser {
     width: 100%;
@@ -224,15 +216,16 @@ body .admin {
 @media screen and (min-width: 1400px) {
   body {
     max-width: none;
+    max-height: none;
   }
   body nav {
-    z-index: 2;
+    height: 20vh !important;
   }
   body nav div {
-    background-color: black;
+    height: 100% !important;
   }
   body nav div a {
-    width: 10%;
+    width: 25%;
   }
   body nav div a img {
     width: 100%;
@@ -243,17 +236,19 @@ body .admin {
   body nav div .welcome h3 {
     font-family: "potta";
     color: white;
-    font-size: 100%;
+    font-size: 1.5em;
   }
   body nav div button {
     margin-right: 2vw;
     color: white;
   }
   body nav div #navbarNav {
-    height: 0vh;
+    max-height: none !important;
     background-image: none !important;
   }
   body nav div #navbarNav ul {
+    display: flex;
+    flex-direction: row;
     width: 100%;
   }
   body nav div #navbarNav ul li {
@@ -273,10 +268,11 @@ body .admin {
     border-radius: 50%;
   }
   body .homepage {
-    background-image: url("../assets/img/static/Ariane_5_VA261_liftoff.jpg");
+    position: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-image: url("../assets/img/static/Ariane_5_VA261_liftoff.jpg");
     width: 100vw;
     height: 100vh;
   }
@@ -284,12 +280,6 @@ body .admin {
     display: flex;
     justify-content: center;
     width: 100%;
-    position: fixed;
-    z-index: 0;
-  }
-  body .readUser {
-    position: fixed;
-    z-index: 0;
   }
   body .createUser {
     width: 100%;

@@ -44,7 +44,7 @@
         <span class="navbar-toggler-icon bg-light"></span>
       </button>
       <div id="navbarNav" class="collapse navbar-collapse">
-        <ul class="d-flex links navbar-nav">
+        <ul class="d-flex">
           <?php if(isset($_SESSION["id_user"])){ ?>
           <li class="profileButton nav-item">
             <a class="nav-link" href="view/user/read_user.php?id_user=<?= $_SESSION['id_user'] ?>">
