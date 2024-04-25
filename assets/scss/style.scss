@@ -303,13 +303,14 @@ body{
         max-width: none;
         max-height: none;
         nav{
+            position: fixed;
             height: 20vh !important;
             div{
                 height: 100% !important;
                 a{
-                    width: 25%;
+                    width: 20%;
                     img{
-                        width: 100%;
+                        width: 80%;
                     }
                 }
                 .welcome{
@@ -325,14 +326,15 @@ body{
                     color: white;
                 }
                 #navbarNav{
-                    max-height: none !important;
-                    background-image: none !important;
+                    visibility: hidden;
+                    background-image: none;
                     ul{
                         display: flex;
                         flex-direction: row;
                         width: 100%;
                         li{
                             display: flex;
+                            visibility: visible;
                             width: 100%;
                             align-items: center;
                             text-align: center;

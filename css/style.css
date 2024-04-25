@@ -219,16 +219,17 @@ body .admin {
     max-height: none;
   }
   body nav {
+    position: fixed;
     height: 20vh !important;
   }
   body nav div {
     height: 100% !important;
   }
   body nav div a {
-    width: 25%;
+    width: 20%;
   }
   body nav div a img {
-    width: 100%;
+    width: 80%;
   }
   body nav div .welcome {
     width: auto;
@@ -243,8 +244,8 @@ body .admin {
     color: white;
   }
   body nav div #navbarNav {
-    max-height: none !important;
-    background-image: none !important;
+    visibility: hidden;
+    background-image: none;
   }
   body nav div #navbarNav ul {
     display: flex;
@@ -253,6 +254,7 @@ body .admin {
   }
   body nav div #navbarNav ul li {
     display: flex;
+    visibility: visible;
     width: 100%;
     align-items: center;
     text-align: center;
