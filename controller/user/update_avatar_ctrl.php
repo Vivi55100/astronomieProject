@@ -35,8 +35,6 @@ var_dump('$ avatar error  : ', $avatarError, "<br><br>");
 $extensionArray = ['jpg', 'jpeg', 'png', 'svg', 'webp', 'gif', 'avif']; // Tableau de chaines de caracteres, je souhaite comparer plus tard les extensions
 var_dump("extension array : ", $extensionArray, "<br><br>");
 
-// $avatarMaxSize = 136; // Attribut une taille à l'avatar
-
 if( $_FILES ){    
 
     $avatarTmpName = $_FILES['avatar']['tmp_name']; // Les données binaires d"un fichier
@@ -46,7 +44,7 @@ if( $_FILES ){
     var_dump('$ avatar size: ', $avatarSize, "<br><br>");
 
     $fileName = $_FILES['avatar']['name']; // Recuperer le nom de l'avatar
-    var_dump('$ file name =  files name : ', $fileName, "<br><br>");
+    var_dump('$ file name : ', $fileName, "<br><br>");
 
     // Exemple ; cochon.png
 
@@ -69,24 +67,30 @@ if( $_FILES ){
             $new_name = uniqid() . time() . "." . $extension;
 
             $uploadPath = "assets/img/avatarUpload/";
-            
-            if( !empty($_POST['avatar']) ){
+                try{
+                    $idUser = ($_POST["id_user"]);
+                    $sqlNewAvatar = "UPDATE user SET avatar=? WHERE id_user=$idUser";
+                    $stmtNewAvatar = $pdo->prepare($sqlNewAvatar);
+                    $avatarPathName = $uploadPath . $new_name;
+                    if($stmtNewAvatar->execute([$avatarPathName])){
 
-                unset($_FILES);
-
-                $newAvatar = $_POST['avatar'];
-
-                $idUser = htmlentities($_GET["id_user"]);
-
-                $sqlNewAvatar = "UPDATE user SET avatar=$newAvatar WHERE id_user=$idUser";
-
-                $stmtNewAvatar = $pdo->prepare($sqlNewAvatar);
-
-                $stmtNewAvatar->execute($newAvatar);
-
-                echo "Vous avez reussi à modifier votre avatar";
-
-            }
+                        if(move_uploaded_file($avatarTmpName, "../../" . $avatarPathName)){
+                        echo "Vous avez reussi à modifier votre avatar";
+                        $baseAvatar = "assets/img/static/iconUser.png";
+                        if ( $baseAvatar != $_SESSION['avatar']){
+                            $deleteAvatar = "../../" . $_SESSION['avatar'];
+                            unset($deleteAvatar);
+                        }
+                        $_SESSION['avatar'] = $avatarPathName;
+                        } else{
+                            echo "Vous n'avez pas reussi a copier le fichier";
+                        }
+                    }else{
+                        echo "Probleme ! l'avatar n'est pas dans la base de données";
+                    }
+                }catch (PDOException $e){
+                    echo "Problemes = " . $e->getMessage();
+                }
 
         } else {
 
