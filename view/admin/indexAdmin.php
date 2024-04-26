@@ -13,13 +13,13 @@
         <div class="d-flex flex-column">
             <a class="text-decoration-none" href="view/admin/indexQuiz.php">Index Quiz</a>
             <a class="text-decoration-none" href="view/admin/create_quiz.php">Creation de Quiz</a>
-        </div>        
+        </div>
     </div>
 
     <div class="question my-3">
         <h2>Gestion Questions/Reponses</h2>
         <div class="d-flex flex-column">
-            <a class="text-decoration-none" href="view/admin/indexQuestionResponse.php">Index Questions</a>
+            <a class="text-decoration-none" href="view/admin/indexQuestion.php">Index Questions</a>
             <a class="text-decoration-none" href="view/admin/indexResponse.php">Index Responses</a>
             <a class="text-decoration-none" href="view/admin/create_question_response.php">Creation de Questions/Reponses</a>
         </div>

@@ -23,10 +23,10 @@
                 if ($key !=  "question") {
                     // Condition si la clé est "goodResponse, la response aura 1 ce qui signifie true
                     if($key == "goodResponse"){
-                        $dataResponse = [$answer, 1, $id_question, null];
+                        $dataResponse = [$answer, 1, $id_question, 1];
                         // Condition inverse, badResponse, la response aura 0 ce qui signifie false
                     }else{
-                        $dataResponse = [$answer, 0, $id_question, null];
+                        $dataResponse = [$answer, 0, $id_question, 1];
                     }
                     // Essaye la requete d'insertion
                     try {
