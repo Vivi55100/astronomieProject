@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 26 avr. 2024 à 08:22
+-- Généré le : ven. 26 avr. 2024 à 12:09
 -- Version du serveur : 8.0.36-0ubuntu0.22.04.1
 -- Version de PHP : 8.3.6
 
@@ -64,6 +64,15 @@ CREATE TABLE `difficulty` (
   `difficulty_name` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `difficulty`
+--
+
+INSERT INTO `difficulty` (`id_difficulty`, `difficulty_name`) VALUES
+(1, 'Facile'),
+(2, 'Moyen'),
+(3, 'Difficile');
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +101,7 @@ CREATE TABLE `question` (
   `id_difficulty` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 -- --------------------------------------------------------
 
 --
@@ -114,9 +124,9 @@ CREATE TABLE `response` (
   `response_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `is_correct` tinyint NOT NULL,
   `id_question` int NOT NULL,
-  `id_user` int NOT NULL,
-  `id_quiz` int NOT NULL
+  `id_quiz` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 -- --------------------------------------------------------
 
@@ -207,7 +217,6 @@ ALTER TABLE `quiz`
 --
 ALTER TABLE `response`
   ADD PRIMARY KEY (`id_response`),
-  ADD KEY `FK_User_Response` (`id_user`),
   ADD KEY `FK_Quiz_Response` (`id_quiz`),
   ADD KEY `FK_Question_Response` (`id_question`);
 
@@ -243,7 +252,7 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT pour la table `difficulty`
 --
 ALTER TABLE `difficulty`
-  MODIFY `id_difficulty` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_difficulty` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `proposition_astre`
@@ -316,8 +325,7 @@ ALTER TABLE `question`
 --
 ALTER TABLE `response`
   ADD CONSTRAINT `FK_Question_Response` FOREIGN KEY (`id_question`) REFERENCES `question` (`id_question`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `FK_Quiz_Response` FOREIGN KEY (`id_quiz`) REFERENCES `quiz` (`id_quiz`),
-  ADD CONSTRAINT `FK_User_Response` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+  ADD CONSTRAINT `FK_Quiz_Response` FOREIGN KEY (`id_quiz`) REFERENCES `quiz` (`id_quiz`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
