@@ -32,13 +32,13 @@
 
 <h1 class="text-center mt-3">Connexion</h1>
 
-<form id="form" class="mx-auto" method="post">
+<form id="form" class="mx-auto w-50" method="post">
 
-    <label for="username">Identifiant</label>
-    <input class="form-control mb-2" type="text" name="username" placeholder="Veuillez renseigner votre identifiant">
+    <label class="mt-3" for="username">Identifiant</label>
+    <input class="form-control mb-3" type="text" name="username" placeholder="Veuillez renseigner votre identifiant">
 
     <label for="psw">Mot de passe</label>
-    <input class="form-control mb-2" type="password" name="psw">
+    <input class="form-control mb-3" type="password" name="psw">
 
     <input class="form-control btn btn-primary my-3" type="submit" value="Connexion">
 </form>

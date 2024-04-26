@@ -10,14 +10,17 @@
 
     <div class="quiz my-3">
         <h2>Gestion Quiz</h2>
+        <a href="view/admin/indexQuiz.php">Index Quiz</a>
     </div>
 
     <div class="question my-3">
         <h2>Gestion Questions</h2>
+        <a href="view/admin/indexQuestion.php">Index Questions</a>
     </div>
 
     <div class="response my-3">
         <h2>Gestion Responses</h2>
+        <a href="view/admin/indexResponse.php">Index Responses</a>
     </div>
 
     <div class="user my-3">
@@ -27,14 +30,17 @@
 
     <div class="astre my-3">
         <h2>Gestion Astres</h2>
+        <a href="view/admin/indexAstre.php">Index Astres</a>
     </div>
 
     <div class="proposition my-3">
         <h2>Gestion Propositions</h2>
+        <a href="view/admin/indexProposition.php">Index Propositions</a>
     </div>
 
     <div class="comment my-3">
         <h2>Gestion Commentaires</h2>
+        <a href="view/admin/indexCommentary.php">Index Commentaires (axe d'ameliorations)</a>
     </div>
 
 </div>

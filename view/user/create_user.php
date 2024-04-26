@@ -5,7 +5,7 @@
 ?>
 
 <div class="createUser">
-    <h1 class="text-center mt-3">Inscription</h1>
+    <h1 class="text-center my-5">Inscription</h1>
 
     <?php include_once "../alert.php" ?>
 
