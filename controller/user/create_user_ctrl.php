@@ -20,7 +20,7 @@ if(
     } catch (PDOException $e) {
         // mon echo me permet de detecter l'/les erreur(s) que l'exception me renvoie
         // echo "Quelque chose qui s'est mal passé: ". $e->getMessage();
-       alert("error", "Une erreur s'est produite") . $e->getMessage();
+       alert("error", "Une erreur s'est produite" . $e->getMessage());
     }
 }else{
     alert("error", "Veuillez remplir tous les champs requis");

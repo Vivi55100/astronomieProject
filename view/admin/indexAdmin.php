@@ -17,18 +17,11 @@
     </div>
 
     <div class="question my-3">
-        <h2>Gestion Questions</h2>
+        <h2>Gestion Questions/Reponses</h2>
         <div class="d-flex flex-column">
             <a class="text-decoration-none" href="view/admin/indexQuestionResponse.php">Index Questions</a>
-            <a class="text-decoration-none" href="view/admin/create_question_response.php">Creation de Questions/Reponses</a>
-        </div>
-    </div>
-
-    <div class="response my-3">
-        <h2>Gestion Responses</h2>
-        <div class="d-flex flex-column">
             <a class="text-decoration-none" href="view/admin/indexResponse.php">Index Responses</a>
-            <a class="text-decoration-none" href="view/admin/create_response.php">Creation de Responses</a>
+            <a class="text-decoration-none" href="view/admin/create_question_response.php">Creation de Questions/Reponses</a>
         </div>
     </div>
 
@@ -38,17 +31,17 @@
     </div>
 
     <div class="astre my-3">
-        <h2>Gestion Astres</h2>
-        <a class="text-decoration-none" href="view/admin/indexAstre.php">Index Astres</a>
+        <h2>Gestion Astres (axe d'ameliorations)</h2>
+        <a class="text-decoration-none" href="view/admin/indexAstre.php">Index Astres (axe d'ameliorations)</a>
     </div>
 
     <div class="proposition my-3">
-        <h2>Gestion Propositions</h2>
-        <a class="text-decoration-none" href="view/admin/indexProposition.php">Index Propositions</a>
+        <h2>Gestion Propositions (axe d'ameliorations)</h2>
+        <a class="text-decoration-none" href="view/admin/indexProposition.php">Index Propositions (axe d'ameliorations)</a>
     </div>
 
     <div class="comment my-3">
-        <h2>Gestion Commentaires</h2>
+        <h2>Gestion Commentaires (axe d'ameliorations)</h2>
         <a class="text-decoration-none" href="view/admin/indexCommentary.php">Index Commentaires (axe d'ameliorations)</a>
     </div>
 
@@ -61,5 +54,3 @@
 ?>
 </body>
 </html>
-<!-- http://localhost/astronomieProject/view/admin/indexAdmin.php -->
-<!-- http://localhost/astronomieProject/view/admin/indexUser.php -->

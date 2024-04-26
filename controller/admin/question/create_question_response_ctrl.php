@@ -41,7 +41,7 @@
                 }
             }            
         }else{
-            echo "Veuillez remplir l'input pour pouvoir créer une bonne reponse";
+            echo "<h1>Veuillez remplir l'input pour pouvoir créer une bonne reponse</h1>";
         }
 
     }else{
