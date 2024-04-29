@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 26 avr. 2024 à 12:09
+-- Généré le : lun. 29 avr. 2024 à 07:22
 -- Version du serveur : 8.0.36-0ubuntu0.22.04.1
 -- Version de PHP : 8.3.6
 
@@ -101,6 +101,31 @@ CREATE TABLE `question` (
   `id_difficulty` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `question`
+--
+
+INSERT INTO `question` (`id_question`, `question_content`, `id_difficulty`) VALUES
+(1, 'Quelle est la planète la plus proche du Soleil ?', 1),
+(2, 'Quelle est la planète la plus grande du système solaire ?', 1),
+(3, 'Quel est le nom de notre galaxie ?', 1),
+(4, 'Combien de planètes composent notre système solaire ?', 1),
+(5, 'Quel est le nom de l\'étoile autour de laquelle la Terre orbite ?', 1),
+(6, 'Quel est le satellite principal naturel de la Terre ?', 1),
+(7, 'Quelle est la planète connue pour ses anneaux ?', 1),
+(8, 'Quel est le nom de la première personne à avoir marché sur la Lune ?', 1),
+(9, 'Quelle est la planète connue comme la \"planète rouge\" ?', 1),
+(10, 'Quel est le plus grand satellite de Jupiter ?', 1),
+(11, 'Quelle est la planète la plus éloignée du Soleil ?', 1),
+(12, 'Quel est le nom de la comète la plus célèbre qui revient tout les 76 ans près de la Terre ?', 1),
+(13, 'Quel sont les noms des satellites naturels de Mars ?', 1),
+(14, 'Combien d\'Hommes ont marché sur la Lune ?', 1),
+(15, 'Quel astre s\'est vu retrograder par l\'UAI en 2006 ?', 1),
+(16, 'Quel est le nom du premier homme à aller dans l\'espace ?', 1),
+(17, 'Quel est le nom de la 3e planète orbitant le soleil ?', 1),
+(18, 'Quels sont les noms des 2 galaxies satellites les plus connus de la Voie Lactée ?', 1),
+(19, 'Quel est le nom du premier satellite artificiel de la Terre ?', 1),
+(20, 'Quel est le nom de l\'étoile polaire ?', 1);
 
 -- --------------------------------------------------------
 
@@ -112,6 +137,13 @@ CREATE TABLE `quiz` (
   `id_quiz` int NOT NULL,
   `quiz_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `quiz`
+--
+
+INSERT INTO `quiz` (`id_quiz`, `quiz_name`) VALUES
+(1, 'Mon premier quiz');
 
 -- --------------------------------------------------------
 
@@ -127,6 +159,91 @@ CREATE TABLE `response` (
   `id_quiz` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `response`
+--
+
+INSERT INTO `response` (`id_response`, `response_content`, `is_correct`, `id_question`, `id_quiz`) VALUES
+(1, 'Mercure', 1, 1, 1),
+(2, 'Jupiter', 0, 1, 1),
+(3, 'Venus', 0, 1, 1),
+(4, 'Ceres', 0, 1, 1),
+(5, 'Jupiter', 1, 2, 1),
+(6, 'Andromède', 0, 2, 1),
+(7, 'La lune', 0, 2, 1),
+(8, 'Saturne', 0, 2, 1),
+(9, 'La voie lactée', 1, 3, 1),
+(10, 'Proxima', 0, 3, 1),
+(11, 'Vega', 0, 3, 1),
+(12, 'Andomède', 0, 3, 1),
+(13, 'Huit', 1, 4, 1),
+(14, 'Neuf', 0, 4, 1),
+(15, 'Sept', 0, 4, 1),
+(16, 'Douze', 0, 4, 1),
+(17, 'Sol', 1, 5, 1),
+(18, 'Proxima du centaure', 0, 5, 1),
+(19, 'Sirus', 0, 5, 1),
+(20, 'Arcturus', 0, 5, 1),
+(21, 'Terre 1', 1, 6, 1),
+(22, 'Sol 3', 0, 6, 1),
+(23, 'Ganymède', 0, 6, 1),
+(24, 'Charon', 0, 6, 1),
+(25, 'Saturne', 1, 7, 1),
+(26, 'Uranus', 0, 7, 1),
+(27, 'Neptune', 0, 7, 1),
+(28, 'Vesta', 0, 7, 1),
+(29, 'Neil Armstrong', 1, 8, 1),
+(30, 'Eugene Cernan', 0, 8, 1),
+(31, 'Buzz Aldrin', 0, 8, 1),
+(32, 'Aya Nakamura', 0, 8, 1),
+(33, 'Mars', 1, 9, 1),
+(34, 'La Terre', 0, 9, 1),
+(35, 'Neptune', 0, 9, 1),
+(36, 'Orion', 0, 9, 1),
+(37, 'Ganymède', 1, 10, 1),
+(38, 'Europe', 0, 10, 1),
+(39, 'Charon', 0, 10, 1),
+(40, 'La lune', 0, 10, 1),
+(41, 'Neptune', 1, 11, 1),
+(42, 'Pluton', 0, 11, 1),
+(43, 'Mercure', 0, 11, 1),
+(44, 'Mars', 0, 11, 1),
+(45, ' La comète de Halley', 1, 12, 1),
+(46, 'La ceinture d\'asteroïde', 0, 12, 1),
+(47, 'Sirus', 0, 12, 1),
+(48, 'Le nébuleuse du crabe', 0, 12, 1),
+(49, 'Phobos et Deimos', 1, 13, 1),
+(50, 'Hades et Promethée', 0, 13, 1),
+(51, 'Narsil et Anduril', 0, 13, 1),
+(52, 'Scooby et Samy', 0, 13, 1),
+(53, '12', 1, 14, 1),
+(54, '2', 0, 14, 1),
+(55, '152', 0, 14, 1),
+(56, '0 parce que la Terre est plate et personne n\'a réellement dépassé le dôme', 0, 14, 1),
+(57, 'Pluton', 1, 15, 1),
+(58, 'Ceres', 0, 15, 1),
+(59, 'Les anneaux de Saturne', 0, 15, 1),
+(60, 'Jupiter', 0, 15, 1),
+(61, 'Youri Gagarine', 1, 16, 1),
+(62, 'Neil Armstrong', 0, 16, 1),
+(63, 'Thomas Pesquet', 0, 16, 1),
+(64, 'Jackie Kennedy', 0, 16, 1),
+(65, 'La Terre', 1, 17, 1),
+(66, 'Pluton', 0, 17, 1),
+(67, 'Mars', 0, 17, 1),
+(68, 'Saturne', 0, 17, 1),
+(69, 'Le grand et le petit nuage de Magellan', 1, 18, 1),
+(70, 'Andromède', 0, 18, 1),
+(71, 'Galaxie du cigare', 0, 18, 1),
+(72, 'Galaxie du Sombrero', 0, 18, 1),
+(73, 'Spoutnik 1', 1, 19, 1),
+(74, 'Elvis 3', 0, 19, 1),
+(75, 'Apollo 8', 0, 19, 1),
+(76, 'Fallout 76', 0, 19, 1),
+(77, 'Polaris', 1, 20, 1),
+(78, 'Stellaris', 0, 20, 1),
+(79, 'Apis', 0, 20, 1),
+(80, 'Doris', 0, 20, 1);
 
 -- --------------------------------------------------------
 
@@ -264,19 +381,19 @@ ALTER TABLE `proposition_astre`
 -- AUTO_INCREMENT pour la table `question`
 --
 ALTER TABLE `question`
-  MODIFY `id_question` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_question` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT pour la table `quiz`
 --
 ALTER TABLE `quiz`
-  MODIFY `id_quiz` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_quiz` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `response`
 --
 ALTER TABLE `response`
-  MODIFY `id_response` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_response` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT pour la table `type`
