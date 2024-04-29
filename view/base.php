@@ -27,7 +27,7 @@
   ?>
 
   <nav class="navbar navbar-expand-xxl p-0 m-0">
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
       <a href="view/home/home.php">
         <img class="img-logo" src="assets/img/static/Logo-Without-Bg.png" alt="Logo du site">
       </a>
@@ -58,7 +58,7 @@
           <!-- Si un user n'a pas de role suffisament élevé, les liens lui sont interdit, si un user a un role superieur il pourra acceder a ses liens -->
           <?php if(isset($_SESSION['role']) && ($_SESSION['role']) >= Role::LOGGED->value){ ?>
           <li class="nav-item">
-            <a class="nav-link" href="view/quiz/quiz.php">Quiz</a>
+            <a class="nav-link" href="view/quiz/indexQuiz.php">Quiz</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-lg-dark" href="view/mission/mission.php">Missions</a>
