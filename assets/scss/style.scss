@@ -65,7 +65,7 @@
 body{
     max-width: 992px;
     max-height: 100vh;
-    //overflow-y: hidden;
+    overflow-y: hidden;
     nav{
         position: relative;
         div{
@@ -99,7 +99,6 @@ body{
                     @include flexColumn;
                     width: 100%;
                     li{
-                        padding-top: 2.5%;
                         padding-bottom: 2.5%;
                         width: 100%;
                         text-align: center;
@@ -120,7 +119,7 @@ body{
         }
     }
     .homepage{
-        position: fixed;
+        position: absolute;
         @include imgBg;
         background-image: url("../assets/img/static/Soyouz-liftoff.jpg");
         width: 100vw;
@@ -131,7 +130,6 @@ body{
         justify-content: center;
         width: 100%;
     }
-
     .createUser{
         width: 100%;
         h1{
@@ -152,6 +150,9 @@ body{
     }
     .admin{
         display: flex;
+    }
+    .quizpage{
+        position: fixed;
     }
 }
 

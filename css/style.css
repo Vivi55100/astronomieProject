@@ -13,6 +13,7 @@
 body {
   max-width: 992px;
   max-height: 100vh;
+  overflow-y: hidden;
 }
 body nav {
   position: relative;
@@ -56,7 +57,6 @@ body nav div #navbarNav ul {
   width: 100%;
 }
 body nav div #navbarNav ul li {
-  padding-top: 2.5%;
   padding-bottom: 2.5%;
   width: 100%;
   text-align: center;
@@ -73,7 +73,7 @@ body nav div #navbarNav ul li a img {
   border-radius: 50%;
 }
 body .homepage {
-  position: fixed;
+  position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -106,6 +106,9 @@ body .createUser form input {
 }
 body .admin {
   display: flex;
+}
+body .quizpage {
+  position: fixed;
 }
 
 .failed {

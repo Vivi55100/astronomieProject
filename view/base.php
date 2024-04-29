@@ -26,7 +26,7 @@
     }    
   ?>
 
-  <nav class="navbar navbar-expand-xxl p-0">
+  <nav class="navbar navbar-expand-xxl p-0 m-0">
     <div class="container-fluid">
       <a href="view/home/home.php">
         <img class="img-logo" src="assets/img/static/Logo-Without-Bg.png" alt="Logo du site">
@@ -44,7 +44,7 @@
         <span class="navbar-toggler-icon bg-light"></span>
       </button>
       <div id="navbarNav" class="collapse navbar-collapse">
-        <ul class="d-flex">
+        <ul class="container d-flex">
           <?php if(isset($_SESSION["id_user"])){ ?>
           <li class="profileButton nav-item">
             <a class="nav-link" href="view/user/read_user.php?id_user=<?= $_SESSION['id_user'] ?>">
