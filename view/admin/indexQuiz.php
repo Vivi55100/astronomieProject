@@ -29,6 +29,10 @@
             ?>
         </tbody>
     </table>
+
+<script>
+    document.body.style.overflowY = 'scroll';
+</script>
 <?php
     }else{
         header("Location:../home/home.php");

@@ -107,8 +107,18 @@ body .createUser form input {
 body .admin {
   display: flex;
 }
-body .quizpage {
-  position: fixed;
+body .quizGame {
+  width: 100vw;
+  height: 100vh;
+  background-color: blue;
+}
+body .quizGame .quizQuestion {
+  height: 100vh;
+  background-color: green;
+}
+body .quizGame .quizResponse {
+  height: 80vh;
+  background-color: red;
 }
 
 .failed {

@@ -9,14 +9,14 @@
 
     <h1 class="text-center my-3">Quiz</h1>
 
-    <div class="quizpage container d-flex flex-wrap">
+    <div class="indexQuiz container d-flex justify-content-center flex-wrap text-center m-auto">
         <?php
             foreach ($quizs as $quiz) {
         ?>
         <div class="card p-2 m-2">
             <div class="card-body">
                 <h5 class="card-title"><?= htmlentities($quiz['quiz_name']) ?></h5>
-                <a href="view/quiz/quiz.php?id_quiz=" class="btn btn-primary">Jouer</a>
+                <a href="view/quiz/quiz.php?id_quiz=<?= htmlentities($quiz['id_quiz']) ?>" class="btn btn-primary">Jouer</a>
             </div>
         </div>
         <?php } ?>
@@ -29,4 +29,3 @@
         header("Location:../home/home.php");
     }
 ?>
-<!-- changer l'id_difficulty par id_quiz -->

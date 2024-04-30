@@ -151,8 +151,19 @@ body{
     .admin{
         display: flex;
     }
-    .quizpage{
-        position: fixed;
+    .indexQuiz{}
+    .quizGame{
+        width: 100vw;
+        height: 100vh;
+        background-color: blue;
+        .quizQuestion{
+            height: 100vh;
+            background-color: green;
+        }
+        .quizResponse{
+            height: 80vh;
+            background-color: red;
+        }
     }
 }
 

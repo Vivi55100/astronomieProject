@@ -52,5 +52,9 @@
        header("Location:../home/home.php"); // renvoie un utlisateur qui chercherai à acceder à cette page en tapant le chemin d'acces dans l'url
     }
 ?>
+
+<script>
+    document.body.style.overflowY = 'scroll';
+</script>
 </body>
 </html>
