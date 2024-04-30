@@ -11,7 +11,7 @@
             <tr>
                 <th>ID</th>
                 <th>Question content</th>
-                <th>Id_difficulty</th>
+                <th>Id_quiz</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
                         $table .= "<tr>";
                             $table .= "<td>" . htmlentities($question['id_question']) . "</td>";
                             $table .= "<td>" . htmlentities($question['question_content']) . "</td>";
-                            $table .= "<td>" . htmlentities($question['id_difficulty']) ."</td>";
+                            $table .= "<td>" . htmlentities($question['id_quiz']) ."</td>";
                         $table .="</tr>";
                     }
                     echo $table;

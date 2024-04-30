@@ -9,8 +9,8 @@
         // Verifie si tout les inputs du formulaire ne sont pas vides
         if(!empty($_POST["question"]) && !empty($_POST["goodResponse"]) && !empty($_POST["badResponse"]) && !empty($_POST["badResponse2"]) && !empty($_POST["badResponse3"])){
             try {
-                $questionData = [$_POST["question"], 3]; // [$_POST["question"], 2] changer le dernier numero selon le niveau de difficulty 
-                $sql = "INSERT INTO question (question_content, id_difficulty) VALUE (?,?)";
+                $questionData = [$_POST["question"], 3]; // [$_POST["question"], 2] changer le dernier numero selon le quiz
+                $sql = "INSERT INTO question (question_content, id_quiz) VALUE (?,?)";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute($questionData);
                 $id_question = $pdo->lastInsertId();
