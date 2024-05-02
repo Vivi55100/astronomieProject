@@ -110,15 +110,12 @@ body .admin {
 body .quizGame {
   width: 100vw;
   height: 100vh;
-  background-color: blue;
 }
 body .quizGame .quizQuestion {
   height: 100vh;
-  background-color: green;
 }
 body .quizGame .quizResponse {
   height: 80vh;
-  background-color: red;
 }
 
 .failed {
@@ -177,7 +174,8 @@ body .quizGame .quizResponse {
     list-style: none;
   }
   body nav div #navbarNav ul li {
-    width: 100%;
+    width: auto;
+    margin-left: 2.5%;
     text-align: center;
     padding-top: 2.5vh;
     padding-bottom: 2.5vh;
@@ -265,12 +263,13 @@ body .quizGame .quizResponse {
   body nav div #navbarNav ul {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     width: 100%;
   }
   body nav div #navbarNav ul li {
     display: flex;
     visibility: visible;
-    width: 100%;
+    width: auto;
     align-items: center;
     text-align: center;
   }

@@ -155,14 +155,14 @@ body{
     .quizGame{
         width: 100vw;
         height: 100vh;
-        background-color: blue;
+        //background-color: blue;
         .quizQuestion{
             height: 100vh;
-            background-color: green;
+            //background-color: green;
         }
         .quizResponse{
             height: 80vh;
-            background-color: red;
+            //background-color: red;
         }
     }
 }
@@ -235,7 +235,8 @@ body{
                         width: 100%;
                         list-style: none;
                         li{
-                            width: 100%;
+                            width: auto;
+                            margin-left: 2.5%;
                             text-align: center;
                             padding-top: 2.5vh;
                             padding-bottom: 2.5vh;
@@ -345,11 +346,12 @@ body{
                     ul{
                         display: flex;
                         flex-direction: row;
+                        justify-content: space-between;
                         width: 100%;
                         li{
                             display: flex;
                             visibility: visible;
-                            width: 100%;
+                            width: auto;
                             align-items: center;
                             text-align: center;
                             a{
