@@ -132,10 +132,11 @@ body .quizGame {
   height: 100vh;
 }
 body .quizGame .quizQuestion {
-  height: 100vh;
+  height: 10vh;
 }
 body .quizGame .quizResponse {
-  height: 80vh;
+  height: auto;
+  background-color: red;
 }
 
 @media screen and (min-width: 992px) {

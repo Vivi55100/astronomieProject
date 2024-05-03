@@ -172,14 +172,13 @@ body{
     .quizGame{
         width: 100vw;
         height: 100vh;
-        //background-color: blue;
         .quizQuestion{
-            height: 100vh;
-            //background-color: green;
+            height: 10vh;
+            
         }
         .quizResponse{
-            height: 80vh;
-            //background-color: red;
+            height: auto;
+            background-color: red;
         }
     }
 }
