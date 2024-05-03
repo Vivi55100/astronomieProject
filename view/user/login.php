@@ -21,14 +21,13 @@
                 $_SESSION["token"] = bin2hex(random_bytes(16));
                 header("Location:../home/home.php");
             }else{
-                alert("Mot de passe incorrect", "error");
+                alert("Le mot de passe est incorrect", "failed", "../../view/user/login.php");
             }
         }else{
             // Compte n'existe pas
-            alert("Le compte n'existe pas !", "error");
+            alert("Attention ce compte n'existe pas !", "failed", "../../view/user/login.php");
         }
     }
-    //"Une erreur interne s'est produite", "failed", "../../view/user/create_user.php"
     include_once "../alert.php";
 ?>
 

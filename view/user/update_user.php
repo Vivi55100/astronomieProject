@@ -4,15 +4,17 @@
     include_once "../../model/pdo.php";
     
     if ($_SESSION['role'] >= Role::LOGGED->value){
-        if(isset($_GET['id_user'])){
-            $id = $_GET["id_user"];
+        if(isset($_SESSION['id_user'])){
+            $id = $_SESSION["id_user"];
             $sql = "SELECT * FROM user WHERE id_user=$id";
             $stmt = $pdo->query($sql);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        }    
+        }
 ?>
 
 <h1 class="text-center my-3">Modifier son profil</h1>
+
+<?php include_once "../alert.php"; ?>
 
 <form class="d-flex flex-column align-item-center justify-content-center w-50 mx-auto" id="form" class="mx-auto" action="controller/user/update_user_ctrl.php" enctype="multipart/form-data" method="POST">
 

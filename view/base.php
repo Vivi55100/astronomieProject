@@ -18,8 +18,8 @@
     include_once "../../model/role.php";
     session_start();
 
-    if(isset($_GET['id_user'])){
-      $id = $_GET["id_user"];
+    if(isset($_SESSION['id_user'])){
+      $id = $_SESSION["id_user"];
       $sql = "SELECT * FROM user WHERE id_user=$id";
       $stmt = $pdo->query($sql);
       $user = $stmt->fetch(PDO::FETCH_ASSOC);
