@@ -4,108 +4,90 @@ session_start();
 include_once "../../model/pdo.php";
 include_once "../../config.php";
 
-/*
-    Recuperer l'addresse de l'ancienne image pour pouvoir la supprimer ✅
+if($_SESSION['id_user']){ // Check if the user is logged in
+        
+    $avatarFullPath = $_FILES['avatar']['full_path']; // Retrieve the full path of the avatar from the form
+    // var_dump('$ avatar full path : ', $avatarFullPath, "<br><br>");
 
-    Recuperer les données du $_FILES ✅
-    
-    Recuperer l'extension (jpg , png ...) ✅
+    $avatarError = $_FILES['avatar']['error']; // Retrieve the error code of the avatar from the form
+    // var_dump('$ avatar error  : ', $avatarError, "<br><br>");
 
-    Faire un tableau de tout les types de fichiers ✅
+    $extensionArray = ['jpg', 'jpeg', 'png', 'svg', 'webp', 'gif', 'avif']; // Define the allowed file extensions
+    // var_dump("extension array : ", $extensionArray, "<br><br>");
 
-    Verifier que le type du fichier recuperé a le bon type d'extension sinon erreur ✅
+    // Check if there are any files uploaded
+    if( $_FILES ){    
 
-    Verifier la taille du fichier ✅
+        $avatarTmpName = $_FILES['avatar']['tmp_name']; // Retrieve the temporary name of the avatar from the form.
+        // var_dump('$ avatar tmp Name : ', $avatarTmpName, "<br><br>");
 
-    Renommer le fichier en hash (sha1) ✅
+        $avatarSize = $_FILES['avatar']['size']; // Retrieve the size of the avatar from the form
+        // var_dump('$ avatar size: ', $avatarSize, "<br><br>");
 
-    Inserer dans la base de donnée ✅
-    (si tout c'est bien passer if(blabla){unset l'ancienne image})
-*/
+        $fileName = $_FILES['avatar']['name']; // Retrieve the name of the avatar from the form
+        // var_dump('$ file name : ', $fileName, "<br><br>");
+        // Exemple ; cochon.png
+        // Exemple 2 : cochon.de_lait.png
+        // Exemple 3 : cohocn.PNg
 
-//$avatarDataFile = $_FILES['avatar']; // Recupere les données de l'avatar
-//var_dump("avatar data file = ", $avatarDataFile, "<br><br>");
+        $explFileName = explode(".", $fileName); // Separate the filename and its extension
+        // ["cochon", "png"]
+        // ["cochon", "de_lait", "png"]
 
-$avatarFullPath = $_FILES['avatar']['full_path']; // Recupere le chemin d'acces
-var_dump('$ avatar full path : ', $avatarFullPath, "<br><br>");
+        $extension = end($extensionArray); // Retrieve the file extension
 
-$avatarError = $_FILES['avatar']['error']; // Recupere une erreur
-var_dump('$ avatar error  : ', $avatarError, "<br><br>");
+        if ( in_array(strtolower($extension), $extensionArray)){ // Check if the extension is allowed
 
-$extensionArray = ['jpg', 'jpeg', 'png', 'svg', 'webp', 'gif', 'avif']; // Tableau de chaines de caracteres, je souhaite comparer plus tard les extensions
-var_dump("extension array : ", $extensionArray, "<br><br>");
+            // Check if the size of the avatar is less than or equal to 1MB
+            if ( $avatarSize <= 1048576 ){ // 1Mo en octets
 
-if( $_FILES ){    
+                $new_name = uniqid() . time() . "." . $extension; // Generate a unique name for the avatar by combining a unique identifier and a timestamp
 
-    $avatarTmpName = $_FILES['avatar']['tmp_name']; // Les données binaires d"un fichier
-    var_dump('$ avatar tmp Name : ', $avatarTmpName, "<br><br>");
-
-    $avatarSize = $_FILES['avatar']['size']; // Recupere la taille de l'avatar
-    var_dump('$ avatar size: ', $avatarSize, "<br><br>");
-
-    $fileName = $_FILES['avatar']['name']; // Recuperer le nom de l'avatar
-    var_dump('$ file name : ', $fileName, "<br><br>");
-
-    // Exemple ; cochon.png
-
-    // exemple 2 : cochon.de_lait.png
-
-    //exemple 3 : cohocn.PNg
-
-    $explFileName = explode(".", $fileName); // Split 
-
-    // ["cochon", "png"]
-
-    // ["cochon", "de_lait", "png"]
-
-    $extension = end($extensionArray);
-
-    if ( in_array(strtolower($extension), $extensionArray)){
-
-        if ( $avatarSize <= 1048576 ){ // 1Mo
-
-            $new_name = uniqid() . time() . "." . $extension;
-
-            $uploadPath = "assets/img/avatarUpload/";
+                $uploadPath = "assets/img/avatarUpload/"; // Path where the avatar will be downloaded
                 try{
-                    $idUser = ($_POST["id_user"]);
-                    $sqlNewAvatar = "UPDATE user SET avatar=? WHERE id_user=$idUser";
+                    $idUser = ($_POST["id_user"]); // Retrieve the user identifier from the POST form
+                    $sqlNewAvatar = "UPDATE user SET avatar=? WHERE id_user=$idUser";  // Prepare the SQL query to update the avatar path in the database
                     $stmtNewAvatar = $pdo->prepare($sqlNewAvatar);
                     $avatarPathName = $uploadPath . $new_name;
-                    if($stmtNewAvatar->execute([$avatarPathName])){
-
+                    
+                    if($stmtNewAvatar->execute([$avatarPathName])){ // Execute the SQL query and move the uploaded avatar to the download directory.
                         if(move_uploaded_file($avatarTmpName, "../../" . $avatarPathName)){
-                        echo "Vous avez reussi à modifier votre avatar";
-                        $baseAvatar = "assets/img/static/iconUser.png";
-                        if ( $baseAvatar != $_SESSION['avatar']){
-                            $deleteAvatar = "../../" . $_SESSION['avatar'];
-                            unset($deleteAvatar);
-                        }
-                        $_SESSION['avatar'] = $avatarPathName;
+                            echo "Vous avez reussi à modifier votre avatar";
+                            header('Location:../../view/user/read_user.php?id_user=' . $_SESSION['id_user']);
+                            $baseAvatar = "assets/img/static/iconUser.png";
+
+                            // Delete the old avatar if it's not the default one
+                            if ( $baseAvatar != $_SESSION['avatar']){
+                                $deleteAvatar = "../../" . $_SESSION['avatar'];
+                                unset($deleteAvatar);
+                            }
+
+                            //  Update the avatar path in the session
+                            $_SESSION['avatar'] = $avatarPathName;
                         } else{
                             echo "Vous n'avez pas reussi a copier le fichier";
+                            header('Location:../../view/user/update_avatar.php?id_user=' . $_SESSION['id_user']);
                         }
                     }else{
                         echo "Probleme ! l'avatar n'est pas dans la base de données";
+                        header('Location:../../view/user/update_avatar.php?id_user=' . $_SESSION['id_user']);
                     }
                 }catch (PDOException $e){
                     echo "Problemes = " . $e->getMessage();
+                    header('Location:../../view/user/update_avatar.php?id_user=' . $_SESSION['id_user']);
                 }
-
-        } else {
-
+            } else {
                 echo "Votre fichier est trop volumineux.";
-
+                header('Location:../../view/user/update_avatar.php?id_user=' . $_SESSION['id_user']);
+            }
+        } else {
+            echo "Le type de fichier ne correspond pas.";
+            header('Location:../../view/user/update_avatar.php?id_user=' . $_SESSION['id_user']);
         }
-
     } else {
-
-        echo "Le type de fichier ne correspond pas.";
-
+        echo "Veuilllez selectionner une image pour modifier votre avatar.";
+        header('Location:../../view/user/update_avatar.php?id_user=' . $_SESSION['id_user']);
     }
-
-} else {
-
-    echo "Veuilllez selectionner une image pour modifier votre avatar.";
-
+}else{
+    header('Location:../../view/home/home.php');
 }

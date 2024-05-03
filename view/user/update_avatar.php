@@ -37,6 +37,7 @@
 </form>
 
 <script>
+    document.body.style.overflowY = 'scroll';
     const inputAvatar = document.getElementById("inputAvatar")
     const preview = document.getElementById("preview")
     const fr = new FileReader();
@@ -57,7 +58,6 @@
         }
     })
     // console.log("inputAvatar : ", inputAvatar);
-
 </script>
 </body>
 </html>
