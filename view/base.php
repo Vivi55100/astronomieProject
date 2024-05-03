@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="js/main.js"></script>
-    <title>NavBar</title>
+    <title></title>
 </head>
 <body>
 
@@ -55,7 +55,6 @@
           <li class="nav-item">
             <a class="nav-link" href="view/astre/astre.php">Astre</a>
           </li>
-          <!-- Si un user n'a pas de role suffisament élevé, les liens lui sont interdit, si un user a un role superieur il pourra acceder a ses liens -->
           <?php if(isset($_SESSION['role']) && ($_SESSION['role']) >= Role::LOGGED->value){ ?>
           <li class="nav-item">
             <a class="nav-link" href="view/quiz/indexQuiz.php">Quiz</a>
@@ -78,8 +77,6 @@
           </li>
           <?php } ?>
           <?php if(!isset($_SESSION['name'])){ ?>
-            <!-- Si un utilisateur n'est pas connecté, alors le lien de connexion s'affiche et renvoie vers la page de connexion, si l'utilisateur est connecté,
-              alors le lien de deconnexion s'affiche a la place du lien de connexion -->
             <li class="nav-item">
               <a href="view/user/login.php" class="nav-link">Connexion</a>
             </li>

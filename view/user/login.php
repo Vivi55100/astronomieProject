@@ -2,6 +2,7 @@
     include_once "../../model/role.php";
     include_once "../base.php";
     include_once "../../model/pdo.php";
+    include_once "../../model/functions.php";
     
 
     if(!empty($_POST['username']) && !empty($_POST['psw'])){
@@ -20,14 +21,15 @@
                 $_SESSION["token"] = bin2hex(random_bytes(16));
                 header("Location:../home/home.php");
             }else{
-                echo "<h2 class='text-center text-danger'>Mot de passe incorrect</h2>";
+                alert("Mot de passe incorrect", "error");
             }
         }else{
             // Compte n'existe pas
-            echo "<h2 class='text-center text-danger'>Le compte n'existe pas, veuillez retenter avec les bons identifiant et mot de passe !</h2>";
+            alert("Le compte n'existe pas !", "error");
         }
     }
-
+    //"Une erreur interne s'est produite", "failed", "../../view/user/create_user.php"
+    include_once "../alert.php";
 ?>
 
 <h1 class="text-center mt-3">Connexion</h1>

@@ -15,12 +15,10 @@ if(
         $sql = "INSERT INTO user (last_name, first_name, username, password, mail, avatar, role, delete_date) VALUE (?,?,?,?,?,?,?,?)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$_POST["last_name"], $_POST["first_name"], $_POST["username"], $psw, $_POST["mail"], $imgBaseAvatar, 1, null]);
-        header("Location:../../view/user/login.php");
+        alert("Vous avez créer votre compte", "success", "../../view/user/login.php");
     } catch (PDOException $e) {
-        // mon echo me permet de detecter l'/les erreur(s) que l'exception me renvoie
-        // echo "Quelque chose qui s'est mal passé: ". $e->getMessage();
-       alert("error", "Une erreur s'est produite" . $e->getMessage());
+       alert("Une erreur interne s'est produite", "failed", "../../view/user/create_user.php");
     }
 }else{
-    alert("error", "Veuillez remplir tous les champs requis");
+    alert("Veuillez remplir tous les champs requis", "failed", "../../view/user/create_user.php");
 }

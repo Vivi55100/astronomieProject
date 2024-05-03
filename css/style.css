@@ -10,6 +10,26 @@
   font-family: "canada";
   src: url("../assets/fonts/Radio_Canada/static/RadioCanada-Regular.ttf");
 }
+.failed {
+  color: red;
+  animation: dpop 7s;
+  opacity: 0;
+}
+
+.success {
+  color: green;
+  animation: dpop 7s;
+  opacity: 0;
+}
+
+@keyframes dpop {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
 body {
   max-width: 992px;
   max-height: 100vh;
@@ -118,26 +138,6 @@ body .quizGame .quizResponse {
   height: 80vh;
 }
 
-.failed {
-  color: red;
-  animation: dpop 7s;
-  opacity: 0;
-}
-
-.success {
-  color: green;
-  animation: dpop 7s;
-  opacity: 0;
-}
-
-@keyframes dpop {
-  0% {
-    opacity: 100%;
-  }
-  100% {
-    opacity: 0%;
-  }
-}
 @media screen and (min-width: 992px) {
   body {
     max-width: 1400px;

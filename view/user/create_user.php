@@ -2,12 +2,12 @@
     include_once "../base.php";
     include_once "../../model/pdo.php";
     include_once "../../model/role.php";
+
+    include_once "../alert.php";
 ?>
 
 <div class="createUser">
     <h1 class="text-center my-5">Inscription</h1>
-
-    <?php include_once "../alert.php" ?>
 
     <form id="form" action="controller/user/create_user_ctrl.php" method="POST">
 

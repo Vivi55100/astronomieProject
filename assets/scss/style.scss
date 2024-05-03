@@ -44,6 +44,23 @@
     src: url("../assets/fonts/Radio_Canada/static/RadioCanada-Regular.ttf");
 }
 
+.failed{
+    color: red;
+    @include dpop;
+}
+.success{
+    color: green;
+    @include dpop;
+}
+@keyframes dpop {
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+
 // *****   **    **                *                ***              
 // ******  ***** *****              **           *      ***             
 // **   *  *  ***** *****            **          ***      **             
@@ -164,23 +181,6 @@ body{
             height: 80vh;
             //background-color: red;
         }
-    }
-}
-
-.failed{
-    color: red;
-    @include dpop;
-}
-.success{
-    color: green;
-    @include dpop;
-}
-@keyframes dpop {
-    0%{
-        opacity: 100%;
-    }
-    100%{
-        opacity: 0%;
     }
 }
 
