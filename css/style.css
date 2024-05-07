@@ -67,7 +67,6 @@ body nav div .welcome h4 {
 }
 body nav div button {
   margin-right: 2vw;
-  color: white;
 }
 body nav div #navbarNav {
   background-repeat: no-repeat;
@@ -106,31 +105,45 @@ body .homepage {
   width: 100vw;
   height: 100vh;
 }
-body .createAccount {
+body .loginPage {
+  overflow-y: hidden;
+}
+body .loginPage .createAccount {
   display: flex;
   justify-content: center;
   width: 100%;
 }
-body .createUser {
+body .createUserPage {
   width: 100%;
 }
-body .createUser h1 {
+body .createUserPage h1 {
   font-family: "canada";
 }
-body .createUser form {
+body .createUserPage form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
-body .createUser form label {
+body .createUserPage form label {
   font-family: "canada";
 }
-body .createUser form input {
+body .createUserPage form input {
   width: 50%;
 }
-body .admin {
+body .readUserPage {
+  background-color: grey;
+  height: 85vh;
+}
+body .readUserPage .userBtnActions {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .readUserPage .userBtnActions .btnDelete {
+  width: 100%;
+  text-align: center;
+  margin-top: 15%;
 }
 body .quizGame {
   width: 100vw;

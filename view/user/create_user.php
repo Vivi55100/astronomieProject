@@ -6,7 +6,7 @@
     include_once "../alert.php";
 ?>
 
-<div class="createUser">
+<div class="createUserPage">
     <h1 class="text-center my-5">Inscription</h1>
 
     <form id="form" action="controller/user/create_user_ctrl.php" method="POST">

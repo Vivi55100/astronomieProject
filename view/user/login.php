@@ -18,7 +18,7 @@
                 $_SESSION["id_user"] = $user["id_user"];
                 $_SESSION["role"] = $user['role'];
                 $_SESSION["avatar"] = $user["avatar"];
-                $_SESSION["token"] = bin2hex(random_bytes(16));
+                $_SESSION["token"] = bin2hex(random_bytes(16)); // random_byte va nous generer un nombre binaire de 16 bits, bin2hex convertit une valueu binaire en hexa-decimale afin d'éviter attack CSRF (comparaison tokens)
                 header("Location:../home/home.php");
             }else{
                 alert("Le mot de passe est incorrect", "failed", "../../view/user/login.php");
@@ -31,9 +31,11 @@
     include_once "../alert.php";
 ?>
 
-<h1 class="text-center mt-3">Connexion</h1>
+<div class="loginPage">
 
-<form id="form" class="mx-auto w-50" method="post">
+    <h1 class="text-center mt-3">Connexion</h1>
+
+    <form id="form" class="mx-auto w-50" method="post">
 
     <label class="mt-3" for="username">Identifiant</label>
     <input class="form-control mb-3" type="text" name="username" placeholder="Veuillez renseigner votre identifiant">
@@ -42,8 +44,12 @@
     <input class="form-control mb-3" type="password" name="psw">
 
     <input class="form-control btn btn-primary my-3" type="submit" value="Connexion">
-</form>
+    </form>
 
-<div class="createAccount">
-    <p>Pas de compte ? <span><a href="view/user/create_user.php">S'inscrire</a></span></p>    
+    <div class="createAccount">
+        <p>Pas de compte ? <span><a href="view/user/create_user.php">S'inscrire</a></span></p>    
+    </div>
 </div>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
     if(isset($_SESSION["role"]) && ($_SESSION["role"]) == Role::ADMIN->value){
 ?>
 
-<div class="admin d-flex flex-column">
+<div class="indexAdmin d-flex flex-column">
 
     <h1 class="text-center my-3">Gestion par l'Admin</h1>
 

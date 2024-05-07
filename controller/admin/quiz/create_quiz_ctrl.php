@@ -12,10 +12,10 @@
                 $stmt->execute([$_POST["quiz"]]);
                 header("Location:../../../view/admin/create_quiz.php");
             } catch (PDOException $e) {
-                alert("error", "Une erreur s'est produite" . $e->getMessage());
+                alert("Une erreur s'est produite", "error" . $e->getMessage(), "");
             }
         }else{
-            alert("error", "Il faut remplir le champs requis");
+            alert("Il faut remplir le champs requis", "error", "");
         }
     }else{
         header("Location:../../../home/home.php");

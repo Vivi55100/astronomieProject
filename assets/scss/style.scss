@@ -84,7 +84,7 @@ body{
     max-height: 100vh;
     overflow-y: hidden;
     nav{
-        position: fixed;
+        position: fixed;        
         top: 0;
         left: 0;
         width: 100%;
@@ -111,7 +111,6 @@ body{
             }
             button{
                 margin-right: 2vw;
-                color: white;
             }
             #navbarNav{
                 @include imgBg;
@@ -147,12 +146,15 @@ body{
         width: 100vw;
         height: 100vh;
     }
-    .createAccount{
-        display: flex;
-        justify-content: center;
-        width: 100%;
+    .loginPage{
+        overflow-y: hidden;
+        .createAccount{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
     }
-    .createUser{
+    .createUserPage{
         width: 100%;
         h1{
             font-family: "canada";
@@ -170,10 +172,21 @@ body{
             }
         }
     }
-    .admin{
-        display: flex;
+    //.indexQuiz{}
+    .readUserPage{
+        background-color: grey;
+        height: 85vh;
+        .userBtnActions{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .btnDelete{
+                width: 100%;
+                text-align: center;
+                margin-top: 15%;
+            }
+        }
     }
-    .indexQuiz{}
     .quizGame{
         width: 100vw;
         height: 100vh;
@@ -233,7 +246,6 @@ body{
                 #navbarNav{
                     @include imgBg;
                     background-image: url('../assets/img/static/Euclid_lift-off2.jpg');
-                    //height: 100%;
                     ul{
                         width: 100%;
                         list-style: none;
