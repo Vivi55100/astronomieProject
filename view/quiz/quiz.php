@@ -11,7 +11,7 @@
 
         <div class="quizResponse d-flex justify-content-center align-items-center" id="quizResponse"></div>
 
-        <div class="submitResponseMessage" id="submitResponseMessage"></div>
+        <div class="submitResponseMessage d-flex justify-content-center align-items-center" id="submitResponseMessage"></div>
 
     </div>
 

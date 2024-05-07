@@ -36,7 +36,13 @@ body {
   overflow-y: hidden;
 }
 body nav {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  overflow-y: auto;
+  max-height: 100vh;
 }
 body nav div {
   display: flex;
@@ -93,7 +99,6 @@ body nav div #navbarNav ul li a img {
   border-radius: 50%;
 }
 body .homepage {
-  position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script defer src="js/main.js"></script>
+    <script defer src="../js/main.js"></script>
     <title></title>
 </head>
 <body>
@@ -26,7 +26,7 @@
     }    
   ?>
 
-  <nav class="navbar navbar-expand-xxl p-0 m-0">
+  <nav class="navbar navbar-expand-xxl p-0 m-0" id="mainNavbar">
     <div class="container-fluid p-0">
       <a href="view/home/home.php">
         <img class="img-logo" src="assets/img/static/Logo-Without-Bg.png" alt="Logo du site">

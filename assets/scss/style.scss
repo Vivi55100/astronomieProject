@@ -84,7 +84,13 @@ body{
     max-height: 100vh;
     overflow-y: hidden;
     nav{
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        overflow-y: auto;
+        max-height: 100vh;
         div{
             @include flexCenter;
             text-align: center;
@@ -136,7 +142,6 @@ body{
         }
     }
     .homepage{
-        position: absolute;
         @include imgBg;
         background-image: url("../assets/img/static/Soyouz-liftoff.jpg");
         width: 100vw;
