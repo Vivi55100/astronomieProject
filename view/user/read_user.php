@@ -40,21 +40,30 @@
             <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">Supprimer le compte</button>
 
             <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+
                 <div class="modal-dialog modal-dialog-centered">
+
                     <div class="modal-content">
+                        
                         <div class="modal-header">
                             <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmation de suppression de compte</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                    <div class="modal-body">
-                        Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.
-                    </div>
+
+                        <div class="modal-body">
+                            Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est réversible.<br>
+                            Contactez l'admin pour récupérer votre compte.
+                        </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
                             <a class="btn btn-danger" href="controller/user/delete_user.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>&token=<?= $token ?>">Supprimer</a>
                         </div>
+                        
                     </div>
+
                 </div>
+
             </div>
 
         </div>

@@ -34,14 +34,14 @@
       <div class="welcome">
         <?php
           if(isset($_SESSION['name'])){
-            echo "<h3>Bonjour $_SESSION[name]<h3/>";
+            echo "<h4>Bonjour <span>$_SESSION[name]</span><h4/>";
           }else{
             echo "";
           }
         ?>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon bg-light"></span>
+        <span class="navbar-toggler-icon rounded bg-light"></span>
       </button>
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="container d-flex">
