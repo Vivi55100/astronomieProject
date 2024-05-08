@@ -77,7 +77,6 @@
                 3000
             )
             errorLogin.innerHTML = error
-            console.log('error = ', error)
         }else{
             this.submit()
         }

@@ -131,21 +131,13 @@ body .createUserPage form label {
 body .createUserPage form input {
   width: 50%;
 }
-body .readUserPage {
-  height: 85vh;
-}
-body .readUserPage ul li {
+body .readUserPage .userInfoActions ul li {
   list-style: none;
+  font-size: 1.2em;
 }
-body .readUserPage .userBtnActions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-body .readUserPage .userBtnActions .btnDelete {
-  width: 100%;
-  text-align: center;
-  margin-top: 15%;
+body .readUserPage .userInfoActions ul li .imgAvatar {
+  width: 30vw;
+  border-radius: 50%;
 }
 body .quizGame {
   width: 100vw;
@@ -167,89 +159,34 @@ body .quizGame .quizResponse {
 @media screen and (min-width: 992px) {
   body {
     max-width: 1400px;
-    max-height: 100vh;
-  }
-  body nav div {
-    background-color: black;
-  }
-  body nav div a {
-    width: 20%;
   }
   body nav div a img {
-    width: 100%;
-  }
-  body nav div .welcome {
-    width: auto;
-  }
-  body nav div .welcome h3 {
-    font-family: "potta";
-    color: white;
-  }
-  body nav div button {
-    margin-right: 2vw;
-    color: white;
+    width: 12vw;
   }
   body nav div #navbarNav {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     background-image: url("../assets/img/static/Euclid_lift-off2.jpg");
   }
-  body nav div #navbarNav ul {
-    width: 100%;
-    list-style: none;
-  }
-  body nav div #navbarNav ul li {
-    width: auto;
-    margin-left: 2.5%;
-    text-align: center;
-    padding-top: 2.5vh;
-    padding-bottom: 2.5vh;
-  }
   body nav div #navbarNav ul li a {
-    width: 100%;
     color: black !important;
-    font-family: "potta";
-    font-size: 2em;
-  }
-  body nav div #navbarNav ul li a img {
-    width: 10vw;
-    height: 10vw;
-    border-radius: 50%;
   }
   body .homepage {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     background-image: url("../assets/img/static/spaceX-falcon-heavy.jpg");
+  }
+  body .quizGame {
     width: 100vw;
     height: 100vh;
   }
-  body .createAccount {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  body .quizGame .quizQuestion {
+    height: auto;
   }
-  body .createUser {
-    width: 100%;
-  }
-  body .createUser h1 {
+  body .quizGame .quizQuestion .questionContent {
     font-family: "canada";
+    text-align: center;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
   }
-  body .createUser form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-  body .createUser form label {
-    font-family: "canada";
-  }
-  body .createUser form input {
-    width: 50%;
-  }
-  body .admin {
-    display: flex;
+  body .quizGame .quizResponse {
+    height: auto;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -262,22 +199,11 @@ body .quizGame .quizResponse {
     height: 20vh !important;
     overflow-y: hidden;
   }
-  body nav div {
-    height: 100% !important;
-  }
   body nav div a {
     width: 10%;
   }
   body nav div a img {
-    width: 80%;
-  }
-  body nav div .welcome {
-    width: 5vw;
-  }
-  body nav div .welcome h3 {
-    font-family: "potta";
-    color: white;
-    font-size: 1.5em;
+    width: 10vw;
   }
   body nav div button {
     margin-right: 2vw;
@@ -290,7 +216,8 @@ body .quizGame .quizResponse {
   body nav div #navbarNav ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
     width: 100%;
   }
   body nav div #navbarNav ul li {
@@ -299,6 +226,7 @@ body .quizGame .quizResponse {
     width: auto;
     align-items: center;
     text-align: center;
+    padding: 0;
   }
   body nav div #navbarNav ul li a {
     width: 100%;
