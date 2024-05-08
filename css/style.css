@@ -152,7 +152,13 @@ body .quizGame {
   height: 100vh;
 }
 body .quizGame .quizQuestion {
-  height: 10vh;
+  height: auto;
+}
+body .quizGame .quizQuestion .questionContent {
+  font-family: "canada";
+  text-align: center;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
 }
 body .quizGame .quizResponse {
   height: auto;

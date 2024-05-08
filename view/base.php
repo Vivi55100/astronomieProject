@@ -63,9 +63,6 @@
             <a class="nav-link text-lg-dark" href="view/mission/mission.php">Missions</a>
           </li>
           <?php } ?>
-          <li class="nav-item">
-            <a class="nav-link" href="view/thanks/special_thanks.php">Remerciements</a>
-          </li>
           <?php if(isset($_SESSION['role']) && ($_SESSION['role']) >= Role::LOGGED->value){ ?>
           <li class="nav-item">
             <a class="nav-link" href="view/proposition/proposition_astre.php">Proposition Astre</a>
