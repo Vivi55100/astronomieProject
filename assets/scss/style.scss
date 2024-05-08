@@ -194,8 +194,13 @@ body{
         width: 100vw;
         height: 100vh;
         .quizQuestion{
-            height: 10vh;
-            
+            height: auto;
+            .questionContent{
+                font-family: "canada";
+                text-align: center;
+                margin-top: 3vh;
+                margin-bottom: 3vh;
+            }
         }
         .quizResponse{
             height: auto;
