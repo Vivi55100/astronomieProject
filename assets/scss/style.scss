@@ -117,10 +117,10 @@ body{
                 background-image: url('../assets/img/static/Vega_VV23_liftoff.jpg');
                 min-height: 100vh;
                 ul{
-                    list-style: none;
                     @include flexColumn;
                     width: 100%;
                     li{
+                        list-style: none;
                         padding-bottom: 2.5%;
                         width: 100%;
                         text-align: center;
@@ -160,8 +160,7 @@ body{
             font-family: "canada";
         }
         form{
-            display: flex;
-            flex-direction: column;
+            @include flexColumn;
             align-items: center;
             width: 100%;
             label{
@@ -174,11 +173,15 @@ body{
     }
     //.indexQuiz{}
     .readUserPage{
-        background-color: grey;
+        //background-color: grey;
         height: 85vh;
+        ul{
+            li{
+                list-style: none;
+            }
+        }
         .userBtnActions{
-            display: flex;
-            flex-direction: column;
+            @include flexColumn;
             align-items: center;
             .btnDelete{
                 width: 100%;
@@ -290,8 +293,7 @@ body{
                 font-family: "canada";
             }
             form{
-                display: flex;
-                flex-direction: column;
+                @include flexColumn;
                 align-items: center;
                 width: 100%;
                 label{
@@ -335,6 +337,7 @@ body{
         nav{
             position: fixed;
             height: 20vh !important;
+            overflow-y: hidden;
             div{
                 height: 100% !important;
                 a{
@@ -361,7 +364,7 @@ body{
                     ul{
                         display: flex;
                         flex-direction: row;
-                        justify-content: space-between;
+                        justify-content: space-around;
                         width: 100%;
                         li{
                             display: flex;
@@ -403,8 +406,7 @@ body{
                 font-family: "canada";
             }
             form{
-                display: flex;
-                flex-direction: column;
+                @include flexColumn;
                 align-items: center;
                 width: 100%;
                 label{

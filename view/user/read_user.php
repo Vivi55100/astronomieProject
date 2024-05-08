@@ -19,11 +19,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <ul class="list-group align-items-center">                    
-                        <li class="list-group-item text-center rounded">Nom : <?= htmlentities($user['last_name']) ?></li>
-                        <li class="list-group-item text-center rounded">Prenom : <?= htmlentities($user['first_name']) ?></li>
-                        <li class="list-group-item text-center rounded">Identifiant : <?= htmlentities($user['username']) ?></li>
-                        <li class="list-group-item text-center rounded">E-mail : <?= htmlentities($user['mail']) ?></li>
+                    <ul class="list-group align-items-center">
+                        <li class="text-center rounded">
+                            <img class="p-0 m-0" src="<?= $_SESSION["avatar"] ?>" alt="Avatar Profil Utilisateur/trice">
+                            <a class="btn text-light text-decoration-none p-0 m-0" href="view/user/update_avatar.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-file-image" viewBox="0 0 16 16">
+                                    <path d="M8.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                    <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v8l-2.083-2.083a.5.5 0 0 0-.76.063L8 11 5.835 9.7a.5.5 0 0 0-.611.076L3 12z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="text-center rounded">Nom : <?= htmlentities($user['last_name']) ?></li>
+                        <li class="text-center rounded">Prenom : <?= htmlentities($user['first_name']) ?></li>
+                        <li class="text-center rounded">Identifiant : <?= htmlentities($user['username']) ?></li>
+                        <li class="text-center rounded">E-mail : <?= htmlentities($user['mail']) ?></li>
                     </ul>
                 </div>
             </div>
@@ -31,11 +40,10 @@
         <?php
             }
         ?>
-        <div class="userBtnActions">
+        <div class="userBtnActions mt-3">
 
-            <a class="btn btn-primary rounded text-light text-decoration-none" href="view/user/update_user.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>">Modifier le profil</a>
-            <a class="btn btn-success rounded text-light text-decoration-none" href="view/user/update_user_password.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>">Modifier le mot de passe</a>
-            <a class="btn btn-warning rounded text-light text-decoration-none" href="view/user/update_avatar.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>">Modifier Avatar</a>
+            <a class="btn btn-primary rounded text-light text-decoration-none my-3" href="view/user/update_user.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>">Modifier le profil</a>
+            <a class="btn btn-success rounded text-light text-decoration-none my-3" href="view/user/update_user_password.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>">Modifier le mot de passe</a>
 
             <div class="btnDelete">
                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">Supprimer le compte</button>

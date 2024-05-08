@@ -21,11 +21,14 @@
     const quizQuestion = document.getElementById('quizQuestion')
     const quizResponse = document.getElementById('quizResponse')
     const submitResponseMessage = document.getElementById('submitResponseMessage')
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
 
     let questions = []
     let response = []
-    let idQuiz = 1 // a xhanger plus tard pour l'id du quiz
-
+    let score = 0
+    let idQuiz = urlParams.get("id_quiz")
+    
     document.addEventListener("DOMContentLoaded", function (){
         const formData = new FormData()
         formData.append("id_quiz", idQuiz)
@@ -42,6 +45,12 @@
             questions = [...quiz] // Avec le spread operator on copie le tableau de la base de donnée dans un autre tableau ( clonage )
             // console.log(" question[0] : ", questions[0].question_content)
 
+            questionMaker(questions)
+        })
+    })
+
+    function questionMaker(questions) {
+        if(questions.lenght > 0){
             let showQuestions = `<h2 class='text-center'>${questions[0].question_content}</h2>`
             quizQuestion.innerHTML = showQuestions
 
@@ -55,8 +64,8 @@
 
             quizResponse.innerHTML = showResponses
 
-            const form = document.getElementById('formValidation')
-            console.log("form => ", form)
+            const form = document.getElementById('formValidation') // On recupere le formulaire ici car avant le formulaire n'existait pas dans le DOM ( promise le crée à l'instant )
+            //console.log("form => ", form)
 
             form.addEventListener("submit", function(e){
                 e.preventDefault()
@@ -69,12 +78,21 @@
                 fetch("../../controller/admin/quiz/check_responses_ctrl.php", data)
                 .then(response => response.json())
                 .then(checkData => {
-                    console.log(checkData)
-
+                    if(checkData){
+                        score++ // Ici on augmente le score de 1
+                    }else{
+                        /*
+                            Mettre un message de mauvaises reponses, a afficher en Js
+                        */
+                    }
                 })
             })
-        })
-    })
+        }else{
+            /*
+                Ici on fera du code pour gerer la fin du quiz
+            */
+        }
+    }
 
 </script>
 </body>

@@ -2,7 +2,6 @@
     include_once "../base.php";
     include_once "../../model/pdo.php";
     include_once "../../model/role.php";
-
     include_once "../alert.php";
 ?>
 
@@ -31,5 +30,8 @@
     </form>
 </div>
 
+<script>
+    document.body.style.overflowY = 'scroll';
+</script>
 </body>
 </html>
