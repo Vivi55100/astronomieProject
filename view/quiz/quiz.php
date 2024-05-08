@@ -152,16 +152,19 @@
             */
             quizGame.innerHTML = ""
             if(score <= 7){
-                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous êtes une mega Pierre</h2>"
+                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un petit score</h2>"
             }
-            if(score >= 8 && score <= 14){
-                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous êtes une petite Pierre</h2>"
+            if(score >= 8 && score <= 11){
+                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un score moyen</h2>"
+            }
+            if(score >= 12 && score <= 14){
+                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un score moyen</h2>"
             }
             if(score >= 15 && score <= 19){
-                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous êtes tres bon</h2>"
+                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu tres bon score</h2>"
             }
             if(score == 20){
-                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " 20/20 Vous êtes KAMI SAMA !!!</h2>"
+                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " 20/20 Vous êtes excellent !!!</h2>"
             }
         }
     }

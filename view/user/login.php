@@ -10,7 +10,7 @@
         $sql = "SELECT * FROM user WHERE username='$username'";
         $stmt = $pdo->query($sql);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+        
         if($user && $user["delete_date"] == null){
             // Compte existe
             if(password_verify($_POST['psw'], $user['password'])){
@@ -28,22 +28,27 @@
             alert("Attention ce compte n'existe pas !", "failed", "../../view/user/login.php");
         }
     }
+    
     include_once "../alert.php";
+
+
 ?>
 
 <div class="loginPage">
+
+    <h2 id="errorLogin" class="text-center"></h2>
 
     <h1 class="text-center mt-3">Connexion</h1>
 
     <form id="form" class="mx-auto w-50" method="post">
 
-    <label class="mt-3" for="username">Identifiant</label>
-    <input class="form-control mb-3" type="text" name="username" placeholder="Veuillez renseigner votre identifiant">
+        <label class="mt-3" for="username">Identifiant</label>
+        <input id="username" class="form-control mb-3" type="text" name="username" placeholder="Veuillez renseigner votre identifiant">
 
-    <label for="psw">Mot de passe</label>
-    <input class="form-control mb-3" type="password" name="psw">
+        <label for="psw">Mot de passe</label>
+        <input id="psw" class="form-control mb-3" type="password" name="psw">
 
-    <input class="form-control btn btn-primary my-3" type="submit" value="Connexion">
+        <input class="form-control btn btn-success my-3" type="submit" value="Se connecter">
     </form>
 
     <div class="createAccount">
@@ -51,5 +56,32 @@
     </div>
 </div>
 
+<script>
+    const errorLogin = document.getElementById('errorLogin')
+    const form = document.getElementById('form')
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault()
+
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('psw');
+
+        if(usernameInput.value.trim() === '' || passwordInput.value.trim() === ''){ // la fonction trim me permet de supprimer les espaces entre deux quotes "   " => ""
+            let error = "Veuillez remplir tous les champs s'il vous plait"
+            errorLogin.style.color = "red"
+            errorLogin.style.opacity = 0
+            errorLogin.animate(
+                {
+                    opacity: [1, 0]
+                },
+                3000
+            )
+            errorLogin.innerHTML = error
+            console.log('error = ', error)
+        }else{
+            this.submit()
+        }
+    })
+</script>
 </body>
 </html>
