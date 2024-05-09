@@ -56,22 +56,22 @@
             <a class="nav-link" href="view/CGU/cguPage.php">CGU</a>
           </li>
           <?php if(isset($_SESSION['role']) && ($_SESSION['role']) >= Role::LOGGED->value){ ?>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="view/astre/astre.php">Astre</a>
-            </li>
+            </li> -->
           <li class="nav-item">
             <a class="nav-link" href="view/quiz/indexQuiz.php">Quiz</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link text-lg-dark" href="view/mission/mission.php">Missions</a>
           </li>
-          <?php } ?>
-          <?php if(isset($_SESSION['role']) && ($_SESSION['role']) >= Role::LOGGED->value){ ?>
           <li class="nav-item">
             <a class="nav-link" href="view/proposition/proposition_astre.php">Proposition Astre</a>
-          </li>
-          <?php } ?>
-          <?php if(isset($_SESSION['role']) && ($_SESSION['role']) == Role::ADMIN->value){ ?>
+          </li> -->
+          <?php
+            } 
+            if(isset($_SESSION['role']) && ($_SESSION['role']) == Role::ADMIN->value){
+          ?>
           <li class="nav-item">
             <a class="nav-link" href="view/admin/indexAdmin.php">Gestion</a>
           </li>

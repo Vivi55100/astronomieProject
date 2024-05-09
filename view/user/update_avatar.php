@@ -27,7 +27,7 @@
 
 <form id="form" class="d-flex flex-column align-item-center justify-content-center w-50 mx-auto" action="controller/user/update_avatar_ctrl.php" enctype="multipart/form-data" method="POST">
 
-    <label class="form-label" for="avatar">Changer votre Avatar :</label>
+    <label class="form-label" for="avatar">Changer votre Avatar <span><i>(Taille de fichier : max 1Mo)</i></span> :</label>
     <input class="form-control" type="file" name="avatar" id="inputAvatar">
 
     <input type="hidden" name="id_user" value="<?= htmlentities($user['id_user']) ?>">
