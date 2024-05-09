@@ -15,7 +15,7 @@
                 $stmt->execute($questionData);
                 $id_question = $pdo->lastInsertId();
             } catch (Exception $e) {
-                alert("error", "Une erreur s'est produite" . $e->getMessage());
+                echo("Une erreur s'est produite" . $e->getMessage());
             }
             // Boucle les reponses en filtrant la question
             foreach ($_POST as $key => $answer) {

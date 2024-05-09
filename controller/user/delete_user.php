@@ -29,13 +29,13 @@ if($_SESSION['role'] >= Role::LOGGED->value){
                     }
                 }
             }catch(Exception $e){
-                alert("Une erreur est survenue", "error", "../../../view/user/read_user.php?id_user=$_SESSION[id_user]");
+                alert("Une erreur est survenue", "error", "../../../view/user/read_user.php?id_user=$_SESSION[id_user]", true);
             }
         }else{
-            alert("Vous n'etes pas autorisé(e) à faire cette action", "error", "../../../view/user/read_user.php?id_user=$_SESSION[id_user]");
+            alert("Vous n'etes pas autorisé(e) à faire cette action", "error", "../../../view/user/read_user.php?id_user=$_SESSION[id_user]", true);
         }
     }else{
-        echo "soucis de token ";
+        alert("Une erreur d'authentification s'est produite", "error", "../../../view/user/read_user.php?id_user=$_SESSION[id_user]", true);
     }
 }else{
     header("Location:../../view/home/home.php");

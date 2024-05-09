@@ -11,7 +11,8 @@ if(!empty($_POST["last_name"]) && !empty($_POST["first_name"]) && !empty($_POST[
         $stmt->execute($data);
         alert("Vous avez reussi à modifier les informations de votre profil", "success", "../../view/user/update_user.php?id_user=$_SESSION[id_user]", true);
     }catch(PDOException $e){
-        echo("Une erreur est survenue => " . $e->getMessage());
+        // echo("Une erreur est survenue => " . $e->getMessage());
+        alert("Une erreur est survenue", "failed", "../../view/user/update_user.php?id_user=$_SESSION[id_user]", true);
     }
 }else{
     alert("Veuillez remplir tout les champs", "failed", "../../view/user/update_user.php?id_user=$_SESSION[id_user]", true);
