@@ -55,6 +55,9 @@
           <li class="nav-item">
             <a class="nav-link" href="view/astre/astre.php">Astre</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="view/CGU/cguPage.php">CGU</a>
+          </li>
           <?php if(isset($_SESSION['role']) && ($_SESSION['role']) >= Role::LOGGED->value){ ?>
           <li class="nav-item">
             <a class="nav-link" href="view/quiz/indexQuiz.php">Quiz</a>
