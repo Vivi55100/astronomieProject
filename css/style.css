@@ -93,9 +93,10 @@ body nav div #navbarNav ul li a {
   font-size: 2em;
 }
 body nav div #navbarNav ul li a img {
-  width: 10vw;
-  height: 10vw;
+  width: 15vh;
+  height: 15vh;
   border-radius: 50%;
+  object-fit: cover;
 }
 body .homepage {
   background-repeat: no-repeat;
@@ -187,6 +188,10 @@ body .quizGame .quizResponse {
   }
   body .quizGame .quizResponse {
     height: auto;
+  }
+  body .readUserPage .userInfoActions ul li .imgAvatar {
+    width: 20vw;
+    border-radius: 50%;
   }
 }
 @media screen and (min-width: 1400px) {
