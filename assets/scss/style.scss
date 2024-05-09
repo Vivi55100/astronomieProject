@@ -10,7 +10,7 @@
 
 // Small devices (Phone, 576px and up)
 @mixin dpop{
-    animation: dpop 7s;
+    animation: dpop 10s;
     opacity: 0;
 }
 @mixin pm0{
@@ -172,7 +172,6 @@ body{
             }
         }
     }
-    //.indexQuiz{}
     .readUserPage{
         height: 100vh;
         @include imgBg;

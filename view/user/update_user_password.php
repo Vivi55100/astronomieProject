@@ -1,7 +1,10 @@
 <?php 
     include_once "../base.php";
 ?>
+
 <h1 class="text-center mt-5 mb-5">Changement de mot de passe</h1>
+
+<?php include_once "../alert.php"; ?>
 
 <div id="message_psw" class="text-center"></div>
 

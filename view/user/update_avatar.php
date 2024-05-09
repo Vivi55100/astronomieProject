@@ -12,32 +12,34 @@
         }    
 ?>
 
-<h1 class="text-center my-3">Modifier son avatar</h1>
+<div class="updateAvatarPage">
+    <h1 class="text-center my-3">Modifier son avatar</h1>
 
-<?php
-    if($_SESSION['name']){
-        echo "<div class='text-center'><img class='p-0 m-0' src='$_SESSION[avatar]' alt='Avatar Profil Utilisateur/trice' width='20%'></div>";
-    }
-?>
+    <?php
+        include_once "../alert.php";
+        if($_SESSION['name']){
+            echo "<div class='text-center'><img class='p-0 m-0' src='$_SESSION[avatar]' alt='Avatar Profil Utilisateur/trice' width='20%'></div>";
+        }
+    ?>
 
-<div class="text-center">
-    <img id="preview" width="25%">
+    <div class="text-center">
+        <img id="preview" width="25%">
+    </div>
+
+
+    <form id="form" class="d-flex flex-column align-item-center justify-content-center w-50 mx-auto" action="controller/user/update_avatar_ctrl.php" enctype="multipart/form-data" method="POST">
+
+        <label class="form-label" for="avatar">Changer votre Avatar <span><i>(Taille de fichier : max 1Mo)</i></span> :</label>
+        <input class="form-control" type="file" name="avatar" id="inputAvatar">
+
+        <input type="hidden" name="id_user" value="<?= htmlentities($user['id_user']) ?>">
+
+        <input class="form-control my-3 btn btn-primary" type="submit" value="Modifier">
+
+    </form>
 </div>
 
-
-<form id="form" class="d-flex flex-column align-item-center justify-content-center w-50 mx-auto" action="controller/user/update_avatar_ctrl.php" enctype="multipart/form-data" method="POST">
-
-    <label class="form-label" for="avatar">Changer votre Avatar <span><i>(Taille de fichier : max 1Mo)</i></span> :</label>
-    <input class="form-control" type="file" name="avatar" id="inputAvatar">
-
-    <input type="hidden" name="id_user" value="<?= htmlentities($user['id_user']) ?>">
-
-    <input class="form-control my-3 btn btn-primary" type="submit" value="Modifier">
-
-</form>
-
 <script>
-    document.body.style.overflowY = 'scroll';
     const inputAvatar = document.getElementById("inputAvatar")
     const preview = document.getElementById("preview")
     const fr = new FileReader();

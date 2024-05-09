@@ -12,13 +12,13 @@
 }
 .failed {
   color: red;
-  animation: dpop 7s;
+  animation: dpop 10s;
   opacity: 0;
 }
 
 .success {
   color: green;
-  animation: dpop 7s;
+  animation: dpop 10s;
   opacity: 0;
 }
 

@@ -1,5 +1,6 @@
 <?php 
     include_once "../../model/pdo.php";
+    include_once "../../model/functions.php";
     session_start();
 
 //                                             ..--.       ...                                         
@@ -113,22 +114,20 @@ if (!empty($_POST["oldpsw"]) && !empty($_POST["newpsw"])) {
                 $sql = "UPDATE User SET password=? WHERE id_user=? ";
                 $stmt = $pdo->prepare($sql);
                 if ($stmt->execute([$psw, $id])) {
-                    echo "<h2>Le mot de passe à été modifié avec succes</h2>";
-                    header('Location:../../view/home/home.php');
+                    alert("Le mot de passe a été modifié avec succès", "success", "../../view/user/update_user_password.php?id_user=$_SESSION[id_user]", true);
                 } else {
-                    echo "<h2>Probleme technique</h2>";
-                    header('Location:../../view/user/update_user.php');
+                    alert("Le mot de passe n'a pas été modifié", "failed", "../../view/user/update_user_password.php?id_user=$_SESSION[id_user]", true);
                 }
             }catch (PDOException $e) {
-                echo "<h2>Il y'a quelque chose qui s'est mal passé: </h2>". $e->getMessage();
-                header("Location:../../view/user/update_user.php");
-            }    
+                // echo "<h2>Une erreur est survenue: </h2>". $e->getMessage();
+                alert("Une erreur est survenue", "failed", "../../view/user/update_user_password.php?id_user=$_SESSION[id_user]", true);
+            }
         }else {
-            echo "<h2>Vos modifications ont echouées</h2>";
-        }    
+            alert("Vous avez utilisé le même mot de passe, veuillez en choisir un nouveau", "failed", "../../view/user/update_user_password.php?id_user=$_SESSION[id_user]", true);
+        }
     }else {
-        echo "<h2>Mot de passe incorrect</h2>";
+        alert("Le mot de passe renseigné est incorrect", "failed", "../../view/user/update_user_password.php?id_user=$_SESSION[id_user]", true);
     }
 }else {
-    echo "<h2>La modification a échouées</h2>";
+    alert("Veuillez renseigner votre mot de passe ainsi que le nouveau mot de passe", "failed", "../../view/user/update_user_password.php?id_user=$_SESSION[id_user]", true);
 }

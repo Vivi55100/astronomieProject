@@ -45,13 +45,6 @@ if($_SESSION['id_user']){ // Check if the user is logged in
                 $new_name = uniqid("AVATAR_", true) . time() . "." . $extension; // Generate a unique name for the avatar by combining a unique identifier and a timestamp
 
                 $uploadPath = "assets/img/avatarUpload/"; // Path where the avatar will be downloaded
-
-                // Delete the old avatar if it's not the default one
-                $baseAvatar = "assets/img/static/iconUser.png";
-                if ( $baseAvatar != $_SESSION['avatar']){
-                    $deleteAvatar = "../../" . $_SESSION['avatar'];
-                    unset($deleteAvatar);
-                }
                 try{
                     $idUser = ($_POST["id_user"]); // Retrieve the user identifier from the POST form
                     $sqlNewAvatar = "UPDATE user SET avatar=? WHERE id_user=$idUser";  // Prepare the SQL query to update the avatar path in the database
@@ -61,11 +54,18 @@ if($_SESSION['id_user']){ // Check if the user is logged in
                     if($stmtNewAvatar->execute([$avatarPathName])){ // Execute the SQL query and move the uploaded avatar to the download directory.
                         if(move_uploaded_file($avatarTmpName, "../../" . $avatarPathName)){
                             alert("Vous avez reussi à modifier votre avatar", "success", "../../view/user/update_avatar.php?id_user=$_SESSION[id_user]", true);
+                            $baseAvatar = "assets/img/static/iconUser.png";
+
+                            // Delete the old avatar if it's not the default one
+                            if ( $baseAvatar != $_SESSION['avatar']){
+                                $deleteAvatar = "../../" . $_SESSION['avatar'];
+                                unset($deleteAvatar);
+                            }
 
                             //  Update the avatar path in the session
                             $_SESSION['avatar'] = $avatarPathName;
                         } else{
-                            alert("Choisissez une image pour devenir votre avatar", "failed", "../../view/user/update_avatar.php?id_user=$_SESSION[id_user]", true);
+                            alert("Vous n'avez pas reussi a copier le fichier", "failed", "../../view/user/update_avatar.php?id_user=$_SESSION[id_user]", true);
                         }
                     }else{
                         alert("L'avatar n'est pas dans la base de données", "failed", "../../view/user/update_avatar.php?id_user=$_SESSION[id_user]", true);
