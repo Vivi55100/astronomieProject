@@ -18,8 +18,6 @@
 
 <form class="d-flex flex-column align-item-center justify-content-center w-50 mx-auto" id="form" class="mx-auto" action="controller/user/update_user_ctrl.php" enctype="multipart/form-data" method="POST">
 
-    <!-- Utiliser le htmlentities lors de la recuperation des données pour securité-->
-
     <label for="last_name">Nom</label>
     <input class="form-control mb-3" type="text" name="last_name" value="<?= htmlentities($user['last_name']) ?>">
 
