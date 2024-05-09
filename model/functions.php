@@ -11,6 +11,7 @@
  * @return void
  */
 function alert(string $message, string $status, string $location, bool $hasId = false) : void{
-        $change = $hasId ? "?" : "&";
-        header("Location:$location" . $change . "message=$message&status=$status");
+        $change = $hasId ? "&" : "?";
+        $location .= $change . "message=$message&status=$status";
+        header("Location:$location");
 }
