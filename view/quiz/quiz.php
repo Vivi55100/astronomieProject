@@ -164,11 +164,35 @@
                 quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu tres bon score</h2>"
             }
             if(score == 20){
-                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " 20/20 Vous êtes excellent !!!</h2>"
+                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " 20/20 Vous êtes excellent!!!</h2>"
             }
         }
     }
 
+    // switch (score) {
+    //             case (score <= 7):
+    //                 quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un passable</h2>"
+    //                 break;
+
+    //             case (score >= 8 && score <= 11):
+    //                 quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un score moyen</h2>"
+    //                 break;
+
+    //             case (score >= 12 && score <= 14):
+    //                 quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un bon score</h2>"
+    //                 break;
+
+    //             case (score >= 15 && score <= 19):
+    //                 quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu tres bon score</h2>"
+    //                 break;
+
+    //             case (score == 20):
+    //                 quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " 20/20 Vous êtes excellent !!!</h2>"
+    //                 break;
+
+    //             default:
+    //                 break;
+    //         }
 </script>
 </body>
 </html>

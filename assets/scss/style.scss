@@ -94,7 +94,7 @@ body{
         div{
             @include flexCenter;
             text-align: center;
-            height: 100%;
+            height: auto;
             background-color: black;
             a{
                 width: 20%;
@@ -174,14 +174,31 @@ body{
     }
     //.indexQuiz{}
     .readUserPage{
+        height: 100vh;
+        @include imgBg;
+        background-image: url("../assets/img/static/earth.jpg");
         .userInfoActions{
             ul{
                 li{
                     list-style: none;
                     font-size: 1.2em;
+                    text-align: center;
                     .imgAvatar{
-                        width: 30vw;
+                        width: 25vh;
+                        height: 25vh;
                         border-radius: 50%;
+                        object-fit: cover;
+                    }
+                    .userInfos{
+                        background-color: white;
+                        opacity: 70%;
+                        border-top-left-radius: 5vh;
+                        border-top-right-radius: 5vh;
+                        border-bottom-left-radius: 5vh;
+                        border-bottom-right-radius: 5vh;
+                        width: 70vw;
+                        height: auto;
+                        font-weight: bolder;
                     }
                 }
             }
@@ -266,12 +283,18 @@ body{
             }
         }
         .readUserPage{
+            height: 100vh;
+            @include imgBg;
+            background-image: url("../assets/img/static/earth.jpg");
             .userInfoActions{
                 ul{
                     li{
+                        
                         .imgAvatar{
-                            width: 20vw;
+                            width: 25vh;
+                            height: 25vh;
                             border-radius: 50%;
+                            object-fit: cover;
                         }
                     }
                 }

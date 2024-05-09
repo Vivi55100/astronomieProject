@@ -15,25 +15,32 @@
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
         }
 ?>
-    <div class="readUserPage container-fluid w-100 mt-3">
+    <div class="readUserPage container-fluid w-100">
 
         <div class="userInfoActions">
 
             <ul class="list-group align-items-center">
                 <li class="text-center rounded">
                     <a class="btn text-decoration-none" href="view/user/update_avatar.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="bi bi-file-image" viewBox="0 0 16 16">
+                        <svg fill="yellow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="bi bi-file-image" viewBox="0 0 16 16">
                             <path d="M8.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
                             <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v8l-2.083-2.083a.5.5 0 0 0-.76.063L8 11 5.835 9.7a.5.5 0 0 0-.611.076L3 12z"/>
-                         </svg>
+                        </svg>
                     </a>                    
-                     <img class="imgAvatar" src="<?= $_SESSION["avatar"] ?>" alt="Avatar Profil Utilisateur/trice">
+                    <img class="imgAvatar" src="<?= $_SESSION["avatar"] ?>" alt="Avatar Profil Utilisateur/trice">
                 </li>
-                <li class="text-center rounded">Nom : <?= htmlentities($user['last_name']) ?></li>
-                <li class="text-center rounded">Prenom : <?= htmlentities($user['first_name']) ?></li>
-                <li class="text-center rounded">Identifiant : <?= htmlentities($user['username']) ?></li>
-                <li class="text-center rounded">E-mail : <?= htmlentities($user['mail']) ?></li>
+                <li>
+                    <div class="userInfos">
+                        <ul>
+                            <li class="text-center rounded">Nom : <?= htmlentities($user['last_name']) ?></li>
+                            <li class="text-center rounded">Prenom : <?= htmlentities($user['first_name']) ?></li>
+                            <li class="text-center rounded">Identifiant : <?= htmlentities($user['username']) ?></li>
+                            <li class="text-center rounded">E-mail : <?= htmlentities($user['mail']) ?></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
+            
 
             <div class="userActions d-flex justify-content-around">
 
@@ -54,7 +61,7 @@
                 <div class="userBtnDelete">
 
                     <div class="btnDelete ">
-                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+                        <button class="btn btn-danger rounded" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
                                 <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
                             </svg>
