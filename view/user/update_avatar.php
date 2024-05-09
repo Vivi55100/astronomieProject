@@ -18,12 +18,12 @@
     <?php
         include_once "../alert.php";
         if($_SESSION['name']){
-            echo "<div class='text-center'><img class='p-0 m-0' src='$_SESSION[avatar]' alt='Avatar Profil Utilisateur/trice' width='20%'></div>";
+            echo "<div class='text-center'><img class='p-0 m-0' src='$_SESSION[avatar]' alt='Avatar Profil Utilisateur/trice' width='10%'></div>";
         }
     ?>
 
     <div class="text-center">
-        <img id="preview" width="25%">
+        <img id="preview" width="10%">
     </div>
 
 
