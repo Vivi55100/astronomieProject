@@ -150,19 +150,19 @@
             // Code for end of quiz
             quizGame.innerHTML = ""
             if(score <= 9){
-                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un petit score</h2>"
+                quizGame.innerHTML += "<h2 class='text-center' style='color: black'>Votre score est de " + score + " Vous avez eu un petit score</h2>"
             }
             if(score >= 10 && score <= 19){
-                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un score moyen</h2>"
+                quizGame.innerHTML += "<h2 class='text-center' style='color: red'>Votre score est de " + score + " Vous avez eu un score moyen</h2>"
             }
             if(score >= 20 && score <= 29){
-                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un bon score</h2>"
+                quizGame.innerHTML += "<h2 class='text-center' style='color: blue'>Votre score est de " + score + " Vous avez eu un bon score</h2>"
             }
             if(score >= 30 && score <= 39){
-                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu tres bon score</h2>"
+                quizGame.innerHTML += "<h2 class='text-center' style='color: green'>Votre score est de " + score + " Vous avez eu tres bon score</h2>"
             }
             if(score == 40){
-                quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " 20/20 Vous êtes excellent!!!</h2>"
+                quizGame.innerHTML += "<h2 class='text-center' style='color: chartreuse'>Votre score est de " + score + " 40/40 Vous êtes excellent!!!</h2>"
             }
         }
     }

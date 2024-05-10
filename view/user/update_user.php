@@ -36,7 +36,9 @@
 
 </form>
 
-
+<script>
+    document.body.style.overflowY = "scroll"
+</script>
 </body>
 </html>
 <?php 
