@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script defer src="../js/main.js"></script>
     <title></title>
 </head>
 <body>
@@ -32,20 +31,21 @@
       <a href="view/home/home.php">
         <img class="img-logo" src="assets/img/static/Logo-Without-Bg.png" alt="Logo du site">
       </a>
-      <div class="welcome">
-        <?php
-          if(isset($_SESSION['name'])){
-            echo "<h4>Bonjour <span>$_SESSION[name]</span><h4/>";
-          }else{
-            echo "";
-          }
-        ?>
-      </div>
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon rounded bg-light"></span>
       </button>
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="container d-flex">
+          <li class="welcome nav-link">
+            <?php
+              if(isset($_SESSION['name'])){
+                echo "<h4 class='mt-3'>Bonjour <span>$_SESSION[name]</span><h4/>";
+              }else{
+                echo "";
+              }
+            ?>
+          </li>
           <?php if(isset($_SESSION["id_user"])){ ?>
           <li class="profileButton nav-item">
             <a class="nav-link" href="view/user/read_user.php?id_user=<?= $_SESSION['id_user'] ?>">

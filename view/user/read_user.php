@@ -15,7 +15,7 @@
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
         }
 ?>
-    <div class="readUserPage container-fluid w-100">
+    <div class="readUserPage container-fluid">
 
         <div class="userInfoActions">
 
@@ -32,10 +32,10 @@
                 <li>
                     <div class="userInfos">
                         <ul>
-                            <li class="text-center rounded">Nom : <?= htmlentities($user['last_name']) ?></li>
-                            <li class="text-center rounded">Prenom : <?= htmlentities($user['first_name']) ?></li>
-                            <li class="text-center rounded">Identifiant : <?= htmlentities($user['username']) ?></li>
-                            <li class="text-center rounded">E-mail : <?= htmlentities($user['mail']) ?></li>
+                            <li class="text-center">Nom : <?= htmlentities($user['last_name']) ?></li>
+                            <li class="text-center">Prenom : <?= htmlentities($user['first_name']) ?></li>
+                            <li class="text-center">Identifiant : <?= htmlentities($user['username']) ?></li>
+                            <li class="text-center">E-mail : <?= htmlentities($user['mail']) ?></li>
                         </ul>
                     </div>
                 </li>
@@ -79,7 +79,7 @@
 
                                 <div class="modal-body">
                                     <p>Êtes-vous sûr(e) de vouloir supprimer votre compte ? Cette action est réversible.</p>
-                                    <p>Contactez <span><a class="text-decoration-none" href="#">l'administrateur</a></span>  pour récupérer votre compte.</p>                            
+                                    <p>Contactez <span><a class="text-decoration-none" href="view/CGU/cguPage.php">l'administrateur</a></span>  pour récupérer votre compte.</p>                            
                                 </div>
 
                                 <div class="modal-footer">

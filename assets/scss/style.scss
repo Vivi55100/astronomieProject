@@ -80,7 +80,7 @@
 // **                                                                    
 
 body{
-    max-width: 992px;
+    max-width: 430px;
     max-height: 100vh;
     overflow-y: hidden;
     nav{
@@ -92,8 +92,6 @@ body{
         overflow-y: auto;
         max-height: 100vh;
         div{
-            @include flexCenter;
-            text-align: center;
             height: auto;
             background-color: black;
             a{
@@ -103,14 +101,13 @@ body{
                 }
             }
             .welcome{
-                width: auto;
                 h4{
                     font-family: "potta";
                     color: white;
                 }
             }
             button{
-                margin-right: 2vw;
+                justify-content: flex-end;
             }
             #navbarNav{
                 @include imgBg;
@@ -180,8 +177,6 @@ body{
             ul{
                 li{
                     list-style: none;
-                    font-size: 1.2em;
-                    text-align: center;
                     .imgAvatar{
                         width: 25vh;
                         height: 25vh;
@@ -195,7 +190,7 @@ body{
                         border-top-right-radius: 5vh;
                         border-bottom-left-radius: 5vh;
                         border-bottom-right-radius: 5vh;
-                        width: 70vw;
+                        width: 100vw;
                         height: auto;
                         font-weight: bolder;
                     }
@@ -240,9 +235,9 @@ body{
                                                                    
 
 // Medium devices (tablets, 992px and up)
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 430px) {
     body{
-        max-width: 1400px;
+        max-width: 1440px;
         nav{
             div{
                 a{
@@ -287,13 +282,16 @@ body{
             background-image: url("../assets/img/static/earth.jpg");
             .userInfoActions{
                 ul{
-                    li{
-                        
+                    li{                        
                         .imgAvatar{
                             width: 25vh;
                             height: 25vh;
                             border-radius: 50%;
                             object-fit: cover;
+                        }
+                        .userInfos{
+                            width: 70vw;
+                            font-size: 1.2em;
                         }
                     }
                 }
@@ -321,7 +319,7 @@ body{
 // **                                                                    **        
 //                                                                      **       
 
-// Large devices (desktops, 1400px and up)
+// Large devices (desktops, 1440px and up)
 @media screen and (min-width: 1400px) {
     body{
         max-width: none;
@@ -336,10 +334,6 @@ body{
                     img{
                         width: 10vw;
                     }
-                }
-                button{
-                    margin-right: 2vw;
-                    color: white;
                 }
                 #navbarNav{
                     visibility: hidden;
@@ -375,6 +369,18 @@ body{
         }
         .homepage{
             background-image: url("../assets/img/static/Ariane_5_VA261_liftoff.jpg");
+        }
+        .readUserPage{
+            .userInfoActions{
+                ul{
+                    li{
+                        .userInfos{
+                            width: 30vw;
+                            font-size: 1.2em;
+                        }
+                    }
+                }
+            }
         }
     }
 }
