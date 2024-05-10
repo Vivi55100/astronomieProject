@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : ven. 03 mai 2024 à 12:58
--- Version du serveur : 8.0.36-0ubuntu0.22.04.1
--- Version de PHP : 8.3.6
+-- Hôte : 127.0.0.1:3306
+-- Généré le : ven. 10 mai 2024 à 10:22
+-- Version du serveur : 8.2.0
+-- Version de PHP : 8.2.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,15 +27,18 @@ SET time_zone = "+00:00";
 -- Structure de la table `astre`
 --
 
-CREATE TABLE `astre` (
-  `id_astre` int NOT NULL,
+DROP TABLE IF EXISTS `astre`;
+CREATE TABLE IF NOT EXISTS `astre` (
+  `id_astre` int NOT NULL AUTO_INCREMENT,
   `astre_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `size` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `distance_to_earth` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date_of_discovery` datetime DEFAULT NULL,
   `name_of_discoverer` datetime DEFAULT NULL,
   `astre_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `id_type` int NOT NULL
+  `id_type` int NOT NULL,
+  PRIMARY KEY (`id_astre`),
+  KEY `FK_Type_Astre` (`id_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -44,13 +47,17 @@ CREATE TABLE `astre` (
 -- Structure de la table `comment`
 --
 
-CREATE TABLE `comment` (
-  `id_comment` int NOT NULL,
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id_comment` int NOT NULL AUTO_INCREMENT,
   `comment_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date_comment` datetime NOT NULL,
   `number_like_comment` int NOT NULL,
   `id_user` int NOT NULL,
-  `id_astre` int NOT NULL
+  `id_astre` int NOT NULL,
+  PRIMARY KEY (`id_comment`),
+  KEY `FK_User_Comment` (`id_user`),
+  KEY `FK_Comment_Astre` (`id_astre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -59,14 +66,18 @@ CREATE TABLE `comment` (
 -- Structure de la table `proposition_astre`
 --
 
-CREATE TABLE `proposition_astre` (
-  `id_proposition_astre` int NOT NULL,
+DROP TABLE IF EXISTS `proposition_astre`;
+CREATE TABLE IF NOT EXISTS `proposition_astre` (
+  `id_proposition_astre` int NOT NULL AUTO_INCREMENT,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date_validation_start` datetime NOT NULL,
   `date_validation_end` datetime NOT NULL,
   `score_validation` int NOT NULL,
   `id_astre` int NOT NULL,
-  `id_user` int NOT NULL
+  `id_user` int NOT NULL,
+  PRIMARY KEY (`id_proposition_astre`),
+  KEY `FK_Astre_Proposition_Astre` (`id_astre`),
+  KEY `FK_User_Proposition_Astre` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -75,11 +86,14 @@ CREATE TABLE `proposition_astre` (
 -- Structure de la table `question`
 --
 
-CREATE TABLE `question` (
-  `id_question` int NOT NULL,
+DROP TABLE IF EXISTS `question`;
+CREATE TABLE IF NOT EXISTS `question` (
+  `id_question` int NOT NULL AUTO_INCREMENT,
   `question_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `id_quiz` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_quiz` int NOT NULL,
+  PRIMARY KEY (`id_question`),
+  KEY `FK_Difficulty_Question` (`id_quiz`)
+) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `question`
@@ -145,7 +159,67 @@ INSERT INTO `question` (`id_question`, `question_content`, `id_quiz`) VALUES
 (57, 'Qu\'est-ce qu\'un trou noir supermassif et où se trouve le trou noir supermassif le plus proche de la Terre ?', 3),
 (58, 'Quelle est la théorie qui décrit l\'expansion accélérée de l\'univers et qui a valu le prix Nobel de physique en 2011 à ses découvreurs ?', 3),
 (59, 'Qu\'est-ce que la mission STEREO de la NASA ?', 3),
-(60, 'Qu\'est-ce que la mission TESS de la NASA ?', 3);
+(60, 'Qu\'est-ce que la mission TESS de la NASA ?', 3),
+(61, 'Que signifie cet acronyme : ISS ?', 1),
+(62, 'Comment se nomme la sonde la plus éloignée de la planète Terre ?', 1),
+(63, 'Qu\'est-ce qu\'une éclipse solaire ?', 1),
+(64, 'Quelle est la période de révolution de la Terre autour du Soleil ?', 1),
+(65, 'Quelle est la période de rotation de la Terre sur son propre axe ?', 1),
+(66, 'Quelle est la 2e planète en partant du Soleil ?', 1),
+(67, 'Quelle est la 4e planète en partant du Soleil ?', 1),
+(68, 'Quelle est la 5e planète en partant du Soleil ?', 1),
+(69, 'Quelle est la 6e planète en partant du Soleil ?', 1),
+(70, 'Quelle est la 7e planète en partant du Soleil ?', 1),
+(71, 'Quelle est la 8e planète en partant du Soleil ?', 1),
+(72, 'Quelle est la 9e planète en partant du Soleil ?', 1),
+(73, 'De quelle forme est la Terre ?', 1),
+(74, 'Quelle est la planète la plus massive du système solaire ?', 1),
+(75, 'Quelle est la planète la plus brillante dans le ciel nocturne après la Lune ?', 1),
+(76, 'Quelle est la constellation qui contient l\'étoile Polaire ?', 1),
+(77, 'Quel est le nom du plus grand volcan connu dans le système solaire, situé sur Mars ?', 1),
+(78, 'Quel est le nom de l\'anneau de débris qui orbite autour de la 6e planète ?', 1),
+(79, 'Comment se nomme le programme initié par la NASA, qui a posé l\'Homme sur la lune ?', 1),
+(80, 'Quelle est la couleur apparente de la planète Mars ?', 1),
+(81, 'Quel est le nom du célèbre télescope spatial lancé par la NASA en 1990 ?', 2),
+(82, 'Quel est le nom de l\'astronaute qui a passé le plus de temps dans l\'espace en une seule mission ?', 2),
+(83, 'Quelle est la planète la plus chaude du système solaire ?', 2),
+(84, 'Quel est le nom de la plus grande lune de Neptune ?', 2),
+(85, 'Quel est le nom de la première mission spatiale habitée à avoir atteint la Lune ?', 2),
+(86, 'Quelle est la durée moyenne d\'une journée sur Mars ?', 2),
+(87, 'Quelle est la période orbitale de la planète Jupiter ?', 2),
+(88, 'Quelle est la période orbitale de la planète Saturne ?', 2),
+(89, 'Quelle est la période orbitale de la planète Mercure ?', 2),
+(90, 'Quelle est la période de rotation de Mercure sur son propre axe ?', 2),
+(91, 'Quelle est la période de rotation de Vénus sur son propre axe ?', 2),
+(92, 'Quelle est la période de rotation de Mars sur son propre axe ?', 2),
+(93, 'Quelle est la période de rotation de Jupiter sur son propre axe ?', 2),
+(94, 'Quelle est la période de rotation de Saturne sur son propre axe ?', 2),
+(95, 'Quelle est la période de rotation d\'Uranus sur son propre axe ?', 2),
+(96, 'Quelle est la période de rotation de Neptune sur son propre axe ?', 2),
+(97, 'Quelle est la période orbitale de la planète Vénus ?', 2),
+(98, 'Quelle est la période orbitale de la planète Uranus ?', 2),
+(99, 'Quelle est la période orbitale de la planète Neptune ?', 2),
+(100, 'Quelle est la période orbitale de la planète Mars ?', 2),
+(101, 'Quelle est la distance approximative entre la Terre et la planète la plus proche située en dehors de notre système solaire ?', 3),
+(102, 'Quelle est la masse approximative de la Voie lactée en termes de masse solaire ?', 3),
+(103, 'Quelle est la période orbitale de la planète naine Pluton ?', 3),
+(104, 'Quelle est la température moyenne à la surface de Vénus ?', 3),
+(105, 'Quelle est la vitesse approximative à laquelle la Terre orbite autour du Soleil ?', 3),
+(106, 'Quel est le nom de l\'événement observé par les astronomes chinois et japonais en 1054 ?', 3),
+(107, 'Quelle est la masse approximative du trou noir supermassif situé au centre de la Voie lactée, appelé Sagittaire A* ?', 3),
+(108, 'Quelle est la vitesse de la lumière dans le vide en mètres par seconde ?', 3),
+(109, 'Quelle est la distance approximative entre la Terre et le centre de la Voie lactée ?', 3),
+(110, 'Quelle est la première mission spatiale à avoir atteint la surface d\'un astéroïde et à en avoir ramené des échantillons sur Terre ?', 3),
+(111, 'Quelle est la température approximative à la surface de Mercure pendant le jour ?', 3),
+(112, 'Quelle est la distance approximative entre la Terre et la Lune en années-lumière ?', 3),
+(113, 'Quelle est la distance approximative entre la Terre et le Soleil en unités astronomiques ?', 3),
+(114, 'Quelle est la masse approximative de la planète Jupiter en termes de masses terrestres ?', 3),
+(115, 'Quelle est la vitesse de libération nécessaire pour quitter la gravité de la Terre en kilomètres par seconde ?', 3),
+(116, 'Quel est le nom du premier trou noir jamais imagé ?', 3),
+(117, 'Quelle est la période orbitale de la première exoplanète jamais découverte ?', 3),
+(118, 'Quel est le nom de l\'objet transneptunien au-delà de Pluton qui possède une lune appelée Dysnomie ?', 3),
+(119, 'Quel est le nom de la 1re naine brune observée ?', 3),
+(120, 'Quelle est la théorie qui propose que l\'univers a connu une expansion très rapide dans les premières fractions de seconde après le Big Bang ?', 3);
 
 -- --------------------------------------------------------
 
@@ -153,10 +227,12 @@ INSERT INTO `question` (`id_question`, `question_content`, `id_quiz`) VALUES
 -- Structure de la table `quiz`
 --
 
-CREATE TABLE `quiz` (
-  `id_quiz` int NOT NULL,
-  `quiz_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS `quiz`;
+CREATE TABLE IF NOT EXISTS `quiz` (
+  `id_quiz` int NOT NULL AUTO_INCREMENT,
+  `quiz_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id_quiz`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `quiz`
@@ -173,13 +249,17 @@ INSERT INTO `quiz` (`id_quiz`, `quiz_name`) VALUES
 -- Structure de la table `response`
 --
 
-CREATE TABLE `response` (
-  `id_response` int NOT NULL,
+DROP TABLE IF EXISTS `response`;
+CREATE TABLE IF NOT EXISTS `response` (
+  `id_response` int NOT NULL AUTO_INCREMENT,
   `response_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `is_correct` tinyint NOT NULL,
   `id_question` int NOT NULL,
-  `id_quiz` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_quiz` int DEFAULT NULL,
+  PRIMARY KEY (`id_response`),
+  KEY `FK_Quiz_Response` (`id_quiz`),
+  KEY `FK_Question_Response` (`id_question`)
+) ENGINE=InnoDB AUTO_INCREMENT=481 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `response`
@@ -425,7 +505,247 @@ INSERT INTO `response` (`id_response`, `response_content`, `is_correct`, `id_que
 (237, 'La mission TESS est une mission spatiale en cours qui a pour objectif de rechercher des exoplanètes en utilisant la méthode de transit, en observant les changements de luminosité des étoiles lorsqu\'une planète passe devant elles.', 1, 60, 3),
 (238, 'Projet d\'Étude des Tempêtes et des Éruptions Solaires : Une mission visant à étudier les phénomènes météorologiques extrêmes et les éruptions solaires à l\'aide de télescopes spatiaux et de satellites.', 0, 60, 3),
 (239, 'Système de Surveillance et d\'Exploration des Sites de Satellites : Une mission visant à surveiller les emplacements des satellites en orbite terrestre pour prévenir les collisions et garantir la sécurité des missions spatiales.', 0, 60, 3),
-(240, 'Service de Télédétection et d\'Étude des Surfaces Subaquatiques : Une mission visant à cartographier et à étudier les fonds marins et les environnements aquatiques sur Terre à l\'aide de satellites équipés de sonars et de capteurs acoustiques.', 0, 60, 3);
+(240, 'Service de Télédétection et d\'Étude des Surfaces Subaquatiques : Une mission visant à cartographier et à étudier les fonds marins et les environnements aquatiques sur Terre à l\'aide de satellites équipés de sonars et de capteurs acoustiques.', 0, 60, 3),
+(241, 'Station Spatiale Internationale', 1, 61, 1),
+(242, 'Imbrication de Super Structures', 0, 61, 1),
+(243, 'Invitation Spéciale Solaire', 0, 61, 1),
+(244, 'Sa veu r1 dir', 0, 61, 1),
+(245, 'Voyager 1', 1, 62, 1),
+(246, 'Cassini-Huygens', 0, 62, 1),
+(247, 'Mariner 4', 0, 62, 1),
+(248, 'Parker solar probe', 0, 62, 1),
+(249, 'Quand la Lune passe entre la Terre et le Soleil', 1, 63, 1),
+(250, 'Quand la Terre passe entre le Soleil et Mars', 0, 63, 1),
+(251, 'Quand Mars passe devant le Soleil', 0, 63, 1),
+(252, 'Quand Jupiter cache le Soleil', 0, 63, 1),
+(253, 'Environ 365 jours', 1, 64, 1),
+(254, 'Environ 3650 jours', 0, 64, 1),
+(255, 'Environ 30 ans', 0, 64, 1),
+(256, 'Environ 300 mois', 0, 64, 1),
+(257, 'Environ 24 heures', 1, 65, 1),
+(258, 'Environ 24 minutes', 0, 65, 1),
+(259, 'Environ 24 ans', 0, 65, 1),
+(260, 'Environ 24 mois', 0, 65, 1),
+(261, 'Venus', 1, 66, 1),
+(262, 'Pluton', 0, 66, 1),
+(263, 'Uranus', 0, 66, 1),
+(264, 'Ceres', 0, 66, 1),
+(265, 'Mars', 1, 67, 1),
+(266, 'Mercure', 0, 67, 1),
+(267, 'Saturne', 0, 67, 1),
+(268, 'Vesta', 0, 67, 1),
+(269, 'Jupiter', 1, 68, 1),
+(270, 'Saturne', 0, 68, 1),
+(271, 'Mars', 0, 68, 1),
+(272, 'La Terre', 0, 68, 1),
+(273, 'Saturne', 1, 69, 1),
+(274, 'Uranus', 0, 69, 1),
+(275, 'Pluton', 0, 69, 1),
+(276, 'Mercure', 0, 69, 1),
+(277, 'Uranus', 1, 70, 1),
+(278, 'Jupiter', 0, 70, 1),
+(279, 'La Terre', 0, 70, 1),
+(280, 'Phobos', 0, 70, 1),
+(281, 'Neptune', 1, 71, 1),
+(282, 'Mercure', 0, 71, 1),
+(283, 'Mars', 0, 71, 1),
+(284, 'Venus', 0, 71, 1),
+(285, 'Question piège, il n\'y a pas de 9e planète à l\'heure actuelle', 1, 72, 1),
+(286, 'Pluton', 0, 72, 1),
+(287, 'Makémaké', 0, 72, 1),
+(288, 'Saturne', 0, 72, 1),
+(289, 'Ellipsoïdal', 1, 73, 1),
+(290, 'Plate', 0, 73, 1),
+(291, 'Parfaitement ronde', 0, 73, 1),
+(292, 'Plate mais bombée', 0, 73, 1),
+(293, 'Jupiter', 1, 74, 1),
+(294, 'Saturne', 0, 74, 1),
+(295, 'La Terre', 0, 74, 1),
+(296, 'Neptune', 0, 74, 1),
+(297, 'Venus', 1, 75, 1),
+(298, 'Mars', 0, 75, 1),
+(299, 'Jupiter', 0, 75, 1),
+(300, 'Uranus', 0, 75, 1),
+(301, 'La Petite Ourse', 1, 76, 1),
+(302, 'Orion', 0, 76, 1),
+(303, 'Cassiopée', 0, 76, 1),
+(304, 'La nébuleuse du crabe', 0, 76, 1),
+(305, 'Olympus Mons', 1, 77, 1),
+(306, 'Krakatoa', 0, 77, 1),
+(307, 'Le mont Vésuve', 0, 77, 1),
+(308, 'Piton des neiges', 0, 77, 1),
+(309, 'Les anneaux de Saturne', 1, 78, 1),
+(310, 'Le Seigneur des Anneaux', 0, 78, 1),
+(311, 'Le silence des agneaux', 0, 78, 1),
+(312, 'Les anneaux de Neptune', 0, 78, 1),
+(313, 'Le programme Apollo', 1, 79, 1),
+(314, 'Le programme Chang e', 0, 79, 1),
+(315, 'Le programme Apollo-Soyouz', 0, 79, 1),
+(316, 'La mission Lunar Sample Return', 0, 79, 1),
+(317, 'Rouge', 1, 80, 1),
+(318, 'Bleu', 0, 80, 1),
+(319, 'Grise', 0, 80, 1),
+(320, 'Jaunâtre', 0, 80, 1),
+(321, 'Hubble', 1, 81, 2),
+(322, 'Kepler', 0, 81, 2),
+(323, 'Chandra', 0, 81, 2),
+(324, 'Spitzer', 0, 81, 2),
+(325, 'Valeri Polyakov', 1, 82, 2),
+(326, 'Scott Kelly', 0, 82, 2),
+(327, 'Yuri Malenchenko', 0, 82, 2),
+(328, 'John Glenn', 0, 82, 2),
+(329, 'Vénus', 1, 83, 2),
+(330, 'Mercure', 0, 83, 2),
+(331, 'Jupiter', 0, 83, 2),
+(332, 'Io', 0, 83, 2),
+(333, 'Triton', 1, 84, 2),
+(334, 'Miranda', 0, 84, 2),
+(335, 'Ariel', 0, 84, 2),
+(336, 'Umbriel', 0, 84, 2),
+(337, 'Apollo 8', 1, 85, 2),
+(338, 'Apollo 11', 0, 85, 2),
+(339, 'Apollo 1', 0, 85, 2),
+(340, 'Apollo 9', 0, 85, 2),
+(341, 'Environ 24 heures et 37 minutes.', 1, 86, 2),
+(342, 'Environ 26 heures et 17 minutes.', 0, 86, 2),
+(343, 'Environ 14 heures et 32 minutes.', 0, 86, 2),
+(344, 'Environ 9 heures et 22 minutes.', 0, 86, 2),
+(345, 'Environ 12 ans', 1, 87, 2),
+(346, 'Environ 20 ans', 0, 87, 2),
+(347, 'Environ 9 ans', 0, 87, 2),
+(348, 'Environ 70 ans', 0, 87, 2),
+(349, 'Environ 29,5 ans', 1, 88, 2),
+(350, 'Environ 23 ans', 0, 88, 2),
+(351, 'Environ 65 ans', 0, 88, 2),
+(352, 'Environ 36,3 ans', 0, 88, 2),
+(353, 'Environ 88 jours', 1, 89, 2),
+(354, 'Environ 65 jours', 0, 89, 2),
+(355, 'Environ 230 jours', 0, 89, 2),
+(356, 'Environ 305 jours', 0, 89, 2),
+(357, 'Environ 59 jours', 1, 90, 2),
+(358, 'Environ 85 jours', 0, 90, 2),
+(359, 'Environ 19 jours', 0, 90, 2),
+(360, 'Environ 46 jours', 0, 90, 2),
+(361, 'Environ 243 jours', 1, 91, 2),
+(362, 'Environ 325 jours', 0, 91, 2),
+(363, 'Environ 216 jours', 0, 91, 2),
+(364, 'Environ 426 jours', 0, 91, 2),
+(365, 'Environ 24 heures et 40 minutes', 1, 92, 2),
+(366, 'Environ 23 heures et 20 minutes', 0, 92, 2),
+(367, 'Environ 35 heures et 02 minutes', 0, 92, 2),
+(368, 'Environ 48 heures et 36 minutes', 0, 92, 2),
+(369, 'Environ 10 heures', 1, 93, 2),
+(370, 'Environ 20 heures', 0, 93, 2),
+(371, 'Environ 5 heures', 0, 93, 2),
+(372, 'Environ 16 heures', 0, 93, 2),
+(373, 'Environ 10 heures et 33 minutes', 1, 94, 2),
+(374, 'Environ 9 heures et 56 minutes', 0, 94, 2),
+(375, 'Environ 23 heures et 03 minutes', 0, 94, 2),
+(376, 'Environ 17 heures et 14 minutes', 0, 94, 2),
+(377, 'Environ 17 heures et 14 minutes', 1, 95, 2),
+(378, 'Environ 23 heures et 49 minutes', 0, 95, 2),
+(379, 'Environ 36 heures et 44 minutes', 0, 95, 2),
+(380, 'Environ 27 heures et 37 minutes', 0, 95, 2),
+(381, 'Environ 16 heures et 06 minutes', 1, 96, 2),
+(382, 'Environ 20 heures et 40 minutes', 0, 96, 2),
+(383, 'Environ 19 heures et 32 minutes', 0, 96, 2),
+(384, 'Environ 12 heures et 12 minutes', 0, 96, 2),
+(385, 'Environ 225 jours', 1, 97, 2),
+(386, 'Environ 323 jours', 0, 97, 2),
+(387, 'Environ 410 jours', 0, 97, 2),
+(388, 'Environ 165 jours', 0, 97, 2),
+(389, 'Environ 84 ans', 1, 98, 2),
+(390, 'Environ 65 ans', 0, 98, 2),
+(391, 'Environ 98 ans', 0, 98, 2),
+(392, 'Environ 126 ans', 0, 98, 2),
+(393, 'Environ 165 ans', 1, 99, 2),
+(394, 'Environ 132 ans', 0, 99, 2),
+(395, 'Environ 205 ans', 0, 99, 2),
+(396, 'Environ 283 ans', 0, 99, 2),
+(397, 'Environ 687 jours', 1, 100, 2),
+(398, 'Environ 365 jours', 0, 100, 2),
+(399, 'Environ 523 jours', 0, 100, 2),
+(400, 'Environ 1056 jours', 0, 100, 2),
+(401, 'Environ 4,2 années-lumière', 1, 101, 3),
+(402, 'Environ 152 années-lumière', 0, 101, 3),
+(403, 'Environ 42 années-lumière', 0, 101, 3),
+(404, 'Environ 6,67 années-lumière', 0, 101, 3),
+(405, 'Environ 2300 milliards de masses solaires estimées en septembre 2023', 1, 102, 3),
+(406, 'Environ 5630 milliards de masses solaires estimées en septembre 2023', 0, 102, 3),
+(407, 'Environ 1235 milliards de masses solaires estimées en septembre 2023', 0, 102, 3),
+(408, 'Environ 3692 milliards de masses solaires estimées en septembre 2023', 0, 102, 3),
+(409, 'Environ 248 années terrestres', 1, 103, 3),
+(410, 'Environ 200 années terrestres', 0, 103, 3),
+(411, 'Environ 404 années terrestres', 0, 103, 3),
+(412, 'Environ 303 années terrestres', 0, 103, 3),
+(413, 'En moyenne 462° celsius', 1, 104, 3),
+(414, 'En moyenne 662° celsius', 0, 104, 3),
+(415, 'En moyenne 962° celsius', 0, 104, 3),
+(416, 'En moyenne 262° celsius', 0, 104, 3),
+(417, 'Environ 30 km/s', 1, 105, 3),
+(418, 'Environ 50 km/s', 0, 105, 3),
+(419, 'Environ 20 km/s', 0, 105, 3),
+(420, 'Environ 60 km/s', 0, 105, 3),
+(421, 'SN 1054', 1, 106, 3),
+(422, 'NGC 1054', 0, 106, 3),
+(423, 'M1054', 0, 106, 3),
+(424, 'IC 1054', 0, 106, 3),
+(425, 'Environ 4 millions de masses solaires', 1, 107, 3),
+(426, 'Environ 3 millions de masses solaires', 0, 107, 3),
+(427, 'Environ 5 millions de masses solaires', 0, 107, 3),
+(428, 'Environ 2 millions de masses solaires', 0, 107, 3),
+(429, 'Environ 299 792 458 m/s', 1, 108, 3),
+(430, 'Environ 296 172 931 m/s', 0, 108, 3),
+(431, 'Environ 300 256 941 m/s', 0, 108, 3),
+(432, 'Environ 142 442 942 m/s', 0, 108, 3),
+(433, 'Environ 27 000 années-lumière du centre de la Voie lactée', 1, 109, 3),
+(434, 'Environ 12 000 années-lumière du centre de la Voie lactée', 0, 109, 3),
+(435, 'Environ 34 000 années-lumière du centre de la Voie lactée', 0, 109, 3),
+(436, 'Environ 100 000 années-lumière du centre de la Voie lactée', 0, 109, 3),
+(437, 'Hayabusa', 1, 110, 3),
+(438, 'Rosetta', 0, 110, 3),
+(439, 'Dawn', 0, 110, 3),
+(440, 'OSIRIS-REx', 0, 110, 3),
+(441, 'Environ 430° celsius', 1, 111, 3),
+(442, 'Environ 330° celsius', 0, 111, 3),
+(443, 'Environ 530° celsius', 0, 111, 3),
+(444, 'Environ 230° celsius', 0, 111, 3),
+(445, 'Environ 0, 000 000 384 années-lumière', 1, 112, 3),
+(446, 'Environ 0, 000 384 années-lumière', 0, 112, 3),
+(447, 'Environ 384 années-lumière', 0, 112, 3),
+(448, 'Environ 0,384 années-lumière', 0, 112, 3),
+(449, 'Environ 1 unité astronomique', 1, 113, 3),
+(450, 'Environ 0.1 unité astronomique', 0, 113, 3),
+(451, 'Environ 10 unité astronomique', 0, 113, 3),
+(452, 'Environ 11.1 unité astronomique', 0, 113, 3),
+(453, 'Environ 518 fois la masse de la Terre', 1, 114, 3),
+(454, 'Environ 658 fois la masse de la Terre', 0, 114, 3),
+(455, 'Environ 738 fois la masse de la Terre', 0, 114, 3),
+(456, 'Environ 428 fois la masse de la Terre', 0, 114, 3),
+(457, 'Environ 11,2 km/s', 1, 115, 3),
+(458, 'Environ 12,5 km/s', 0, 115, 3),
+(459, 'Environ 15,25km/s', 0, 115, 3),
+(460, 'Environ 7,9 km/s', 0, 115, 3),
+(461, 'M87*', 1, 116, 3),
+(462, 'M81*', 0, 116, 3),
+(463, 'M57*', 0, 116, 3),
+(464, 'Sagittarius A*', 0, 116, 3),
+(465, '51 Pegasi b, avec une période de 4,23 jours terrestres', 1, 117, 3),
+(466, 'HD 209458 b, avec une période de 3,52 jours terrestres', 0, 117, 3),
+(467, '55 Cancri e, avec une période de 17,7 jours terrestres', 0, 117, 3),
+(468, ' Tau Bootis b, avec une période de 3,31 jours terrestres', 0, 117, 3),
+(469, 'Éris', 1, 118, 3),
+(470, 'Sedna', 0, 118, 3),
+(471, 'Makémaké', 0, 118, 3),
+(472, 'Orcus', 0, 118, 3),
+(473, 'Teide 1', 1, 119, 3),
+(474, 'Gliese 229', 0, 119, 3),
+(475, 'HD 38529 A', 0, 119, 3),
+(476, 'HW Virginis', 0, 119, 3),
+(477, 'L\'inflation cosmique', 1, 120, 3),
+(478, 'La théorie de l\'état stationnaire', 0, 120, 3),
+(479, 'La théorie des cordes', 0, 120, 3),
+(480, 'La lithopanspermie', 0, 120, 3);
 
 -- --------------------------------------------------------
 
@@ -433,9 +753,11 @@ INSERT INTO `response` (`id_response`, `response_content`, `is_correct`, `id_que
 -- Structure de la table `type`
 --
 
-CREATE TABLE `type` (
-  `id_type` int NOT NULL,
-  `type_content` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+DROP TABLE IF EXISTS `type`;
+CREATE TABLE IF NOT EXISTS `type` (
+  `id_type` int NOT NULL AUTO_INCREMENT,
+  `type_content` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -444,8 +766,9 @@ CREATE TABLE `type` (
 -- Structure de la table `user`
 --
 
-CREATE TABLE `user` (
-  `id_user` int NOT NULL,
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id_user` int NOT NULL AUTO_INCREMENT,
   `last_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `first_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `avatar` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
@@ -453,129 +776,18 @@ CREATE TABLE `user` (
   `password` varchar(96) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `mail` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `role` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `delete_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `delete_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id_user`, `last_name`, `first_name`, `avatar`, `username`, `password`, `mail`, `role`, `delete_date`) VALUES
-(1, 'Halliez', 'Steven', 'assets/img/static/iconUser.png', 'vivi', '$argon2i$v=19$m=65536,t=4,p=1$QXdWMmJBZjNkRDE2amRNVQ$l6DDSSFfgBMaffbFSFcNDFgFYLSs0IqWlgBOtBOGxvg', 'steven.halliez@hotmail.fr', '2', NULL),
-(2, 'Illuvatar', 'Eru', 'assets/img/static/iconUser.png', 'eru', '$argon2i$v=19$m=65536,t=4,p=1$bmRqYzdhT2FCay50N2ljSw$xfgAOfZuSRDuHnpMGaIfOhICgSRkumyStqqeBUj1yEE', 'eruIlluvatar@ea.com', '1', NULL),
-(3, 'Lenclume', 'Jordan', 'assets/img/static/iconUser.png', 'nika', '$argon2i$v=19$m=65536,t=4,p=1$N01qbWUxeVZyZ0Y5TlZLcw$ASRCq+Tqbbt34WtxL5jbGo6k9au0NZ1Vmn/A/7lasYc', 'jordan.com', '1', '2024-04-23 12:02:06');
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `astre`
---
-ALTER TABLE `astre`
-  ADD PRIMARY KEY (`id_astre`),
-  ADD KEY `FK_Type_Astre` (`id_type`);
-
---
--- Index pour la table `comment`
---
-ALTER TABLE `comment`
-  ADD PRIMARY KEY (`id_comment`),
-  ADD KEY `FK_User_Comment` (`id_user`),
-  ADD KEY `FK_Comment_Astre` (`id_astre`);
-
---
--- Index pour la table `proposition_astre`
---
-ALTER TABLE `proposition_astre`
-  ADD PRIMARY KEY (`id_proposition_astre`),
-  ADD KEY `FK_Astre_Proposition_Astre` (`id_astre`),
-  ADD KEY `FK_User_Proposition_Astre` (`id_user`);
-
---
--- Index pour la table `question`
---
-ALTER TABLE `question`
-  ADD PRIMARY KEY (`id_question`),
-  ADD KEY `FK_Difficulty_Question` (`id_quiz`);
-
---
--- Index pour la table `quiz`
---
-ALTER TABLE `quiz`
-  ADD PRIMARY KEY (`id_quiz`);
-
---
--- Index pour la table `response`
---
-ALTER TABLE `response`
-  ADD PRIMARY KEY (`id_response`),
-  ADD KEY `FK_Quiz_Response` (`id_quiz`),
-  ADD KEY `FK_Question_Response` (`id_question`);
-
---
--- Index pour la table `type`
---
-ALTER TABLE `type`
-  ADD PRIMARY KEY (`id_type`);
-
---
--- Index pour la table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `astre`
---
-ALTER TABLE `astre`
-  MODIFY `id_astre` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `comment`
---
-ALTER TABLE `comment`
-  MODIFY `id_comment` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `proposition_astre`
---
-ALTER TABLE `proposition_astre`
-  MODIFY `id_proposition_astre` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `question`
---
-ALTER TABLE `question`
-  MODIFY `id_question` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
---
--- AUTO_INCREMENT pour la table `quiz`
---
-ALTER TABLE `quiz`
-  MODIFY `id_quiz` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT pour la table `response`
---
-ALTER TABLE `response`
-  MODIFY `id_response` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=241;
-
---
--- AUTO_INCREMENT pour la table `type`
---
-ALTER TABLE `type`
-  MODIFY `id_type` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `user`
---
-ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+(1, 'Halliez', 'Steven', 'assets/img/avatarUpload/AVATAR_663cebdbc17b30.901484211715268571.avif', 'vivi', '$argon2i$v=19$m=65536,t=4,p=1$QXdWMmJBZjNkRDE2amRNVQ$l6DDSSFfgBMaffbFSFcNDFgFYLSs0IqWlgBOtBOGxvg', 'steven.halliez@hotmail.fr', '2', NULL),
+(2, 'Illuvatar', 'Eru', 'assets/img/static/iconUser.png', 'eru', '$argon2i$v=19$m=65536,t=4,p=1$bm5xY0xRSklsRi5DbGc3aw$5fNevDAopTXknGiepZjD0D2sdEdFjQFFmHKZmzB+4hs', 'eruIlluvatar@ea.fr', '1', NULL),
+(3, 'Lenclume', 'Jordan', 'assets/img/static/iconUser.png', 'nika', '$argon2i$v=19$m=65536,t=4,p=1$N01qbWUxeVZyZ0Y5TlZLcw$ASRCq+Tqbbt34WtxL5jbGo6k9au0NZ1Vmn/A/7lasYc', 'jordan.fr', '1', NULL);
 
 --
 -- Contraintes pour les tables déchargées
