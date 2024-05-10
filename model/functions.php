@@ -15,3 +15,14 @@ function alert(string $message, string $status, string $location, bool $hasId = 
         $location .= $change . "message=$message&status=$status";
         header("Location:$location");
 }
+
+/**
+ * @author Steven Halliez
+ * @param $checkPsw this argument is the password to need be checked
+ * @param $regexCheckPsw this variable contains a regular expression, who can check password characters
+ * @return string
+ */
+// function checkPsw($checkPsw){
+//     $regexCheckPsw = `^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$`;
+//     return preg_match($regexCheckPsw, $checkPsw);
+// }
