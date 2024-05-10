@@ -44,10 +44,10 @@ if($_SESSION['id_user']){ // Check if the user is logged in
 
                 $new_name = uniqid("AVATAR_", true) . time() . "." . $extension; // Generate a unique name for the avatar by combining a unique identifier and a timestamp
 
-                $uploadPath = "assets/img/avatarUpload/"; // Path where the avatar will be downloaded
+                $uploadPath = AVATARUPLOAD_DIR; // Path where the avatar will be downloaded
 
                 // Delete the old avatar if it's not the default one
-                $baseAvatar = "assets/img/static/iconUser.png";
+                $baseAvatar = BASEAVATAR_DIR;
                 if ( $baseAvatar != $_SESSION['avatar']){
                     $deleteAvatar = "../../" . $_SESSION['avatar'];
                     unset($deleteAvatar);

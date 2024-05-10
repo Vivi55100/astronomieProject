@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 10 mai 2024 à 10:22
+-- Généré le : ven. 10 mai 2024 à 10:38
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -785,7 +785,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id_user`, `last_name`, `first_name`, `avatar`, `username`, `password`, `mail`, `role`, `delete_date`) VALUES
-(1, 'Halliez', 'Steven', 'assets/img/avatarUpload/AVATAR_663cebdbc17b30.901484211715268571.avif', 'vivi', '$argon2i$v=19$m=65536,t=4,p=1$QXdWMmJBZjNkRDE2amRNVQ$l6DDSSFfgBMaffbFSFcNDFgFYLSs0IqWlgBOtBOGxvg', 'steven.halliez@hotmail.fr', '2', NULL),
+(1, 'Halliez', 'Steven', 'assets/img/static/iconUser.png', 'vivi', '$argon2i$v=19$m=65536,t=4,p=1$QXdWMmJBZjNkRDE2amRNVQ$l6DDSSFfgBMaffbFSFcNDFgFYLSs0IqWlgBOtBOGxvg', 'steven.halliez@hotmail.fr', '2', NULL),
 (2, 'Illuvatar', 'Eru', 'assets/img/static/iconUser.png', 'eru', '$argon2i$v=19$m=65536,t=4,p=1$bm5xY0xRSklsRi5DbGc3aw$5fNevDAopTXknGiepZjD0D2sdEdFjQFFmHKZmzB+4hs', 'eruIlluvatar@ea.fr', '1', NULL),
 (3, 'Lenclume', 'Jordan', 'assets/img/static/iconUser.png', 'nika', '$argon2i$v=19$m=65536,t=4,p=1$N01qbWUxeVZyZ0Y5TlZLcw$ASRCq+Tqbbt34WtxL5jbGo6k9au0NZ1Vmn/A/7lasYc', 'jordan.fr', '1', NULL);
 

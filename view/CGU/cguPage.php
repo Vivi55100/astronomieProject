@@ -71,7 +71,7 @@
             <h6>Contact</h6>
             <p>
                 Si vous avez des questions ou des préoccupations concernant ces Conditions Générales d'Utilisation ou le fonctionnement de mon projet,
-                veuillez nous contacter à <span><i style="font-size: 1.2em; font-weight: bolder; text-decoration: underline;">steven.halliez@gmail.com</i></span>.
+                veuillez me contacter à <span><i style="font-size: 1.2em; font-weight: bolder; text-decoration: underline;">steven.halliez@gmail.com</i></span>.
             </p>
 
             <p>En utilisant mon projet, vous acceptez ces Conditions Générales d'Utilisation.</p>

@@ -6,6 +6,8 @@
 */
 define('AVATARUPLOAD_DIR', 'assets/img/avatarUpload/'); // Dossier user upload avatar
 
-define('PROPASTREUPLOAD_DIR', 'localhost/astronomieproject/assets/img/propAstreUpload/'); // Dossier user upload proposition astre
+define('BASEAVATAR_DIR', 'assets/img/static/iconUser.png');
 
-define('ASTREUPLOAD_DIR', 'localhost/astronomieproject/assets/img/astreUpload/'); // Dossier upload astre
+// define('PROPASTREUPLOAD_DIR', 'localhost/astronomieproject/assets/img/propAstreUpload/'); // Dossier user upload proposition astre
+
+// define('ASTREUPLOAD_DIR', 'localhost/astronomieproject/assets/img/astreUpload/'); // Dossier upload astre
