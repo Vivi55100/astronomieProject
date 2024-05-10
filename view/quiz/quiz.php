@@ -124,6 +124,7 @@
                             responseInputs.forEach(input => {
                             //console.log('input next . ', input.nextSibling)
                                 if(input.value == goodId){
+                                    input.nextSibling.style.color = "chartreuse"
                                     input.nextSibling.innerHTML += ' - Bonne réponse'
                                 }else{
                                     input.nextSibling.style.color = "red"
