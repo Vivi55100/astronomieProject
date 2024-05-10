@@ -9,7 +9,7 @@
         // Verifie si tout les inputs du formulaire ne sont pas vides
         if(!empty($_POST["question"]) && !empty($_POST["goodResponse"]) && !empty($_POST["badResponse"]) && !empty($_POST["badResponse2"]) && !empty($_POST["badResponse3"])){
             try {
-                $questionData = [$_POST["question"], 2]; // [$_POST["question"], 2] changer le dernier numero selon l'id du quiz
+                $questionData = [$_POST["question"], 3]; // [$_POST["question"], 2] changer le dernier numero selon l'id du quiz
                 $sql = "INSERT INTO question (question_content, id_quiz) VALUE (?,?)";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute($questionData);
@@ -23,10 +23,10 @@
                 if ($key !=  "question") {
                     // Condition si la clé est "goodResponse, la response aura 1 ce qui signifie true
                     if($key == "goodResponse"){
-                        $dataResponse = [$answer, 1, $id_question, 2]; // [$answer, 1, $id_question, 2] changer le dernier chiffre selon l'id du quiz
+                        $dataResponse = [$answer, 1, $id_question, 3]; // [$answer, 1, $id_question, 2] changer le dernier chiffre selon l'id du quiz
                         // Condition inverse, badResponse, la response aura 0 ce qui signifie false
                     }else{
-                        $dataResponse = [$answer, 0, $id_question, 2]; // [$answer, 0, $id_question, 2] changer le dernier chiffre selon l'id du quiz
+                        $dataResponse = [$answer, 0, $id_question, 3]; // [$answer, 0, $id_question, 2] changer le dernier chiffre selon l'id du quiz
                     }
                     // Essaye la requete d'insertion
                     try {

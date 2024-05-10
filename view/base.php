@@ -6,6 +6,7 @@
     <base href="http://astronomieproject/"><!-- Windows base me permet de renseigner un chemin a partir de la racine, n'affecte pas le php mais seulement le HTML -->
     <!-- <base href="http://localhost/astronomieproject/"> Linux base -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="../js/main.js"></script>
