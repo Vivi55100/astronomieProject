@@ -44,7 +44,7 @@
             body : formData
         }
 
-        fetch("../../controller/admin/quiz/quiz_ctrl.php", data)
+        fetch("controller/admin/quiz/quiz_ctrl.php", data)
         .then(response => response.json())
         .then(quiz => {
             //console.log("quiz = ", quiz)
@@ -56,7 +56,7 @@
     })
 
     function questionMaker(questions) {
-        //console.log("questions : ", questions)
+        console.log("questions : ", questions)
         if(questions.length > 0){
             nextQuestion.innerHTML = ""
             let showQuestions = `<h2 class='questionContent'>${questions[0].question_content}</h2>`
@@ -83,7 +83,7 @@
                     method : "POST",
                     body : formData
                 }
-                fetch("../../controller/admin/quiz/check_responses_ctrl.php", data)
+                fetch("controller/admin/quiz/check_responses_ctrl.php", data)
                 .then(response => response.json())
                 .then(checkData => {
                     //console.log("checkData = ", checkData)
@@ -114,7 +114,7 @@
                             method : "POST",
                             body : formData
                         }
-                        fetch("../../controller/admin/quiz/error_response_ctrl.php", data)
+                        fetch("controller/admin/quiz/error_response_ctrl.php", data)
                         .then(response => response.json())
                         .then(question => {
                             //console.log("question = ", question)
@@ -167,30 +167,6 @@
         }
     }
 
-    // switch (score) {
-    //             case (score <= 7):
-    //                 quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un passable</h2>"
-    //                 break;
-
-    //             case (score >= 8 && score <= 11):
-    //                 quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un score moyen</h2>"
-    //                 break;
-
-    //             case (score >= 12 && score <= 14):
-    //                 quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu un bon score</h2>"
-    //                 break;
-
-    //             case (score >= 15 && score <= 19):
-    //                 quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " Vous avez eu tres bon score</h2>"
-    //                 break;
-
-    //             case (score == 20):
-    //                 quizGame.innerHTML += "<h2 class='text-center'>Votre score est de " + score + " 20/20 Vous êtes excellent !!!</h2>"
-    //                 break;
-
-    //             default:
-    //                 break;
-    //         }
 </script>
 </body>
 </html>
