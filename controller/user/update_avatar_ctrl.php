@@ -17,7 +17,7 @@ if($_SESSION['id_user']){ // Check if the user is logged in
     // var_dump("extension array : ", $extensionArray, "<br><br>");
 
     // Check if there are any files uploaded
-    if( $_FILES ){    
+    if( $_FILES ){
 
         $avatarTmpName = $_FILES['avatar']['tmp_name']; // Retrieve the temporary name of the avatar from the form.
         // var_dump('$ avatar tmp Name : ', $avatarTmpName, "<br><br>");
@@ -60,12 +60,14 @@ if($_SESSION['id_user']){ // Check if the user is logged in
                     
                     if($stmtNewAvatar->execute([$avatarPathName])){ // Execute the SQL query and move the uploaded avatar to the download directory.
                         if(move_uploaded_file($avatarTmpName, "../../" . $avatarPathName)){
-                            alert("Vous avez reussi à modifier votre avatar", "success", "../../view/user/update_avatar.php?id_user=$_SESSION[id_user]", true);
+                            //alert("Vous avez reussi à modifier votre avatar", "success", "../../view/user/update_avatar.php?id_user=$_SESSION[id_user]", true);
 
                             //  Update the avatar path in the session
                             $_SESSION['avatar'] = $avatarPathName;
+                            var_dump("$ files reussi : ", $_FILES);
                         } else{
-                            alert("Choisissez une image pour devenir votre avatar", "failed", "../../view/user/update_avatar.php?id_user=$_SESSION[id_user]", true);
+                            //alert("Choisissez une image pour devenir votre avatar", "failed", "../../view/user/update_avatar.php?id_user=$_SESSION[id_user]", true);
+                            var_dump("$ files failed : ", $_FILES);
                         }
                     }else{
                         alert("L'avatar n'est pas dans la base de données", "failed", "../../view/user/update_avatar.php?id_user=$_SESSION[id_user]", true);

@@ -41,9 +41,8 @@
                 }
             }
         }else{
-            echo "<h1>Veuillez remplir tout les inputs pour créer une question et ses reponses</h1>";
+            alert("Veuillez remplir tout les inputs pour créer une question et ses reponses", "failed", "../../../view/admin/create_question_response.php");
         }
-
     }else{
         header("Location:../home/home.php");
     }

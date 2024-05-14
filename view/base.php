@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <base href="http://astronomieproject/">Windows base me permet de renseigner un chemin a partir de la racine, n'affecte pas le php mais seulement le HTML -->
-    <base href="http://localhost/astronomieproject/"> <!-- Linux base -->
+    <!-- <base href="http://localhost/astronomieproject/"> Linux base -->
+    <base href="https://formationalaji.devivv.com/steven/"> <!-- VPS Linux base -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
