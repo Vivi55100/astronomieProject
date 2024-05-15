@@ -201,6 +201,14 @@ body{
     .quizGame{
         width: 100vw;
         height: 100vh;
+        .circle{
+            @include flexCenter;
+            border: 1px;
+            border-color: black;
+            border-style: solid;
+            width: 5vw;
+            height: 5vw;
+        }
         .quizQuestion{
             height: auto;
             .questionContent{

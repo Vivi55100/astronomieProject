@@ -11,6 +11,10 @@
 
     <div class="quizGame container d-flex flex-column" id="quizGame">
 
+        <div class="circle mx-auto rounded-circle">
+            <div id="stepper"></div>
+        </div>
+
         <div class="quizQuestion d-flex justify-content-center align-items-center mt-3" id="quizQuestion"></div>
 
         <div class="quizResponse d-flex justify-content-center align-items-center" id="quizResponse"></div>
@@ -24,6 +28,7 @@
     const quizQuestion = document.getElementById('quizQuestion')
     const quizResponse = document.getElementById('quizResponse')
     const nextQuestion = document.getElementById('nextQuestion')
+    const stepper = document.getElementById('stepper')
     const quizGame = document.getElementById('quizGame')
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
@@ -33,7 +38,8 @@
     let score = 0
     let idQuiz = urlParams.get("id_quiz")
     //console.log("idQuiz = ", idQuiz)
-
+    let step = 1
+    //console.log("step = ", step)
 
     document.addEventListener("DOMContentLoaded", function (){
         const formData = new FormData()
@@ -56,11 +62,13 @@
     })
 
     function questionMaker(questions) {
-        console.log("questions : ", questions)
+        //console.log("questions : ", questions)
         if(questions.length > 0){
             nextQuestion.innerHTML = ""
             let showQuestions = `<h2 class='questionContent'>${questions[0].question_content}</h2>`
             quizQuestion.innerHTML = showQuestions
+
+            stepper.innerHTML = "<div class='text-center'>" + step + "/40</div>"
 
             let showResponses = "<form id='formValidation'>"
             for (const res in questions[0].answers) {
@@ -141,6 +149,10 @@
                     const btnNextQuestion = document.getElementById('btnNextQuestion')
 
                     btnNextQuestion.addEventListener('click', function() {
+                        step++
+                        stepper.innerHTML = "<div class='text-center'>" + step + "/40</div>"
+                        console.log("step = ", step)
+
                         questions.shift() // Remove the first element of the array and shift the indexes accordingly (ex: index 1 becomes index 0)
                         questionMaker(questions) // Reminder of the function questionMaker, which becomes a recursive function (a function that calls itself)
                     })

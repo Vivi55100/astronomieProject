@@ -156,6 +156,16 @@ body .quizGame {
   width: 100vw;
   height: 100vh;
 }
+body .quizGame .circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  width: 5vw;
+  height: 5vw;
+}
 body .quizGame .quizQuestion {
   height: auto;
 }
