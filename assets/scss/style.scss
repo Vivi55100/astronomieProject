@@ -1,14 +1,4 @@
 // sass -w assets/scss/style.scss css/style.css
-
-// $grid-breakpoints: (
-//   sm: 576px,
-//   md: 768px,
-//   lg: 992px,
-//   xl: 1200px,
-//   xxl: 1400px
-// );
-
-// Small devices (Phone, 576px and up)
 @mixin dpop{
     animation: dpop 10s;
     opacity: 0;
@@ -77,8 +67,9 @@
 // *  *****           **    ****      *****       *** *   *** *  ******* 
 // *     **                             ***         ***     ***    *****  
 // *                                                                      
-// **                                                                    
+// ** 
 
+// Small devices (Phone, max 430px)
 body{
     max-width: 430px;
     max-height: 100vh;
@@ -198,6 +189,15 @@ body{
             }
         }
     }
+    .indexQuiz{
+        @include flexCenter;
+        .card{
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+            margin-top: 2vh;
+            margin-bottom: 2vh;
+        }
+    }
     .quizGame{
         width: 100vw;
         height: 100vh;
@@ -267,6 +267,13 @@ body{
         }
         .homepage{
             background-image: url("../assets/img/static/spaceX-falcon-heavy.jpg");
+        }
+        .indexQuiz{
+            @include flexCenter;
+            .card{
+                padding: 5vh;
+                margin: 5vh;
+            }
         }
         .quizGame{
             width: 100vw;
@@ -388,6 +395,13 @@ body{
                         }
                     }
                 }
+            }
+        }
+        .indexQuiz{
+            @include flexCenter;
+            .card{
+                padding: 10vh;
+                margin-top: 10vh;
             }
         }
     }

@@ -152,6 +152,17 @@ body .readUserPage .userInfoActions ul li .userInfos {
   height: auto;
   font-weight: bolder;
 }
+body .indexQuiz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .indexQuiz .card {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
 body .quizGame {
   width: 100vw;
   height: 100vh;
@@ -194,6 +205,15 @@ body .quizGame .quizResponse {
   }
   body .homepage {
     background-image: url("../assets/img/static/spaceX-falcon-heavy.jpg");
+  }
+  body .indexQuiz {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body .indexQuiz .card {
+    padding: 5vh;
+    margin: 5vh;
   }
   body .quizGame {
     width: 100vw;
@@ -281,6 +301,15 @@ body .quizGame .quizResponse {
   body .readUserPage .userInfoActions ul li .userInfos {
     width: 30vw;
     font-size: 1.2em;
+  }
+  body .indexQuiz {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body .indexQuiz .card {
+    padding: 10vh;
+    margin-top: 10vh;
   }
 }
 
