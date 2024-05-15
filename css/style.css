@@ -185,6 +185,9 @@ body .quizGame .quizQuestion .questionContent {
 body .quizGame .quizResponse {
   height: auto;
 }
+body .cgu {
+  margin-left: 2vw;
+}
 
 @media screen and (min-width: 430px) {
   body {

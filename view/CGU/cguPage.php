@@ -8,7 +8,7 @@
 
     <h1 class="text-center my-3">Conditions Générales d'Utilisation</h1>
 
-    <div class="CGU">
+    <div class="cgu">
 
         <div>
             <p>
