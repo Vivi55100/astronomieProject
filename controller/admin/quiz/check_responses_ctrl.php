@@ -7,7 +7,7 @@
         $stmt = $pdo->query($sql);
         $response = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $res = (bool)$response['is_correct']; // Convertit  1/0 en true/false
+        $res = (bool)$response['is_correct']; // Convert 1/0 to true/false
     
         echo json_encode($res);
     }

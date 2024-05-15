@@ -6,10 +6,10 @@
 
     if($_SESSION["role"] && $_SESSION["role"] == Role::ADMIN->value){
 
-        // Verifie si tout les inputs du formulaire ne sont pas vides
+        // Check if all form entries are empty
         if(!empty($_POST["question"]) && !empty($_POST["goodResponse"]) && !empty($_POST["badResponse"]) && !empty($_POST["badResponse2"]) && !empty($_POST["badResponse3"])){
             try {
-                $questionData = [$_POST["question"], 3]; // [$_POST["question"], 2] changer le dernier numero selon l'id du quiz
+                $questionData = [$_POST["question"], 3]; // [$_POST["question"], 2] change the last number according to the quiz id
                 $sql = "INSERT INTO question (question_content, id_quiz) VALUE (?,?)";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute($questionData);
@@ -17,18 +17,19 @@
             } catch (Exception $e) {
                 echo("Une erreur s'est produite" . $e->getMessage());
             }
-            // Boucle les reponses en filtrant la question
+
+            // Loop the answers by filtering the question
             foreach ($_POST as $key => $answer) {
                 // On filtre la question
                 if ($key !=  "question") {
-                    // Condition si la clé est "goodResponse, la response aura 1 ce qui signifie true
+                    // Condition if the key is "goodResponse, the response will have 1 which means true
                     if($key == "goodResponse"){
-                        $dataResponse = [$answer, 1, $id_question, 3]; // [$answer, 1, $id_question, 2] changer le dernier chiffre selon l'id du quiz
-                        // Condition inverse, badResponse, la response aura 0 ce qui signifie false
+                        $dataResponse = [$answer, 1, $id_question, 3]; // [$answer, 1, $id_question, 2] change the last number according to the quiz id
+                        // Reverse condition, badResponse, the response will have 0 which means false
                     }else{
-                        $dataResponse = [$answer, 0, $id_question, 3]; // [$answer, 0, $id_question, 2] changer le dernier chiffre selon l'id du quiz
+                        $dataResponse = [$answer, 0, $id_question, 3]; // [$answer, 0, $id_question, 2] change the last number according to the quiz id
                     }
-                    // Essaye la requete d'insertion
+                    // Try the insert query
                     try {
                         $sqlResponse = "INSERT INTO response (response_content, is_correct, id_question, id_quiz) VALUE (?,?,?,?)";
                         $stmtResponse = $pdo->prepare($sqlResponse);

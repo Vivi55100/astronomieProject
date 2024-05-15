@@ -6,7 +6,7 @@
 if (!empty($_POST["oldpsw"]) && !empty($_POST["newpsw"])) {
 
     $id = $_POST['id_user'];
-    $regex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/";
+    $regex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\/-_:;,])[A-Za-z\d@$!%*?&\/-_:;,]{8,20}$/";
     $newPsw = $_POST["newpsw"];
 
     if(preg_match($regex, $newPsw)){

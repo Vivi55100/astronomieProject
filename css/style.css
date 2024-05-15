@@ -168,7 +168,7 @@ body .quizGame .circle {
   align-items: center;
   justify-content: center;
   border: 1px;
-  border-color: black;
+  border-color: rgb(49, 210, 242);
   border-style: solid;
   width: 5vw;
   height: 5vw;

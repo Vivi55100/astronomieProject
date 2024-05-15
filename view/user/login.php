@@ -12,19 +12,19 @@
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if($user && $user["delete_date"] == null){
-            // Compte existe
+            // Existing account
             if(password_verify($_POST['psw'], $user['password'])){
-                $_SESSION["name"] = $user['last_name'] . " " . $user['first_name']; // $user[''] me permet d'attribuer les données des colonnes de mon utilisateur
+                $_SESSION["name"] = $user['last_name'] . " " . $user['first_name']; // $user[''] allows me to assign my user's column data
                 $_SESSION["id_user"] = $user["id_user"];
                 $_SESSION["role"] = $user['role'];
                 $_SESSION["avatar"] = $user["avatar"];
-                $_SESSION["token"] = bin2hex(random_bytes(16)); // random_byte va nous generer un nombre binaire de 16 bits, bin2hex convertit une valueu binaire en hexa-decimale afin d'éviter attack CSRF (comparaison tokens)
+                $_SESSION["token"] = bin2hex(random_bytes(16)); // random_bytes will generate a 16-bit binary number, bin2hex converts a binary value into hexadecimal in order to avoid CSRF attack (token comparison)
                 header("Location:../home/home.php");
             }else{
                 alert("Le mot de passe est incorrect", "failed", "../../view/user/login.php");
             }
         }else{
-            // Compte n'existe pas
+            // Account dosn't exist
             alert("Attention ce compte n'existe pas !", "failed", "../../view/user/login.php");
         }
     }
@@ -66,7 +66,7 @@
         const usernameInput = document.getElementById('username');
         const passwordInput = document.getElementById('psw');
 
-        if(usernameInput.value.trim() === '' || passwordInput.value.trim() === ''){ // la fonction trim me permet de supprimer les espaces entre deux quotes "   " => ""
+        if(usernameInput.value.trim() === '' || passwordInput.value.trim() === ''){ // The trim function allows me to remove spaces between two quotes "   " => ""
             let error = "Veuillez remplir tous les champs s'il vous plait"
             errorLogin.style.color = "red"
             errorLogin.style.opacity = 0
