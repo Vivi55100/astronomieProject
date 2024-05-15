@@ -1,12 +1,4 @@
 @font-face {
-  font-family: "potta";
-  src: url("../assets/fonts/Potta_One/PottaOne-Regular.ttf");
-}
-@font-face {
-  font-family: "kotta";
-  src: url("../assets/fonts/Potta_One/KottaOne-Regular.ttf");
-}
-@font-face {
   font-family: "canada";
   src: url("../assets/fonts/Radio_Canada/static/RadioCanada-Regular.ttf");
 }
@@ -55,7 +47,7 @@ body nav div a img {
   width: 100%;
 }
 body nav div .welcome h4 {
-  font-family: "potta";
+  font-family: "canada";
   color: white;
 }
 body nav div button {
@@ -82,7 +74,7 @@ body nav div #navbarNav ul li {
 body nav div #navbarNav ul li a {
   width: 100%;
   color: white !important;
-  font-family: "potta";
+  font-family: "canada";
   font-size: 2em;
 }
 body nav div #navbarNav ul li a img {
@@ -98,6 +90,10 @@ body .homepage {
   background-image: url("../assets/img/static/Soyouz-liftoff.jpg");
   width: 100vw;
   height: 100vh;
+}
+body .homepage p {
+  color: white !important;
+  font-family: "canada";
 }
 body .loginPage {
   overflow-y: hidden;
@@ -206,6 +202,9 @@ body .quizGame .quizResponse {
   body .homepage {
     background-image: url("../assets/img/static/spaceX-falcon-heavy.jpg");
   }
+  body .homepage p {
+    color: black !important;
+  }
   body .indexQuiz {
     display: flex;
     align-items: center;
@@ -287,7 +286,7 @@ body .quizGame .quizResponse {
   body nav div #navbarNav ul li a {
     width: 100%;
     color: white !important;
-    font-family: "potta";
+    font-family: "canada";
     font-size: 1.5em;
   }
   body nav div #navbarNav ul li a img {
@@ -297,6 +296,9 @@ body .quizGame .quizResponse {
   }
   body .homepage {
     background-image: url("../assets/img/static/Ariane_5_VA261_liftoff.jpg");
+  }
+  body .homepage p {
+    color: white !important;
   }
   body .readUserPage .userInfoActions ul li .userInfos {
     width: 30vw;
