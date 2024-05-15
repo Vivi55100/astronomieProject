@@ -21,7 +21,7 @@
 
             <ul class="list-group align-items-center">
                 <li class="text-center rounded">
-                    <a class="btn text-decoration-none" href="view/user/update_avatar.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>">
+                    <a class="btn text-decoration-none" href="view/user/update_avatar.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>" data-bs-toggle="tooltip" title="Modifier l'avatar">
                         <svg fill="yellow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="bi bi-file-image" viewBox="0 0 16 16">
                             <path d="M8.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
                             <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v8l-2.083-2.083a.5.5 0 0 0-.76.063L8 11 5.835 9.7a.5.5 0 0 0-.611.076L3 12z"/>
@@ -45,13 +45,13 @@
             <div class="userActions d-flex justify-content-around">
 
                 <div class="actions">
-                    <a class="btn btn-primary rounded text-light text-decoration-none" href="view/user/update_user.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>">
+                    <a class="btn btn-primary rounded text-light text-decoration-none" href="view/user/update_user.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>" data-bs-toggle="tooltip" title="Modifier le profil">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                         </svg>
                     </a>
-                    <a class="btn btn-success rounded text-light text-decoration-none my-3" href="view/user/update_user_password.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>">
+                    <a class="btn btn-success rounded text-light text-decoration-none my-3" href="view/user/update_user_password.php?id_user=<?= htmlentities($_SESSION['id_user']) ?>" data-bs-toggle="tooltip" title="Modifier le mot de passe">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-unlock" viewBox="0 0 16 16">
                             <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2M3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1z"/>
                         </svg>
