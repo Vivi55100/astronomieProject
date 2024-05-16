@@ -11,7 +11,7 @@ if(
  !empty($_POST["password"]) &&
  !empty($_POST["mail"])){
 
-    $regex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/";
+    $regex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\/-_:;,)[A-Za-z\d@$!%*?&\/-_:;,]{8,20}$/";
     $checkPsw = $_POST["password"];
 
     if(!preg_match($regex, $checkPsw)){
